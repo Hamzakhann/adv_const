@@ -20,24 +20,38 @@ function HeaderComponent(props) {
 
 
   }
- 
   return (
     <header>
-    <nav className={ "navbar navbar-expand-md navbar-light " + props.topclassName }>
-        <div className= {window.location.pathname === '/' ?'container nav-container':'container'}>
-          <Link className="navbar-brand" to="/">
-            <img src="/logo1.png" className="img-logo" />
+    <nav className={ "navbar navbar-expand-md navbar-light  " + props.topclassName }>
+        <div className= {window.location.pathname === '/' ?'container  nav-container':'container'}>
+          <Link className= "navbar-brand " to="/">
+         <div className="mob-logo-div"> <img src="/small-logo2.png" className= "mob-view-logo img-fluid" /></div>
+               <img src="/logo1.png" className= "img-logo" />
           </Link>
           <button className="navbar-toggler" type="button" onClick={openNav}>
             <span className="navbar-toggler-icon"></span>
           </button>
           
           <div id="mySidenav" class="sidenav">
+        
+          <Link className="navbar-brand" to="/">
+            <img src="/logo1.png"  />
+          </Link>
+        
+          <a className="dropdown-custom" onClick={toggleDropdown} role="button">
+                  ABOUT US
+                </a>
+                { showDropdown ? <div className=" ">
+                  <Link  className="dropdown-custom " to="/who-we-are">WHO WE ARE</Link>
+                  <Link  className="dropdown-custom" to="/quality">QUALITY</Link>
+                  <Link  className="dropdown-custom " to="/team">TEAM</Link>
+                </div> : null}
+          <Link className="dropdown-custom " to="/work-at-acc">WORK AT ACC</Link>
+          <Link className="dropdown-custom" to="/projects">PROJECTS</Link>
+          <Link className="dropdown-custom" to="/contact-us">CONTACT US</Link>
+
+
   
-               <a href="#">About</a>
-               <a href="#">Services</a>
-               <a href="#">Clients</a>
-               <a href="#">Contact</a>
           </div>
           <div className="collapse navbar-collapse" id="navbarSupportedContent-7">
               <ul className="navbar-nav ml-auto headerNav">

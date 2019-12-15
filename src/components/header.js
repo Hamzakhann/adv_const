@@ -9,7 +9,18 @@ function HeaderComponent(props) {
     const invertDropDown = !showDropdown;
     setShowDropdown(invertDropDown);
   }
+  const openNav=()=> {
+    document.getElementById("mySidenav").style.width="70%";
+    document.getElementById("Overly").style.display="block";
+  
+  }
+  const closeNav=()=> {
+    document.getElementById("mySidenav").style.width="0";
+    document.getElementById("Overly").style.display="none";
 
+
+  }
+ 
   return (
     <header>
     <nav className={ "navbar navbar-expand-md navbar-light " + props.topclassName }>
@@ -17,9 +28,17 @@ function HeaderComponent(props) {
           <Link className="navbar-brand" to="/">
             <img src="/logo1.png" className="img-logo" />
           </Link>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+          <button className="navbar-toggler" type="button" onClick={openNav}>
             <span className="navbar-toggler-icon"></span>
           </button>
+          
+          <div id="mySidenav" class="sidenav">
+  
+               <a href="#">About</a>
+               <a href="#">Services</a>
+               <a href="#">Clients</a>
+               <a href="#">Contact</a>
+          </div>
           <div className="collapse navbar-collapse" id="navbarSupportedContent-7">
               <ul className="navbar-nav ml-auto headerNav">
                 <li className="nav-item dropdown" style={{cursor: "pointer"}}>
@@ -45,9 +64,13 @@ function HeaderComponent(props) {
             </div>
         </div>
     </nav>
+    <div className="overly" id="Overly" onClick={closeNav}></div>
     {props.children}
+    
     </header>
+    
   );
+
 }
 
 export default HeaderComponent;

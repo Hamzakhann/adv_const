@@ -46,7 +46,7 @@ p{   font-family: 'FoundersGroteskWeb-Regular'; }
 }
 
 
-.navbar-brand > img{ 
+.navbar-brand img{ 
     width: 220px !important;  
     height: 90px !important;
     margin-left: 25px !important;
@@ -473,7 +473,7 @@ ul.social-network li {
     width: 100%;
     opacity: 0;
     cursor: pointer;
-
+    z-index: 5
 }
   
 .file-upload-wrapper .card.card-body .file-upload-message p {
@@ -696,9 +696,10 @@ section{
  
 }
 
- /* .img-logo{
-   
-} */
+/* .img-logo{
+    width: 100px;
+    height: 108px !important;
+}*/
 
  .img-quality{
     width: 100%;
@@ -797,45 +798,32 @@ section{
 /* sidenav */
 
 .sidenav {
-    text-transform: uppercase;
+    
     height: 100%;
     width: 0;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color:#fff;
+    background-color:white;
     overflow-x: hidden;
     transition:  0.01s;
-    padding-top: 10px;
-    text-align: center;
-    box-shadow: -2px -4px 8px 0px black;
-
+    padding-top: 60px;
   }
-  .dropdown-custom{
-      text-align: center;
-      margin-top: 30px;
-      justify-content: center;
-    
-  }
-
   
   .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 18px;
-    font-weight:bolder;
-    color: #000000;
+    font-size: 25px;
+    color: #818181;
     display: block;
     transition: 0.3s;
   }
   
   .sidenav a:hover {
-    color:#00000057 !important;
+    color: #f1f1f1;
   }
-  .sidenav  a:active  {
-    color: #00000057 !important ;
-  }
+  
   .sidenav .closebtn {
     position: absolute;
     top: 0;
@@ -843,12 +831,7 @@ section{
     font-size: 36px;
     margin-left: 50px;
   }
-  .mob-logo-div{
-      height: 30px;
-      width: 40px ;
-      margin: 10px 0px 0px 10px;
-      
-  }
+  
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
@@ -865,20 +848,7 @@ section{
     margin-left: 70% ;
     background-color:transparent;
     display: none;
-    z-index: 350;
-}
-.img-logo{
-display: none;
-}
-
-.mob-view-logo{
-    display: block;
-}
-
-.nav-container{
-    height: 52px;
-    width: 136px !important;
-    
+   z-index: 350;
 }
 }
 
@@ -887,11 +857,5 @@ display: none;
     .sidenav{
         display: none;
 
-    }
-    .mob-view-logo{
-        display: none;
-    }
-    .mob-logo-div{
-        display: none;
     }
 }

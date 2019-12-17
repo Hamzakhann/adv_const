@@ -65,7 +65,7 @@ function ProductDetails(props) {
         {product ? <main style={{background: "#fff"}}>
     	    <div className="container"  >
     		<div className="row">
-    			<div className="col-md-12 col-sm-12 col-12 ">
+    			<div className="col-md-12 col-sm-12">
     				<div className="two-heding">
     					<h6>Ongoing project</h6>
     					<h3 className="h3-responsive font-weight-bold">{product.name}</h3>
@@ -76,12 +76,12 @@ function ProductDetails(props) {
     		</div>
 
     		<div className="row" style={{marginTop: "20px"}}>
-                <div className="col-md-6 col-sm-6 col-6 p-1 pl-3">
+                <div className="col-md-6 col-sm-12">
                     <div className="card">
                         <img src={product.mini_image1} className="card-img"  />
                     </div>
                 </div>
-                <div className="col-md-6 col-sm-6 col-6 p-1 pr-3 ">
+                <div className="col-md-6 col-sm-12">
                     <div className="card">
                         <img src={product.mini_image2} className="card-img"  />
                     </div>
@@ -89,9 +89,9 @@ function ProductDetails(props) {
             </div>
 
 
-    		<div className="row " style={{marginTop: "30px"}}>
-    			<div className="col-md-4 col-sm-4 col-4 p-1 pl-3">
-    				<div className="content content1 text-align-center">
+    		<div className="row" style={{marginTop: "30px"}}>
+    			<div className="col-md-4 col-sm-12">
+    				<div className="content content1">
     					<h6>{product.total_price}</h6>
     					<p>
     						<strong>million</strong>
@@ -101,7 +101,7 @@ function ProductDetails(props) {
     					<strong>TOTAL PRICE</strong>
     				</p>
     			</div>
-    			<div className="col-md-4 col-sm-4 col-4 p-1  ">
+    			<div className="col-md-4 col-sm-12">
     				<div className="content content1">
     					<h6>{product.length} </h6>
     					<p>
@@ -113,8 +113,8 @@ function ProductDetails(props) {
     				</p>
     				<hr style={{marginTop: "30px", width: "60%"}} />
     			</div>
-    			<div className="col-md-4 col-sm-4 col-4 p-1 pr-3 ">
-    				<div className="content content2 text-align-center">
+    			<div className="col-md-4 col-sm-12">
+    				<div className="content content2">
     					<h6>{product.completion_date}</h6>
     				</div>	
     				<p className="text-center">
@@ -124,7 +124,7 @@ function ProductDetails(props) {
     		</div>
 
     		<div className="row" style={{marginTop: "30px"}}>
-    			<div className="col-md-12 col-sm-12 col-12">
+    			<div className="col-md-12 col-sm-12">
     				<p className="text-center" style={{color:"#000", lineHeight: "1.7"}}>
 						{product.long_description}
     				</p>
@@ -140,7 +140,7 @@ function ProductDetails(props) {
 					  <p className='text-justify' >{nextProduct && nextProduct.long_description}</p>
 					</div>	
     			</div>
-    			<div className="col-md-6 col-sm-4">
+    			<div className="col-md-6 col-sm-12">
     				<img src={nextProduct && nextProduct.image} style={{width:'90%', height:'300px'}} />
     			</div>
     		</div>

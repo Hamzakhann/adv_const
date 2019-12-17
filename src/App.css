@@ -299,19 +299,19 @@ ul.social-network li {
         margin-bottom: 30px;
     }    
 
-
+/* 
     .background{
-        /*
+        
         background-image: url('http://via.placeholder.com/800x400');
         background-position: top center;
         background-size: unset;
-        */
+       
         
     }
     
     .navBarContainer {
-         /* width: 24%;  */
-    }
+         width: 24%; 
+    } */
 }
 
 .list-unstyled a{
@@ -854,7 +854,7 @@ section{
     .sidenav a {font-size: 18px;}
     
 }
-@media screen and (max-width: 786px) {
+@media screen and (max-width: 991px) {
 
 .overly{
     position: fixed;
@@ -882,7 +882,7 @@ display: none;
 }
 }
 
-@media screen and (min-width: 786px) {
+@media screen and (min-width: 991px) {
 
     .sidenav{
         display: none;

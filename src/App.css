@@ -299,19 +299,19 @@ ul.social-network li {
         margin-bottom: 30px;
     }    
 
-
+/* 
     .background{
-        /*
+        
         background-image: url('http://via.placeholder.com/800x400');
         background-position: top center;
         background-size: unset;
-        */
+       
         
     }
     
     .navBarContainer {
-         /* width: 24%;  */
-    }
+         width: 24%; 
+    } */
 }
 
 .list-unstyled a{
@@ -473,7 +473,7 @@ ul.social-network li {
     width: 100%;
     opacity: 0;
     cursor: pointer;
-    z-index: 5
+    
 }
   
 .file-upload-wrapper .card.card-body .file-upload-message p {
@@ -794,4 +794,82 @@ section{
 .bridge-img{
     width: 57px !important;
     margin-top: -1px !important;
+}
+/* sidenav */
+
+.sidenav {
+    
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color:#fff;
+    overflow-x: hidden;
+    transition:  0.01s;
+    box-shadow: -3px 0px 6px 0px #00000029;
+    
+  }
+  
+  .sidenav a {
+      text-transform: uppercase;
+    padding: 8px 8px 8px 16px;
+    text-decoration: none;
+    font-size: 18px !important ;
+    color:#000000 !important;
+    display: block;
+    transition: 0.3s;
+    text-align: center;
+    font-weight: bolder ;
+  }
+  .sidenav > a::before{
+      content: "______";
+      color: #0000005C;
+      display: block;
+      margin-bottom: 15px;
+      opacity: 0.2;
+  }
+  
+  .sidenav a:hover {
+    color:#00000057 !important;
+  }
+ 
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  .sideNav-logo{
+      padding: 15px 15px 15px 15px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+    
+}
+@media screen and (max-width: 991px) {
+
+.overly{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-left: 70% ;
+    background-color:transparent;
+    display: none;
+   z-index: 350;
+}
+}
+
+@media screen and (min-width: 991px) {
+
+    .sidenav{
+        display: none;
+
+    }
 }

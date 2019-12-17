@@ -27,10 +27,10 @@ function WorkAtAccPage(props) {
           <div className="row contactUs-text-container">
             <div className="col-md-4 mr-md-auto col-sm-12">
               <div className="contactUs-text">
-                <h4 className="h3-responsive who-we-are-heading font-weight-bold" style={{fontSize:'30px'}}>
-                  We are always looking for
-                  <br />new talents</h4>
-         
+                <h4 className="h3-responsive who-we-are-heading font-weight-bold work-at-acc-h4">
+                  We are always looking for <br/>
+                  new talents
+                 </h4>
                 <p className="color-red" data-toggle="modal" data-target="#myModal"
                   style={{ cursor: 'pointer' , fontWeight:'bold'}}>Jobs and pre-requistes </p>
                 <form method="post" action="#" enctype="multipart/form-data">

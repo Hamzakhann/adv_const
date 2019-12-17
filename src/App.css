@@ -871,7 +871,7 @@ section{
     background-color:transparent;
     display: none;
    z-index: 350;
-}
+
 @media (max-width: 1440px){
     .work-at-acc-h4{
         font-size: 1.9em !important;

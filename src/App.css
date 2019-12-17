@@ -852,7 +852,14 @@ section{
     
 }
 @media screen and (max-width: 991px) {
-
+    .main-page-h1{
+        font-size: 29px;
+        padding:0;
+    }
+    .wow h6{
+        margin-top: 160px;
+    }
+    .view{ background-size: 415px 340px;   }
 .overly{
     position: fixed;
     top: 0;

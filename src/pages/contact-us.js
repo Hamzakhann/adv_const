@@ -29,7 +29,7 @@ const ContactUsPage = () => {
     			</div>
     			
     			<div class="col-md-6 col-sm-12">
-    			    <img src="/contact-us.png" style={{marginTop:'22px' , maxWidth:'100%' , height:'400px'}} />
+    			    <img src="/contact-us.jpg" style={{marginTop:'22px' , maxWidth:'100%' , height:'400px'}} />
     			</div>
     		</div>
     	

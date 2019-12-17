@@ -29,38 +29,40 @@ function ProductDetails(props) {
 	//    })
    }, [])
   const nextProject = ()=>{
-	  console.log(typeof currentId)
-	  if(currentId == ids[ids.length -1] || nextProduct.id == ids[ids.length -1]){
-		let newId = nextProduct.id
-		setCurrentId(newId)
-		history.push('/product-details/' + newId)
-		let p_1 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + newId)
-		let p_2 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + ids[0])
-		axios.all([p_1,p_2]).then(axios.spread((...response)=>{
-			console.log('all wala' ,response[1].data[0])
-			setProduct(response[0].data[0]);
-			setNextProduct(response[1].data[0])
-		}))	  
-	}else{
-		let newId = ids[ids.indexOf(Number(currentId)) + 1]
-		setCurrentId(newId)
-		history.push('/product-details/' + newId)
-		let p_1 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + newId)
-		let p_2 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + (Number(newId) + 1))
-		axios.all([p_1,p_2]).then(axios.spread((...response)=>{
-			console.log('all wala' ,response[1].data[0])
-			setProduct(response[0].data[0]);
-			setNextProduct(response[1].data[0])
-		}))
-	// 	axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + newId).then(res => {
-	// 	console.log('next res', res.data[0]);
-	// 	setProduct(res.data[0]);
-	// })
+	  if(nextProduct !== undefined){
+		if(currentId == ids[ids.length -1] || nextProduct.id == ids[ids.length -1]){
+			let newId = nextProduct.id
+			setCurrentId(newId)
+			history.push('/product-details/' + newId)
+			let p_1 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + newId)
+			let p_2 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + ids[0])
+			axios.all([p_1,p_2]).then(axios.spread((...response)=>{
+				console.log('all wala' ,response[1].data[0])
+				setProduct(response[0].data[0]);
+				setNextProduct(response[1].data[0])
+			}))	  
+		}else{
+			let newId = ids[ids.indexOf(Number(currentId)) + 1]
+			setCurrentId(newId)
+			history.push('/product-details/' + newId)
+			let p_1 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + newId)
+			let p_2 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + (Number(newId) + 1))
+			axios.all([p_1,p_2]).then(axios.spread((...response)=>{
+				console.log('all wala' ,response[1].data[0])
+				setProduct(response[0].data[0]);
+				setNextProduct(response[1].data[0])
+			}))
+		// 	axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + newId).then(res => {
+		// 	console.log('next res', res.data[0]);
+		// 	setProduct(res.data[0]);
+		// })
+		  }
+
 	  }
   }
   console.log('check nextttt' ,nextProduct)
   return (
-        <div>
+        <div style={{backgroundColor:"white"}} >
         <HeaderComponent id='top' topclassName={"relative-top"}></HeaderComponent>
         {product ? <main style={{background: "#fff"}}>
     	    <div className="container"  >

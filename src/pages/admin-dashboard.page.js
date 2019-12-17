@@ -58,7 +58,7 @@ function AdminDashboardPage() {
     const [miniImage2, setMiniImage2] = useState();
 
     const [selectedCity, setSelectedCity] = useState('');
-
+    const [priority_date , setPriority_date] = useState('')
     const [selectedImage, setSelectedImage] = useState();
     const [selectedImageMin1 , setSelectedImageMin1] = useState();
     const [selectedImageMin2, setSelectedImageMin2] = useState();
@@ -109,6 +109,7 @@ function AdminDashboardPage() {
         setProjectImage(row.image);
         setMiniImage1(row.mini_image1);
         setMiniImage2(row.mini_image2);
+        setPriority_date(row.priority_date)
         handleEditShow();
     }
 
@@ -125,7 +126,8 @@ function AdminDashboardPage() {
             type,
             completion_date: completionDate,
             mini_image1: miniImage1,
-            mini_image2: miniImage2
+            mini_image2: miniImage2,
+            priority_date:priority_date
         }
 
         if (selectedImage) {
@@ -149,7 +151,9 @@ function AdminDashboardPage() {
             });
             data.mini_image1 = image;
         }
-
+        if(!priority_date){
+            alert('please add priority date')
+        }
         if (selectedImageMin2) {
             const data = new FormData();
             data.append('image', selectedImageMin2);
@@ -258,7 +262,16 @@ function AdminDashboardPage() {
                         </Form.Control>
                         </Form.Group>
                     </Form.Row>
-                    
+                    <Form.Row>
+                        <Form.Group as={Col} controlId="formGridState">
+                        <Form.Label>Priority Date</Form.Label>
+                        <input type="date" class="form-control" 
+                        id="exampleInputEmail1" 
+                        value={priority_date}
+                        onChange={(e)=> setPriority_date(e.target.value)}
+                        />
+                        </Form.Group>
+                    </Form.Row>
                     <div className="row">
                         <div className="col-md-6">
                             <div className="input-group">

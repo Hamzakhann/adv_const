@@ -27,11 +27,10 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 function App() {
 
- 
   return (
     <Router >
      <ScrollToTop>
-        <div className="App bg-light" >
+        <div className="App bg-light">
           <Switch>
             <Route path="/" exact component={MainPage}></Route>
             <Route exact path="/product-details/:id" component={ProductDetails}></Route>

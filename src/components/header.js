@@ -31,13 +31,22 @@ function HeaderComponent(props) {
           <button className="navbar-toggler" type="button" onClick={openNav}>
             <span className="navbar-toggler-icon"></span>
           </button>
-          
+           
           <div id="mySidenav" class="sidenav">
-  
-               <a href="#">About</a>
-               <a href="#">Services</a>
-               <a href="#">Clients</a>
-               <a href="#">Contact</a>
+          <img src="/logo1.png" className="sideNav-logo img-fluid" />
+
+          <a className="" onClick={toggleDropdown} >
+                  About Us
+                </a>
+                { showDropdown ? <div className="">
+                  <Link  className=" " to="/who-we-are">WHO WE ARE</Link>
+                  <Link className=" " to="/quality">QUALITY</Link>
+                  <Link  className=" " to="/team">TEAM</Link>
+                </div> : null}
+                  <Link className="" to="/projects">PROJECTS</Link>
+                  <Link className="" to="/work-at-acc">WORK AT ACC</Link>
+
+                  <Link className="" to="/contact-us">CONTACT US</Link>
           </div>
           <div className="collapse navbar-collapse" id="navbarSupportedContent-7">
               <ul className="navbar-nav ml-auto headerNav">

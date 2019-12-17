@@ -16,7 +16,7 @@ if(screenWidth<992){
     setMobileView(false);
   }
   });
-  console.log("DDDDDdd",MobileView);
+  
 
   return (
        <footer >

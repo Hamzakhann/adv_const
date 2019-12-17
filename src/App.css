@@ -473,7 +473,7 @@ ul.social-network li {
     width: 100%;
     opacity: 0;
     cursor: pointer;
-    z-index: 5
+    
 }
   
 .file-upload-wrapper .card.card-body .file-upload-message p {
@@ -805,31 +805,45 @@ section{
     z-index: 1;
     top: 0;
     left: 0;
-    background-color:white;
+    background-color:#fff;
     overflow-x: hidden;
     transition:  0.01s;
-    padding-top: 60px;
+    box-shadow: -3px 0px 6px 0px #00000029;
+    
   }
   
   .sidenav a {
-    padding: 8px 8px 8px 32px;
+      text-transform: uppercase;
+    padding: 8px 8px 8px 16px;
     text-decoration: none;
-    font-size: 25px;
-    color: #818181;
+    font-size: 18px !important ;
+    color:#000000 !important;
     display: block;
     transition: 0.3s;
+    text-align: center;
+    font-weight: bolder ;
+  }
+  .sidenav > a::before{
+      content: "______";
+      color: #0000005C;
+      display: block;
+      margin-bottom: 15px;
+      opacity: 0.2;
   }
   
   .sidenav a:hover {
-    color: #f1f1f1;
+    color:#00000057 !important;
   }
-  
+ 
   .sidenav .closebtn {
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+  }
+  .sideNav-logo{
+      padding: 15px 15px 15px 15px;
   }
   
   @media screen and (max-height: 450px) {

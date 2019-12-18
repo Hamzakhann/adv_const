@@ -53,13 +53,13 @@ function MainPage() {
   return (
       <div >
       <HeaderComponent topclassName={"fixed-top-header"}>
-        <div className="view" style={{ backgroundImage :"url('/bannerr.jpg')", backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}}>
+        <div className="view " style={{ backgroundImage :"url('/bannerr.jpg')", backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}}>
         <div className="mask rgba-gradient align-items-center">
             <div className="container">
             <div className="row header-text">
-                <div className="col-md-12 white-text text-center text-md-left mt-xl-5 mb-5 wow">
+                <div className="col-md-12  white-text text-left mt-xl-5 mb-md-5 wow">
                 <h6 >What we do</h6>
-                <p className="main-page-h1">Facing new challenges with<br />excellence and innovation</p>
+                <p className="main-page-h1 ">Facing new challenges with<br />excellence and innovation</p>
                 </div>
             </div>
             </div>
@@ -142,7 +142,7 @@ function MainPage() {
           <div className="col-md-4 col-sm-12 box" style={{marginTop: "100px"}}>
             <div className="inner">
               <div className="icon">
-              <img src="https://res.cloudinary.com/ddwqnxwyi/image/upload/v1576322414/Icon1.1.png" className="main-page-icon" />
+              <img src="/icon1.1.png" className="main-page-icon" />
               </div> 
               <h3 className="h3-responsive font-weight-bold" style={{fontSize:"20px"}}>{otherData.service_1_title}</h3>
               <p>{otherData.service_1_desc}</p>
@@ -151,7 +151,7 @@ function MainPage() {
           <div className="col-md-4 col-sm-12 box" style={{marginTop: "100px"}}>
             <div className="inner">
               <div className="icon">
-                <img src="https://res.cloudinary.com/ddwqnxwyi/image/upload/v1576322478/Icon2.1.png" className="main-page-icon" />
+                <img src="/icon2.1.png" className="main-page-icon" />
               </div>
               <h3 className="h3-responsive font-weight-bold" style={{fontSize:"20px"}}>{otherData.service_2_title}</h3>
               <p>{otherData.service_2_desc}g</p>
@@ -160,7 +160,7 @@ function MainPage() {
           <div className="col-md-4 col-sm-12 " style={{marginTop: "100px"}}>
             <div className="inner">
               <div className="icon">
-                <img src="https://res.cloudinary.com/ddwqnxwyi/image/upload/v1576322507/Icon3.1.png" className="main-page-icon" />
+                <img src="/icon3.1.png" className="main-page-icon" />
               </div>
               <h3 className="h3-responsive font-weight-bold" style={{fontSize:"20px"}}>{otherData.service_3_title}</h3>
               <p>{otherData.service_3_desc}</p>

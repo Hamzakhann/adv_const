@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Form, Row, Col, Button } from 'react-bootstrap';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
 import { url } from '../services/url';
 import querystring from 'querystring';
@@ -8,7 +10,7 @@ import AdminHeaderComponent from '../components/admin-header.component'
 
 function AdminWhoWeArePage() {
     const [title, setTitle] = useState();
-    const [description, setDescription] = useState();
+    const [description, setDescription] = useState("");
     const [bannerImage, setBannerImage] = useState();
     const [ceoMessage, setCeoMessage] = useState();
     const [ceoMessageImage, setCeoMesageImage] = useState();
@@ -20,7 +22,7 @@ function AdminWhoWeArePage() {
     const [selectedBannerImage, setSelectedBannerImage] = useState();
     const [selectedCeoMessageImage, setSelectedCeoMessageImage] = useState();
     const [selectedWorkWithUsImage, setSelectedWorkWithUsImage] = useState();
-
+    // const [quil , setQuil] = useState("")
     useEffect(() => {
         axios.get(`${url}front/whoWeArePage`).then(res => {
             console.log('res ', res);
@@ -34,6 +36,7 @@ function AdminWhoWeArePage() {
             setWorkWithUsTitle(res.data[0].work_with_us_title);
             setWorkWithUsImage(res.data[0].work_with_us_image);
         })
+
     } ,[])
     const updateQuality = async () => {
         if (selectedBannerImage) {
@@ -147,7 +150,9 @@ function AdminWhoWeArePage() {
 
                     <Form.Group controlId="formGridPassword">
                         <Form.Label>Primary Description</Form.Label>
-                        <Form.Control value={description} onChange={(e) => setDescription(e.target.value)} as="textarea" rows="7"/>
+                        <ReactQuill value={description}
+                  onChange={(val)=>setDescription(val)} />
+                        {/* <Form.Control value={description} onChange={(e) => setDescription(e.target.value)} as="textarea" rows="7"/> */}
                     </Form.Group>
 
                     <Form.Row>
@@ -192,7 +197,11 @@ function AdminWhoWeArePage() {
                         Update
                     </Button>
                     </Form>
-                </div>
+
+                    {/* <button onClick={()=> console.log(JSON.parse( JSON.stringify(quil)))} >Click</button>
+                    <div dangerouslySetInnerHTML={{__html:quil}}>
+                    </div> */}
+                    </div>
         </div>
     )
 }

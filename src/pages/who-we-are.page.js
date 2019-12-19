@@ -7,7 +7,10 @@ import { Link } from 'react-router-dom';
 function WhoWeArePage() {
 	const [whoWeAre, setWhoWeAre] = useState();
 	useEffect(() => {
-		whoWeAreService.getAll().then(res => setWhoWeAre(res[0]));
+		whoWeAreService.getAll().then(res => {
+			console.log(res[0])
+			setWhoWeAre(res[0])
+		});
 	}, [])
 	return (
 		<div style={{ background: "#fff" }}>
@@ -21,59 +24,10 @@ function WhoWeArePage() {
 									<img src={whoWeAre.banner_image} className="who-we-are-img-1" />
 								</div>
 								<br />
-								<h3 className="who-h1 mt-2">ABOUT COMPANY</h3>
 								<div className='row' >
 									<div className='col-sm col-md-10' >
-										{/* <strong>
-									<p className='font-weight-bold who-we-des'>
-									{whoWeAre.primary_description}
-									</p>
-									</strong> */}
-										<p className='who-we-des' >Advanced Construction Est. was established in 1982 in the kingdom of Saudi Arabia, and it
-												became Advanced Construction Co. in 2002 after the huge expansion of works, then rapidly
-												maintained anhonorable reputation in providing contractual expertise for executing contracts in
-												various fields of Civil Project, Roads, underpasses and Bridges Construction, Infrastructure, Marine
-												Construction,
-												Electro-mechanical Project, Finishing Contracting all over the Kingdom.
-												Our early history is intimately related to the booming era where every single company had to make
-												a place under the sun of intensive and rushed projects. We managed all through to maintain a
-												very sustainable development, steady growth and progress acquiring the needed experience to
-												provide execellence in designing and executing projects.
-												As a result, the Company expanded all over the Kingdom of Saudi Arabia in order to acquire a
-												larger market share by providing wider contractual services.</p>
-									</div>
-									<div className='col-sm col-md-2' ></div>
+									<div className='who-we-are-content-edit'  dangerouslySetInnerHTML={{__html:whoWeAre.primary_description}}>
 								</div>
-								<h3 className="who-h1 mt-2" >OUR MISSION</h3>
-								<div className='row' >
-									<div className='col-sm col-md-10' >
-										{/* <strong>
-									<p className='font-weight-bold who-we-des'>
-									{whoWeAre.primary_description}
-									</p>
-									</strong> */}
-										<p className='who-we-des' >
-											Our professional teams are committed to deliver high quality construction, serving our society,
-												satisfying our clients while leading us to new business opportunities.
-										</p>
-									</div>
-									<div className='col-sm col-md-2' ></div>
-								</div>
-								<h3 className="who-h1 mt-2">OUR VISION</h3>
-								<div className='row' >
-									<div className='col-sm col-md-10' >
-										{/* <strong>
-									<p className='font-weight-bold who-we-des'>
-									{whoWeAre.primary_description}
-									</p>
-									</strong> */}
-										<p className='who-we-des' >
-											Our clients are the most valuable assets to our company and we are sincere to herald their
-											satisfaction in which we carefully invested our time and efforts to bring out the highest
-											commitments. This company profile was the result of our joint efforts between management and
-											staff with determination to bring our clients closer. This image was blended by highlighting our
-											achievements, accomplishments, services, skills and management.
-																				</p>
 									</div>
 									<div className='col-sm col-md-2' ></div>
 								</div>

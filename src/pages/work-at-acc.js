@@ -12,17 +12,20 @@ function WorkAtAccPage(props) {
   const jobsService = new JobsService();
   const [jobs, setJobs] = useState();
   const [selectedJob, setSelectedJob] = useState();
+  const [scroll, setScroll] = useState(false);
+  
   useEffect(() => {
     jobsService.getAll().then(res => {
       setJobs(res);
       setSelectedJob(res[0]);
+      setScroll(true)
     });
   }, []);
-  
+
   return (
     <div id='top' style={{ background: '#fff' }}>
       <HeaderComponent />
-      <main style={{ background: '#fff' }} className="mb-md-4 mt-md-4">
+    { scroll ? <main style={{ background: '#fff' }} className="mb-md-4 mt-md-4">
         <div className="container">
           <div className="row contactUs-text-container">
             <div className="col-md-4 mr-md-auto col-sm-12">
@@ -157,7 +160,7 @@ function WorkAtAccPage(props) {
         </div>
         <br/>
         <br/>
-      </main>
+      </main>:""}
       <hr style={{width:'95%' , marginBottom:'0px'}} />
       <FooterComponent />
     </div>

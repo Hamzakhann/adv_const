@@ -23,19 +23,8 @@ export default function QualityPage() {
 							{/* <p className="para font-weight-bold who-we-are-heading">
 							
 							</p> */}
-							<div>
-								<h4>Greeting</h4>
-								<p>It is the policy of the company to operate its business in a manner that consistently meets or exceeds the quality
-		standards. The company is committed to continually improving the quality of company operation and the services
-		provided by the company.
-		Delivering quality services and solutions to clients is a major preoccupation for Advanced Construction Company.
-		And this depends on the expertise of our staff but also on the processes that allow teams to work together in an
-		effcient, reliable manner, improve their working methods day to day, and share their individual and collective
-		experience and know-how. The strong points of the system are the continuous improvement of processes,
-		procedures and skills
-</p>
-								<h4>Certificates</h4>
-								<p>The company since 2011 has been accredited by DAS-CERT with ISO 9001:2015, ISO 14001:2015 and ISO 45001:2018</p>
+							<div dangerouslySetInnerHTML={{__html:quality.description}}>
+								
 							</div>
 						</div>
 					</div>

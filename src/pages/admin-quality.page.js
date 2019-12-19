@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Form, Row, Col, Button } from 'react-bootstrap';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
 import { url } from '../services/url';
 import querystring from 'querystring';
@@ -8,7 +10,7 @@ import AdminHeaderComponent from '../components/admin-header.component'
 
 function AdminQualityPage() {
     const [title, setTitle] = useState();
-    const [description, setDescription] = useState();
+    const [description, setDescription] = useState("");
     const [message, setMessage] = useState();
     const [riyal, setRiyal] = useState();
     const [completedProject, setCompletedProject] = useState();
@@ -79,7 +81,9 @@ function AdminQualityPage() {
 
                     <Form.Group controlId="formGridPassword">
                         <Form.Label>Description</Form.Label>
-                        <Form.Control value={description} onChange={(e) => setDescription(e.target.value)} as="textarea" rows="7"/>
+                        <ReactQuill value={description}
+                                            onChange={(val)=>setDescription(val)} />
+                        {/* <Form.Control value={description} onChange={(e) => setDescription(e.target.value)} as="textarea" rows="7"/> */}
                     </Form.Group>
 
                     <Form.Row>

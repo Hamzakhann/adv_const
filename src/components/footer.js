@@ -21,7 +21,7 @@ if(screenWidth<992){
   return (
        <footer >
          {props.children}
-     {MobileView ? <div className="container-fluid">
+         <div className="container-fluid Mobile-view">
         <div className='container' >
         <div className="row">
           <div className="col-md-8 p-3 row col-12 col-sm-12 row border-bottom">
@@ -79,7 +79,8 @@ if(screenWidth<992){
           </div>
         </div>
 
-      </div> : <div className="container-fluid">
+      </div>
+      <div className="container-fluid desktop-view">
         <div className='container' >
         <div className="row">
           <div className="col-md-8 p-3 row ">
@@ -128,7 +129,7 @@ if(screenWidth<992){
         </div>
 
       </div>
- }
+ 
     </footer>
   );
 }

@@ -139,7 +139,7 @@ header,
 
 @media (max-width: 991px) {
     .navbar:not(.top-nav-collapse) {
-        background: #424f95 !important;
+        background: #fff !important;
     }
     
     
@@ -613,7 +613,7 @@ section{
 
 @media (max-width: 991px){
     .navbar:not(.top-nav-collapse) {
-        background: unset !important;
+        background: unset ;
     }
 }
 
@@ -845,7 +845,22 @@ section{
   .sideNav-logo{
       padding: 15px 15px 15px 15px;
   }
-  
+  .Mobile-header{
+      background-color: #fff;
+      width: 40px;
+      height: 28px;
+  }
+  .mob-nav{
+     width:  137px;
+      height: 52px;
+      margin-left: 20px;
+  }
+  .Mobile-view{
+      display: none;
+  }
+.desktop-view{
+    display: block;
+}
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
@@ -870,6 +885,13 @@ section{
     background-color:transparent;
     display: none;
    z-index: 350;
+}
+
+.desktop-view{
+    display: none;
+}
+.Mobile-view{
+    display: block;
 }
 }
 

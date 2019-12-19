@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import { Link } from 'react-router-dom';
 
 
@@ -20,19 +20,33 @@ function HeaderComponent(props) {
 
 
   }
+
+  const [MobileView,setMobileView]=useState(false);
+  
+ 
+  useEffect(()=>{
+    const screenWidth=window.innerWidth;
+
+if(screenWidth<992){
+
+    setMobileView(true);
+  }
+  else{
+    setMobileView(false);
+  }
+  });
  
   return (
     <header>
-    <nav className={ "navbar navbar-expand-md navbar-light " + props.topclassName }>
-        <div className= {window.location.pathname === '/' ?'container nav-container':'container'}>
-          <Link className="navbar-brand" to="/">
-            <img src="/logo1.png" className="img-logo" />
+   { MobileView? <nav className="navbar mob-nav navbar-light">
+     <div className="Mobile-header"> <Link to="/">
+          <img src="/small-logo2.png " className="img-fluid" />
           </Link>
-          <button className="navbar-toggler" type="button" onClick={openNav}>
+         </div>
+          <button className="navbar-toggler border-0" type="button" onClick={openNav}>
             <span className="navbar-toggler-icon"></span>
           </button>
-           
-          <div id="mySidenav" class="sidenav">
+    <div id="mySidenav" class="sidenav">
           <img src="/logo1.png" className="sideNav-logo img-fluid" />
 
           <a className="" onClick={toggleDropdown} >
@@ -47,7 +61,16 @@ function HeaderComponent(props) {
                   <Link className="" to="/work-at-acc">WORK AT ACC</Link>
 
                   <Link className="" to="/contact-us">CONTACT US</Link>
-          </div>
+          </div></nav> :<nav className={ "navbar navbar-expand-md navbar-light " + props.topclassName }>
+        <div className= {window.location.pathname === '/' ?'container nav-container':'container'}>
+          <Link className="navbar-brand" to="/">
+          <img src="/logo1.png" className="img-logo" />
+          </Link>
+          <button className="navbar-toggler" type="button" onClick={openNav}>
+            <span className="navbar-toggler-icon"></span>
+          </button>
+           
+        
           <div className="collapse navbar-collapse" id="navbarSupportedContent-7">
               <ul className="navbar-nav ml-auto headerNav">
                 <li className="nav-item dropdown" style={{cursor: "pointer"}}>
@@ -73,9 +96,11 @@ function HeaderComponent(props) {
             </div>
         </div>
     </nav>
+}
     <div className="overly" id="Overly" onClick={closeNav}></div>
+  
     {props.children}
-    
+
     </header>
     
   );

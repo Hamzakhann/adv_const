@@ -363,6 +363,9 @@ ul.social-network li {
 
 .content2{
     background: #3BD0A2;
+    padding-top: 15px !important;
+    
+    
 }
 
 .content2 h6{
@@ -561,10 +564,12 @@ ul.social-network li {
 }
 
 .two-heding h3, .two-heding h6, .inner  h3,  .inner  h6, .inner a{
-    font-weight:normal !important;;
+    font-weight:normal;
 }
 
-
+.complete-date-heading{
+    font-size: 20px !important;
+}
 
 .contactInfo p{
    color:#585858; 
@@ -904,6 +909,10 @@ section{
     
 }
 @media screen and (max-width: 991px) {
+    .content{
+        height: 100px;
+        padding: 0;
+    }
     .main-page-h1{
         font-size: 29px;
         padding:0;

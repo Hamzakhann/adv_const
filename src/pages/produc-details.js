@@ -78,12 +78,12 @@ function ProductDetails(props) {
     		</div>
 
     		<div className="row" style={{marginTop: "20px"}}>
-                <div className="col-md-6 col-sm-12">
+                <div className="col-md-6 col-sm-6 col-6 pr-1">
                     <div className="card">
                         <img src={product.mini_image1} className="card-img"  />
                     </div>
                 </div>
-                <div className="col-md-6 col-sm-12">
+                <div className="col-md-6 col-sm-6 col-6 pl-1">
                     <div className="card">
                         <img src={product.mini_image2} className="card-img"  />
                     </div>
@@ -91,23 +91,23 @@ function ProductDetails(props) {
             </div>
 
 
-    		<div className="row" style={{marginTop: "30px"}}>
-    			<div className="col-md-4 col-sm-12">
-    				<div className="content content1">
+    		<div className="row " style={{marginTop: "30px"}}>
+    			<div className="col-md-4 col-sm-4 p-1 col-4">
+    				<div className="content  content1 ">
     					<h6>{product.total_price}</h6>
     					<p>
-    						<strong>million</strong>
+    						<strong >million</strong>
     					</p>
     				</div>
     				<p className="text-center">
     					<strong>TOTAL PRICE</strong>
     				</p>
     			</div>
-    			<div className="col-md-4 col-sm-12">
+    			<div className="col-md-4 col-sm-4 p-1  col-4">
     				<div className="content content1">
-    					<h6>{product.length} </h6>
-    					<p>
-    						<strong>Kilometers</strong>
+    					<h6 >{product.length} </h6>
+    					<p className="">
+    						<strong >Kilometers</strong>
     					</p>
     				</div>	
     				<p className="text-center">
@@ -115,9 +115,9 @@ function ProductDetails(props) {
     				</p>
     				<hr style={{marginTop: "30px", width: "60%"}} />
     			</div>
-    			<div className="col-md-4 col-sm-12">
+    			<div className="col-md-4 col-sm-4 p-1 col-4">
     				<div className="content content2">
-    					<h6>{product.completion_date}</h6>
+    					<h6 className="complete-date-heading">{product.completion_date}</h6>
     				</div>	
     				<p className="text-center">
     					<strong>COMPLETION</strong>
@@ -137,9 +137,10 @@ function ProductDetails(props) {
     		<div className="row" style={{marginTop: "30px"}}>
     			<div className="col-md-6 col-sm-12">
     				<div className="inner"> 
-					<a href="#top" disabled={isDisabled ? "disabled" : ''} onClick={() =>nextProject()} >Next Project</a>
   					<h3 className="h3-responsive font-weight-bold">{nextProduct && nextProduct.name}</h3>
 					  <p className='text-justify' >{nextProduct && nextProduct.long_description}</p>
+					  <a href="#top" disabled={isDisabled ? "disabled" : ''} onClick={() =>nextProject()} >Next Project</a>
+
 					</div>	
     			</div>
     			<div className="col-md-6 col-sm-12">

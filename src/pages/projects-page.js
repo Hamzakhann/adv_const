@@ -37,9 +37,11 @@ export default function ProjectsPage() {
 
   const onChangeCity = city => {
     if(city === 'all'){
+      setVisible(8)
       setSelectedCity(city);
       setCityFilteredProjects(projectList)      
     }else{
+      setVisible(8)
       setSelectedCity(city);
       setCityFilteredProjects(
         projectList.filter(project => project.city === city)
@@ -49,8 +51,8 @@ export default function ProjectsPage() {
   };
 
   const onChangeProjectType = type => {
-    console.log('chekkiii' , type)
     if(selectedCity === 'all'){
+      setVisible(8)
       setProjectType(type);
       setCityFilteredProjects(
         projectList.filter(
@@ -58,6 +60,7 @@ export default function ProjectsPage() {
         )
       );
     }else{
+      setVisible(8)
       setProjectType(type);
       setCityFilteredProjects(
         projectList.filter(
@@ -69,6 +72,7 @@ export default function ProjectsPage() {
 
   const onChangeResetProjectType = reset_city => {
     if(reset_city === 'all'){
+      setVisible(8)
       setSelectedCity(reset_city);
       setProjectType('all')
       setCityFilteredProjects(
@@ -76,6 +80,7 @@ export default function ProjectsPage() {
       );
     }
     else{
+      setVisible(8)
       setSelectedCity(reset_city);
       setProjectType('all')
       setCityFilteredProjects(
@@ -180,7 +185,7 @@ export default function ProjectsPage() {
                         ) : (
                           <NoItemFound />
                         )}
-                        <button className='btn btn-light btn-block' >Load more</button>
+                        <button onClick={() => setVisible(visible + 8)} className='btn btn-light btn-block btn-load-more' >Load more</button>
                       </div> 
                     </div>
                   </div>

@@ -19,7 +19,7 @@ export default function ProjectsPage() {
   const [currentProject , setCurrentProject] = useState(null)
   const [show, setShow] = useState(false);
   const [isLoading , setIsLoading] = useState(true)
-
+  const [visible  , setVisible] = useState(8)
   useEffect(() => {
     Promise.all([projectService.getAll(), ciitesService.getAll()]).then(res => {
       console.log("res check", res);
@@ -169,7 +169,7 @@ export default function ProjectsPage() {
                     <div className="container">
                       <div className="row">
                         {isLoading ? 'Loading........' : cityFilteredProjects && cityFilteredProjects.length ? (
-                         cityFilteredProjects.map(project => (
+                         cityFilteredProjects.slice(0,visible).map(project => (
                             <ProjectComponent
                             setCarosal={setCarosal}
                             project={project} 
@@ -180,6 +180,7 @@ export default function ProjectsPage() {
                         ) : (
                           <NoItemFound />
                         )}
+                        <button className='btn btn-light btn-block' >Load more</button>
                       </div> 
                     </div>
                   </div>

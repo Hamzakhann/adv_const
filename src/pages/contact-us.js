@@ -17,7 +17,7 @@ const ContactUsPage = () => {
     	<div class="container">
     		<div class="row contactUs-text-container">
     			<div class="col-md-6 col-sm-12 contactInfo">
-    			    <h3 class="h3-responsive font-weight-bold aboutus who-we-are-heading">Contact Us</h3>
+    			    <h3 class="h3-responsive font-weight-bold aboutus who-we-are-heading ">Contact Us</h3>
     			    <p className='who-we-are-heading'>INQUIRIES<br />
     			     <a href="mailto:projects@advanceconstruction.com.sa" class="contactEmail who-we-are-heading">{contact ? contact.email: null}</a>
     			    </p>

@@ -58,7 +58,7 @@ function MainPage() {
         <div className="mask rgba-gradient align-items-center">
             <div className="container">
             <div className="row header-text">
-                <div className="col-md-12 white-text text-center text-md-left mt-xl-5 mb-5 wow">
+                <div className="col-md-12 white-text text-left text-md-left mt-xl-5 mb-5 wow">
                 <h6 >What we do</h6>
                 <p className="main-page-h1">Facing new challenges with<br />excellence and innovation</p>
                 </div>

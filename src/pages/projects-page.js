@@ -137,7 +137,7 @@ export default function ProjectsPage() {
                   </div>
 
                   <div  className='align-self-end' >
-                    <ul  className="nav nav-pills" id="myTab2" role="tablist">
+                    <ul  className="nav nav-pills " id="myTab2" role="tablist">
                       <li  className="nav-item  ml-4  icon-li" 
                                   style={{borderBottom:projectType === 'bridge'?'4px solid #C92027':'none'}}
                                    onClick={() => onChangeProjectType("bridge")}>

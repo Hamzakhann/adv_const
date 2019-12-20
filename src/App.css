@@ -909,6 +909,10 @@ section{
     
 }
 @media screen and (max-width: 991px) {
+    .carousel .slide {
+        height: 120px;
+
+    }
     .content{
         height: 100px;
         padding: 0;

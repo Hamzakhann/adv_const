@@ -145,7 +145,7 @@ function MainPage() {
           <div className="col-md-4 col-sm-12 box mob-margin" style={{marginTop: "100px"}}>
             <div className="inner">
               <div className="icon">
-              <img src="https://res.cloudinary.com/ddwqnxwyi/image/upload/v1576322414/Icon1.1.png" className="main-page-icon" />
+              <img src="/2.svg" className="main-page-icon" />
               </div> 
               <h3 className="h3-responsive font-weight-bold" style={{fontSize:"20px"}}>{otherData.service_1_title}</h3>
               <p>{otherData.service_1_desc}</p>
@@ -154,7 +154,7 @@ function MainPage() {
           <div className="col-md-4 col-sm-12 mob-margin box" style={{marginTop: "100px"}}>
             <div className="inner">
               <div className="icon">
-                <img src="https://res.cloudinary.com/ddwqnxwyi/image/upload/v1576322478/Icon2.1.png" className="main-page-icon" />
+                <img src="/1.svg" className="main-page-icon" />
               </div>
               <h3 className="h3-responsive font-weight-bold" style={{fontSize:"20px"}}>{otherData.service_2_title}</h3>
               <p>{otherData.service_2_desc}g</p>
@@ -163,7 +163,7 @@ function MainPage() {
           <div className="col-md-4 col-sm-12 mob-margin" style={{marginTop: "100px"}}>
             <div className="inner">
               <div className="icon">
-                <img src="https://res.cloudinary.com/ddwqnxwyi/image/upload/v1576322507/Icon3.1.png" className="main-page-icon" />
+                <img src="/3.svg" className="main-page-icon" />
               </div>
               <h3 className="h3-responsive font-weight-bold" style={{fontSize:"20px"}}>{otherData.service_3_title}</h3>
               <p>{otherData.service_3_desc}</p>

@@ -76,7 +76,7 @@ function HeaderComponent(props) {
           <div className="overly" id="Overly" onClick={closeNav}></div>
 
     </nav>
-    <nav>Hello</nav>
+
     {props.children}
     </header>
   );

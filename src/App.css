@@ -943,6 +943,9 @@ section{
 .Mobile-view{
     display: block;
 }
+.navbar{
+    display: none !important;
+}
 }
 
 @media screen and (min-width: 991px) {

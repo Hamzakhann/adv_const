@@ -43,14 +43,16 @@ function FooterComponent(props) {
 
 <div className=" row">
 
-              <ul className="nav mr-auto w-50 col-4 col-sm-4 ">
+              <ul className="nav mr-0 w-50 col-5 col-sm-5 p-0">
                 <li className="nav-item "><a target="_blank" href="https://www.facebook.com/advancedconstructionsa/" className="nav-link icoFacebook social-icon mt-4" title="Facebook"><img src="/fb.png" /></a></li>
                 <li className="nav-item"><a target="_blank" href="https://www.linkedin.com/mwlite/company/advanced-construction-company-for-contracting-maintenance" className="nav-link icoLinkedin social-icon mt-4" title="Linkedin"><img src="/linked.png" /></a></li>
+                <li className="nav-item"><a target="_blank"  href="https://www.google.com/url?sa=t&source=web&rct=j&url=https://www.instagram.com/advancedconstruction_co/%3Figshid%3D8pkwlxt6am2h&ved=2ahUKEwjHmu_8zaXmAhWLmBQKHa6eB18QFjAAegQIAxAB&usg=AOvVaw3N4xeaT-JBfOTZnoSYy4hL" className="nav-link icoLinkedin social-icon mt-4" title="Instagram"><img src="/instagram.png" /></a></li>
+             
               </ul>
             
           
-            <Link className="float-right mt-md-2 col-8 col-sm-8" to="/">
-              <img src="/final-logo.png" className="img-fluid" style={{width:'280px' , height:'110px'}}/>
+            <Link className="float-right mt-md-2 col-6 col-sm-6 mt-2  pl-0 pr-2" to="/">
+              <img src="/final-logo.png" className="img-fluid" />
             </Link>
             
           </div>

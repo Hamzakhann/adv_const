@@ -129,18 +129,20 @@ function MainPage() {
 
           {/* Collapse ends here */}
 
-          <div className="col-md-6 col-sm-12 box" style={{marginTop: "100px"}}>
+          <div className="col-md-6 col-sm-12 box desktop-work-img" style={{marginTop: "100px"}}>
             <img src="/banner2.jpg" className="img-fluid" />    
           </div>
-          <div className="col-md-6 col-sm-12" style={{marginTop: "100px"}}>
-            <div className="inner" style={{height:"340px"}}>
+          <div className="col-md-6 col-sm-12 col-12 work" style={{marginTop: "100px"}}>
+            <div className="inner2 inner" style={{height:"340px"}}>
               <h6>Work With Us</h6>
               <h3 className="h3-responsive font-weight-bold">Join Our Community of qualified professionals</h3>
               <Link className="nav-link" to="/work-at-acc/" >Apply now</Link>
             </div> 
           </div>
-
-          <div className="col-md-4 col-sm-12 box" style={{marginTop: "100px"}}>
+          <div className="col-md-6 col-sm-12 box mobile-work-img" >
+            <img src="/banner2.jpg" className="img-fluid" />    
+          </div>
+          <div className="col-md-4 col-sm-12 box mob-margin" style={{marginTop: "100px"}}>
             <div className="inner">
               <div className="icon">
               <img src="https://res.cloudinary.com/ddwqnxwyi/image/upload/v1576322414/Icon1.1.png" className="main-page-icon" />
@@ -149,7 +151,7 @@ function MainPage() {
               <p>{otherData.service_1_desc}</p>
             </div> 
           </div>
-          <div className="col-md-4 col-sm-12 box" style={{marginTop: "100px"}}>
+          <div className="col-md-4 col-sm-12 mob-margin box" style={{marginTop: "100px"}}>
             <div className="inner">
               <div className="icon">
                 <img src="https://res.cloudinary.com/ddwqnxwyi/image/upload/v1576322478/Icon2.1.png" className="main-page-icon" />
@@ -158,7 +160,7 @@ function MainPage() {
               <p>{otherData.service_2_desc}g</p>
             </div> 
           </div>
-          <div className="col-md-4 col-sm-12 " style={{marginTop: "100px"}}>
+          <div className="col-md-4 col-sm-12 mob-margin" style={{marginTop: "100px"}}>
             <div className="inner">
               <div className="icon">
                 <img src="https://res.cloudinary.com/ddwqnxwyi/image/upload/v1576322507/Icon3.1.png" className="main-page-icon" />
@@ -168,14 +170,14 @@ function MainPage() {
             </div> 
           </div>
 
-          <div className="col-md-6 col-sm-12 box" style={{marginTop: "100px"}}>
-            <div className="inner" style={{height:"360px"}}> 
+          <div className="col-md-6 col-sm-12 work box" style={{marginTop: "100px"}}>
+            <div className="inner inner2 " style={{height:"360px"}}> 
               <h6>Team</h6>
               <h3 className="h3-responsive font-weight-bold">{otherData.team_title}</h3>
               <Link to="/team">Meet our team</Link>
             </div> 
           </div>
-          <div className="col-md-6 col-sm-12 p-0" style={{marginTop: "100px"}}>
+          <div className="col-md-6 col-sm-12  mob-margin " style={{marginTop: "100px"}}>
               <img src="/banner3.jpg" className="img-fluid" />     
             {/* <img src={otherData.team_image} className="img-fluid" />  */}
           </div>

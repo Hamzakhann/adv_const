@@ -50,7 +50,7 @@ function FooterComponent(props) {
             
           
             <Link className="float-right mt-md-2 col-8 col-sm-8" to="/">
-              <img src="/logo.png" className="img-fluid" style={{width:'280px' , height:'110px'}}/>
+              <img src="/final-logo.png" className="img-fluid" style={{width:'280px' , height:'110px'}}/>
             </Link>
             
           </div>
@@ -100,7 +100,7 @@ function FooterComponent(props) {
           </div>
           <div className="col-md-4 p-3">
             <Link className="float-right mt-md-2" to="/">
-              <img src="/logo.png" className="img-fluid" style={{width:'280px' , height:'110px'}}/>
+              <img src="/final-logo.png" className="img-fluid" />
             </Link>
             
           </div>

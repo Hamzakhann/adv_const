@@ -903,12 +903,30 @@ section{
 .desktop-view{
     display: block;
 }
+.mobile-work-img{
+    display: none;
+}
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
     
 }
 @media screen and (max-width: 991px) {
+   .mob-margin{
+       margin-top:15px !important;
+   }
+    .desktop-work-img{
+        display: none;
+    }
+    .mobile-work-img{
+        display: block;
+    }
+    .work{
+        margin-bottom: 20px !important;
+    }
+    .inner2{
+        height: 160px !important;
+    }
     .carousel .slide {
         height: 120px;
 

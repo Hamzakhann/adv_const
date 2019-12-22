@@ -886,6 +886,7 @@ section{
   }
   .sideNav-logo{
       padding: 15px 15px 15px 15px;
+      width: 100% !important;
   }
   .Mobile-header{
       background-color: #fff;
@@ -906,12 +907,36 @@ section{
 .mobile-work-img{
     display: none;
 }
+.img-logo-mobile{
+    display: none;
+   
+}
+.navbar-brand img{
+width: auto !important;
+height: auto !important;
+padding: 0 !important;
+
+}
+    
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
     
 }
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 770px) {
+    .mob{
+        margin-left: 0px !important;
+            width: 190px !important;
+            height: 70px !important;
+            box-shadow: 0 0 4px black;
+        }
+    
+    .img-logo-desktop{
+display: none;
+    }
+    .img-logo-mobile{
+        display: inline;
+    }
    .mob-margin{
        margin-top:15px !important;
    }
@@ -942,7 +967,11 @@ section{
     .wow h6{
         margin-top: 160px;
     }
-    .view{ background-size: 415px 340px;   }
+    .view{ 
+        background-size: 100% 340px; 
+        background-position:top !important; 
+ 
+ }
 .overly{
     position: fixed;
     top: 0;
@@ -963,8 +992,14 @@ section{
 }
 }
 
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 771px) {
 
+    .navbar-brand img{ 
+        padding: 5px !important;
+        width: 220px !important;  
+        height: 90px !important;
+        margin-left: 25px !important;
+    }
     .sidenav{
         display: none;
 

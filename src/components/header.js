@@ -25,11 +25,13 @@ function HeaderComponent(props) {
   return (
     <header>
     <nav className={ "navbar navbar-expand-md navbar-light " + props.topclassName }>
-        <div className= {window.location.pathname === '/' ?'container nav-container':'container'}>
+        <div className= {window.location.pathname === '/' ?'container  nav-container mob':'container'}>
           <Link className="navbar-brand" to="/">
-            <img src="/final-logo.png" className="img-logo" />
+            <img src="/final-logo.png" className="img-logo-desktop" />
+            <img src="/small-logo.png" className="img-logo-mobile " />
+
           </Link>
-          <button className="navbar-toggler" type="button"   onClick={openNav}>
+          <button className="navbar-toggler border-0 pb-3" type="button"   onClick={openNav}>
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent-7">

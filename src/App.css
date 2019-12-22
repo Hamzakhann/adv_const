@@ -924,6 +924,15 @@ padding: 0 !important;
     
 }
 @media screen and (max-width: 770px) {
+  .who-we-are-img-1{
+height: 300px !important;
+  }
+    .who-we-are-heading{
+    padding-right: 0px !important;
+  }
+  .who-we-are-content-edit p{
+      padding-right: 0px !important;
+  }
     .mob{
         margin-left: 0px !important;
             width: 190px !important;

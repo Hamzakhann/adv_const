@@ -92,7 +92,7 @@ export default function ProjectsPage() {
     setCurrentProject(c_project)
     setShow(true)
   }
-  const handleClose = () => setShow(false);
+  // const handleClose = () => setShow(false);
   return (
     <div style={{ background: '#fff' }}>
       <HeaderComponent topclassName={"fixed-top-header-top"}></HeaderComponent>
@@ -111,7 +111,7 @@ export default function ProjectsPage() {
                 <div className='city-inline'>
 
                   <div >
-                    <ul className="nav nav-pills mb-3" id="myTab" role="tablist">
+                    <ul className="nav nav-pills mb-3">
 
                     <li className="nav-item" >
                               <a className={ selectedCity === 'all' ? "nav-link p-2 active"
@@ -168,9 +168,8 @@ export default function ProjectsPage() {
 
                 </div>
 
-                <div className="tab-content" id="myTabContent">
-                  <div className="tab-pane fade show active" id="one" role="tabpanel"
-                    aria-labelledby="one-tab">
+                <div className="mt-4">
+                  <div className="" >
                     <div className="container">
                       <div className="row">
                         {isLoading ? 'Loading........' : cityFilteredProjects && cityFilteredProjects.length ? (

@@ -30,7 +30,7 @@ export default function QualityPage() {
 					</div>
 
 					<div className="row" style={{ marginTop: "30px" }}>
-						<div className="col-md-4 col-sm-12">
+						<div className="col-md-4 col-sm-4 p-1 col-4">
 							<div className="content content1">
 								<h6>{quality.saudi_riyals}</h6>
 								<p>
@@ -38,16 +38,16 @@ export default function QualityPage() {
 								</p>
 							</div>
 						</div>
-						<div className="col-md-4 col-sm-12">
+						<div className="col-md-4 col-sm-4 p-1 col-4">
 							<div className="content content1">
 								<h6>{quality.projects_completed}</h6>
-								<p>
+								<p style={{ lineHeight:"1" }} >
 									<strong>Projects Completed</strong>
 								</p>
 							</div>
 							<hr style={{ marginTop: "30px", width: "60%" }} />
 						</div>
-						<div className="col-md-4 col-sm-12">
+						<div className="col-md-4 col-sm-4 p-1 col-4">
 							<div className="content content2">
 								<h6>{quality.current_projects}</h6>
 								<p>
@@ -59,7 +59,7 @@ export default function QualityPage() {
 
 					<div className="row" style={{ marginTop: "30px" }}>
 						<div className="col-md-7">
-							<h4 className="our-pro font-weight-bold  who-we-are-heading" style={{ lineHeight: '1.2em', fontSize: '30px', wordSpacing: '1px' }} >{quality.message.replace('hight-quality construction', () => `<span>Hamza</span>`)}</h4>
+							<h4 className="our-pro font-weight-bold  who-we-are-heading" style={{  lineHeight: '1.2em', fontSize: '30px', wordSpacing: '1px' }} >{quality.message.replace('hight-quality construction', () => `<span>Hamza</span>`)}</h4>
 						</div>
 						<div className="col-md-5">
 

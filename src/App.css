@@ -923,7 +923,11 @@ padding: 0 !important;
     
 }
 @media screen and (max-width: 770px) {
-  .who-we-are-img-1{
+
+  .margin{
+      margin-top: 10px;
+  }
+    .who-we-are-img-1{
 height: 300px !important;
   }
     .who-we-are-heading{

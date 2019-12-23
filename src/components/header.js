@@ -25,7 +25,7 @@ function HeaderComponent(props) {
   return (
     <header>
     <nav className={ "navbar navbar-expand-md navbar-light " + props.topclassName }>
-        <div className= {window.location.pathname === '/' ?'container  nav-container mob':'container'}>
+        <div className= {window.location.pathname === '/' ?'container  nav-container mob':'container mob'}>
           <Link className="navbar-brand" to="/">
             <img src="/final-logo.png" className="img-logo-desktop" />
             <img src="/small-logo.png" className="img-logo-mobile " />

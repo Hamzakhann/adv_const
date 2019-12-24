@@ -14,7 +14,7 @@ function WhoWeArePage() {
 	}, [])
 	return (
 		<div style={{ background: "#fff" }}>
-			<HeaderComponent topclassNameName={"relative-top"} />
+			<HeaderComponent topclassName={" mob-header"}></HeaderComponent>
 			<main style={{ background: "#fff", marginBottom: '40px' }}>
 				{whoWeAre ?
 					<div className="container">

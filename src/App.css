@@ -164,7 +164,6 @@ h6{
 .navbar{
     box-shadow: unset;
 }
-
 .nav-container{
     background: #fff;
 }
@@ -782,6 +781,7 @@ section{
     margin-top: -12px !important;
 
 }
+
 .road-img{
     width: 38px !important;
     height: 43px !important;
@@ -920,6 +920,17 @@ padding: 0 !important;
     
 }
 @media screen and (max-width: 770px) {
+    .aboutus{
+        margin-top: 0px !important;
+    }
+    .mob-header{
+       padding-top: 30px !important;
+       padding-bottom: 0px !important;
+
+   }
+    .main-page-h1 {
+        line-height: 30px !important;
+    }
     .navbar-brand{
         display: contents !important;
     }
@@ -987,7 +998,7 @@ display: none;
         padding:0;
     }
     .wow h6{
-        margin-top: 160px;
+        margin-top: 220px;
     }
     .view{ 
         background-size: 100% 340px; 

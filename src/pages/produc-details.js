@@ -63,7 +63,7 @@ function ProductDetails(props) {
   console.log('check nextttt' ,nextProduct)
   return (
         <div style={{backgroundColor:"white"}} >
-        <HeaderComponent id='top' topclassName={"relative-top"}></HeaderComponent>
+        <HeaderComponent id='top' topclassName={"relative-top mob-header"}></HeaderComponent>
         {product ? <main style={{background: "#fff"}}>
     	    <div className="container"  >
     		<div className="row">

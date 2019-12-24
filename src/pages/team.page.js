@@ -19,7 +19,7 @@ function TeamPage() {
 
     return (
         <div style={{ background: "#F7F7F7" }}>
-            <HeaderComponent />
+            <HeaderComponent topclassName={" mob-header"}/>
 
 
             <main className="mt-5" style={{ background: "#F7F7F7" }}>

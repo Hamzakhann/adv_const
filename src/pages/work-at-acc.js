@@ -24,7 +24,7 @@ function WorkAtAccPage(props) {
 
   return (
     <div id='top' style={{ background: '#fff' }}>
-      <HeaderComponent />
+      <HeaderComponent  topclassName={" mob-header"}/>
     { scroll ? <main style={{ background: '#fff' }} className="mb-md-4 mt-md-4">
         <div className="container">
           <div className="row contactUs-text-container">

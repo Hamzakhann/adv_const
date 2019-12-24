@@ -924,9 +924,12 @@ padding: 0 !important;
     
 }
 @media screen and (max-width: 770px) {
-   .mob-header{
+    .aboutus{
+        margin-top: 0px !important;
+    }
+    .mob-header{
        padding-top: 30px !important;
-       padding-bottom: 25px !important;
+       padding-bottom: 0px !important;
 
    }
     .main-page-h1 {

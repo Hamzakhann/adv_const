@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 function FooterComponent(props) {
   return (
-       <footer >
+       <footer className='container-fluid p-0' >
+
          {props.children}
          <div className="container-fluid Mobile-view">
         <div className='container' >
@@ -108,14 +109,15 @@ function FooterComponent(props) {
           </div>
         </div>
         </div>
+        </div>
         <hr/>
+        <div className='container' >
         <div className="row ">
           <div className="col-md-5 ml-auto">
             <p style={{color:'black'}} className="copyRight">&copy; 1996-2020 Advance Construction Co. <span>All right Reserved</span></p>
           </div>
         </div>
-
-      </div>
+        </div>
     </footer>
   );
 }

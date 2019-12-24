@@ -50,7 +50,7 @@ p{   font-family: 'FoundersGroteskWeb-Regular'; }
     padding: 5px !important;
     width: 220px !important;  
     height: 90px !important;
-    margin-left: 25px !important;
+    margin-left: 10px !important;
 }
 
 .dropdown-menu{ margin: 2rem 0 0 !important; background-color: #000000 !important; }
@@ -184,9 +184,8 @@ h6{
     border-right: 1px solid #d6d6d6;
     padding-top: 0px;
     padding-bottom: 0px;
-    color: #555 !important;
+    color: #000000 !important;
 }
-
 
 .nav-pills {
     background-color: #fff;
@@ -772,13 +771,15 @@ section{
 }
 .city-inline{
     width: 100%;
-    display: flex;
+    display: -webkit-inline-box;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
     padding: 0px;
 }
-
+.icons{
+    display: inherit;
+}
 .all-img{
     width: 38px !important;
     height: 37px !important;
@@ -849,7 +850,7 @@ section{
     background-color:#fff;
     overflow-x: hidden;
     transition:  0.01s;
-    box-shadow: -3px 0px 6px 0px #00000029;
+box-shadow: #00000029 0.5px 0px 0px 0px;
     
   }
   
@@ -910,12 +911,12 @@ section{
     display: none;
    
 }
-.navbar-brand img{
+/* .navbar-brand img{
 width: auto !important;
 height: auto !important;
 padding: 0 !important;
 
-}
+} */
     
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
@@ -923,7 +924,19 @@ padding: 0 !important;
     
 }
 @media screen and (max-width: 770px) {
+    .navbar-brand{
+        display: contents !important;
+    }
+    .navbar-brand img{
+        width: 55px !important;
+        height: auto !important;
 
+        
+        }
+    .city-inline{
+    display: flex;
+
+}
   .margin{
       margin-top: 10px;
   }
@@ -938,15 +951,16 @@ padding: 0 !important;
   }
     .mob{
             margin-left: 0px !important;
-            width: 190px !important;
-            height: 70px !important;
-            box-shadow: 0 0 4px black;
+            width: 137px !important;
+            height: 52px !important;
+            box-shadow: #00000029 0px 0px 6px;
         }
     
     .img-logo-desktop{
 display: none;
     }
     .img-logo-mobile{
+        
         display: inline;
     }
    .mob-margin{
@@ -1006,12 +1020,7 @@ display: none;
 
 @media screen and (min-width: 771px) {
 
-    .navbar-brand img{ 
-        padding: 5px !important;
-        width: 220px !important;  
-        height: 90px !important;
-        margin-left: 25px !important;
-    }
+   
     .sidenav{
         display: none;
 

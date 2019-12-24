@@ -136,7 +136,7 @@ export default function ProjectsPage() {
                     </ul>
                   </div>
 
-                  <div  className='align-self-end' >
+                  <div  className='icons' >
                     <ul  className="nav nav-pills " id="myTab2" role="tablist">
                       <li  className="nav-item  ml-4  icon-li" 
                                   style={{borderBottom:projectType === 'bridge'?'4px solid #C92027':'none'}}

@@ -28,7 +28,7 @@ function HeaderComponent(props) {
         <div className= {window.location.pathname === '/' ?'container  nav-container mob':'container mob'}>
           <Link className="navbar-brand" to="/">
             <img src="/final-logo.png" className="img-logo-desktop" />
-            <img src="/small-logo.png" className="img-logo-mobile " />
+            <img src="/small-logo.png"  className="img-logo-mobile " />
 
           </Link>
           <button className="navbar-toggler border-0 pb-3" type="button"   onClick={openNav}>
@@ -60,7 +60,7 @@ function HeaderComponent(props) {
         </div>
         {/* sidebar from here */}
         <div id="mySidenav" class="sidenav">
-          <img src="/logo1.png" className="sideNav-logo img-fluid" />
+          <img src="/final-logo.png" className="sideNav-logo img-fluid" />
 
           <a className="" onClick={toggleDropdown} >
                   About Us

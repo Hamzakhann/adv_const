@@ -12,7 +12,7 @@ const ContactUsPage = () => {
 	}, []);	
     return (
         <div style={{ background: '#fff' }}>
-            <HeaderComponent style={{ background: "#fff" }} topClass={"relative-top"}></HeaderComponent>
+            <HeaderComponent style={{ background: "#fff" }} topclassName={" mob-header"}></HeaderComponent>
         	<main style={{background: "#fff"}} className="mt-5 mb-4">
     	<div class="container">
     		<div class="row contactUs-text-container">

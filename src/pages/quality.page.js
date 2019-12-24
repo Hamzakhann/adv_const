@@ -13,7 +13,7 @@ export default function QualityPage() {
 	console.log('check quality ', quality)
 	return (
 		<div className='bg-white' >
-			<HeaderComponent />
+			<HeaderComponent topclassName={" mob-header"} />
 			<main style={{ background: "#fff", marginBottom: '40px' }}>
 				{quality ? <div className="container">
 					<div className="row contactUs-text-container">

@@ -95,7 +95,7 @@ export default function ProjectsPage() {
   // const handleClose = () => setShow(false);
   return (
     <div style={{ background: '#fff' }}>
-      <HeaderComponent topclassName={"fixed-top-header-top"}></HeaderComponent>
+      <HeaderComponent topclassName={"fixed-top-header-top mob-header"}></HeaderComponent>
       <main style={{ background: "#fff" }}>
         <div className="container">
           <div className="row">

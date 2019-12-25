@@ -474,7 +474,11 @@ ul.social-network li {
     width: 100%;
     opacity: 0;
     cursor: pointer;
-    z-index: 5
+    z-index: 5;
+    
+}
+.form-group label{
+    font-weight: 600;
 }
   
 .file-upload-wrapper .card.card-body .file-upload-message p {
@@ -494,7 +498,6 @@ ul.social-network li {
     height: auto !important
 }
 
-  
 .file-upload-wrapper .card.card-body.touch-fallback .file-upload-preview .file-upload-render .file-upload-font-file::before {
     margin-top: 30px;
     margin-bottom: 30px
@@ -529,7 +532,8 @@ ul.social-network li {
     text-overflow: ellipsis;
     color: #777;
     text-align: left;
-    line-height: 25px
+    line-height: 25px;
+    
 }
 
   
@@ -746,7 +750,12 @@ section{
     font-weight: 700 !important;
     font-size: 16px;
 }
+/* .form-control{
+    border: 1px solid #707070 !important;
+    border-radius: 11px !important;
+    opacity: 1 !important;
 
+} */
 .main-page-h1{
     color: white !important;
     font-size: 63px;
@@ -924,6 +933,16 @@ padding: 0 !important;
     
 }
 @media screen and (max-width: 770px) {
+  .work-at-acc-image{
+      display: none;
+  }
+    .buton{
+       margin-bottom: 30px !important;
+       margin-top: 15px;
+   }
+    .contactUs-text h4{
+        margin-top: 0px !important;
+    }
     .aboutus{
         margin-top: 0px !important;
     }
@@ -990,7 +1009,8 @@ display: none;
         height: 160px !important;
     }
     .carousel .slide {
-        height: 120px;
+        height: 106px;
+        width: 181px;
 
     }
     .content{

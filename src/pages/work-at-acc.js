@@ -46,16 +46,16 @@ function WorkAtAccPage(props) {
                       placeholder="Full Name"
                     />
                   </div>
-                  <div className="form-group">
-                    <label for="email">Email</label>
+                  <div className="form-group ">
+                    <label  for="email">Email</label>
                     <input type="email" className="form-control  form-control-lg"
                       id="email" name="email" placeholder="Email" />
                   </div>
-                  <div className="form-group">
+                  <div className="form-group  ">
                     <label for="curriculumvita">curriculum (CV)</label>
-                    <div className="file-upload-wrapper">
-                      <div className="card card-body file-upload">
-                        <div className="card-text file-upload-message">
+                    <div className="file-upload-wrapper  ">
+                      <div className="card  card-body file-upload">
+                        <div className="card-text file-upload-message ">
                           <p>
                             Drop Your Curriculum Here
                             <br />
@@ -69,20 +69,20 @@ function WorkAtAccPage(props) {
                       </div>
                     </div>
                   </div>
-                  <button type="submit" className="btn btn-lg btn-danger">
+                  <button type="submit" className="btn btn-lg btn-danger buton">
                     Send
                   </button>
                 </form>
               </div>
             </div>
 
-            <div className="col-md-6 col-sm-12">
+            <div className="col-md-6 col-sm-12 work-at-acc-image">
               <img src="/contact-us-banner.png" className="img-fluid" />
             </div>
           </div>
           <div className="row">
-            <div className="col-md-6 col-sm-12 box" style={{ marginTop: '100px' }}>
-              <div className="inner" style={{ height: '374px', background: '#FFFDFD' }}>
+            <div className="col-md-6 col-sm-12 box work" style={{ marginTop: '100px' }}>
+              <div className="inner inner2" style={{ height: '374px', background: '#FFFDFD' }}>
                 <h6>Team</h6>
                 <h3 className="h3-responsive who-we-are-heading font-weight-bold">Get to know us a little</h3>
                 <p>
@@ -90,10 +90,12 @@ function WorkAtAccPage(props) {
                   <br />
                   those great works
                 </p>
-                <Link to="/team">Meet our team</Link>
+                <Link className="desktop-view" to="/team">Meet our team</Link>
+                <Link className="Mobile-view" to="/work-at-acc/" >Apply now</Link>
+
               </div>
             </div>
-            <div className="col-md-6 col-sm-12 p-0" style={{ marginTop: '100px' }}>
+            <div className="col-md-6 col-sm-12 p-0 " style={{ marginTop: '100px' }}>
               <img src="/banner3.jpg" className="img-fluid" />
             </div>
           </div>

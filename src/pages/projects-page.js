@@ -102,7 +102,7 @@ export default function ProjectsPage() {
             <div className="col-md-12 col-sm-12">
               <div className="two-heding">
                 <h3 className="h3-responsive font-weight-bold" style={{ marginTop: "30px" }}>
-                  We have pride in our portfolio
+                  We have pride in our <br className="Mobile-view"/> portfolio
                 </h3>
               </div>
             </div>

@@ -195,7 +195,7 @@ export default function ProjectsPage() {
 
           </div>
  
-        <hr style={{width:'95%' , marginBottom:'0px'}} />
+        <hr style={{width:'100%' , marginBottom:'0px'}} />
       </main>
       <FooterComponent></FooterComponent>
       {/* <Modal

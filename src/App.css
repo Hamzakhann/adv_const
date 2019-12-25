@@ -71,10 +71,6 @@ p{   font-family: 'FoundersGroteskWeb-Regular'; }
     color: #fff;
 }
 
-.social-icon img {
-    /* width: 24px !important;
-    height: 24px !important; */
-}
 
 .bodyBg{
    background: #F8F7F8;
@@ -1060,4 +1056,16 @@ display: none;
 
 .btn-load-more{
     font-family: 'NationWeb' !important;
+}
+
+.arrow-detail{
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between;
+}
+.arrow-detail i{
+    margin-left: 15px !important;
+    font-size: 30px !important;
+    color: #383636;
 }

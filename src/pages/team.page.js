@@ -65,7 +65,7 @@ function TeamPage() {
                 <br/>
 
             </section>
-			<hr style={{width:'95%' , marginBottom:'0px'}} />
+			<hr style={{width:'100%' , marginBottom:'0px'}} />
 
             <FooterComponent />
         </div>

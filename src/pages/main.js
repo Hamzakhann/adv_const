@@ -83,38 +83,44 @@ function MainPage() {
 
 
               <div className="tab-content" id="myTabContent">
-               <Carousel activeIndex={selectedIndex} direction={direction} onSelect={handleSelect} stopOnHover>
+               <Carousel indicators={false} activeIndex={selectedIndex} direction={direction} onSelect={handleSelect} interval={null} stopOnHover>
                { cityFilteredProjects ? cityFilteredProjects.map((project,index) => (
                 <Carousel.Item key={index}>
                   <img className="d-block w-100" src={project.image} alt="First slide" />
-                  <Carousel.Caption>
-                    <h3>{project.name}</h3>
-                  </Carousel.Caption>
                 </Carousel.Item> )) : null}
               </Carousel> 
               </div>
 
           
           </div>
+          
 
-          { (cityFilteredProjects && cityFilteredProjects.length > 0) ? <div className="col-md-10 col-sm-12 top-margin box">
+          { (cityFilteredProjects && cityFilteredProjects.length > 0) ? 
+          <div className="col-md-10 col-sm-12 top-margin box">
               <div className="inner">
                 <h6>{(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? cityFilteredProjects[selectedIndex].city +' ' + cityFilteredProjects[selectedIndex].type: null }</h6>
                 <h3 className="h3-responsive font-weight-bold">{ (cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? cityFilteredProjects[selectedIndex].short_description: null }</h3>
                 <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">See details</a>
               </div>  
           </div> : null }
-          { (cityFilteredProjects && cityFilteredProjects.length > 0) ? <div className="col-md-2 col-sm-12 top-margin">
+          { (cityFilteredProjects && cityFilteredProjects.length > 0) ? 
+          <div className="col-md-2 col-sm-12 top-margin">
             <div className="inner" style={{ padding: "30px" }}>
-            <h6>{(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? cityFilteredProjects[selectedIndex].city +' ' + cityFilteredProjects[selectedIndex].type: null }</h6>
-                {/* <span  onClick={() => history.push('/product-details/' + cityFilteredProjects[selectedIndex].id ,  {projects:cityFilteredProjects})}>See Details</span> */}
-                <a href='#'  style={{cursor:'pointer'}} onClick={() => history.push('/product-details/' + cityFilteredProjects[selectedIndex].id ,  {projects:cityFilteredProjects})} role="button" >See details</a>
+         
+              <h6>{(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? cityFilteredProjects[selectedIndex].city +' ' + cityFilteredProjects[selectedIndex].type: null }</h6>
+              <div style={{position:"absolute" , right:"-15%" , top:"28%" , fontSize:"35px"}} >
+              <i style={{cursor:'pointer'}} onClick={() => history.push('/product-details/' + cityFilteredProjects[selectedIndex].id ,  {projects:cityFilteredProjects})} class="fas fa-arrow-right"></i>
+              </div>             
+              <div>
+              <a href='#'   role="button" >See details</a>
+              </div>
+
             </div>    
-            </div> : null }
-
-
-            <div className="col-md-12 col-sm-12 top-margin box">
-              <div className="collapse w-100 mt-3" id="collapseExample">
+           </div> 
+           
+           : null }
+            <div className="col-md-12 col-sm-12 mt-2 box">
+              <div className="collapse w-100 " id="collapseExample">
                 <div className="card card-body">
                   <ul>
                   <li>Project Name : {(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? cityFilteredProjects[selectedIndex].name : null} </li>
@@ -171,14 +177,17 @@ function MainPage() {
           </div>
 
           <div className="col-md-6 col-sm-12 work box" style={{marginTop: "100px"}}>
-            <div className="inner inner2 " style={{height:"360px"}}> 
+            <div className="inner inner2 " style={{height:"342px"}}> 
               <h6>Team</h6>
-              <h3 className="h3-responsive font-weight-bold">{otherData.team_title}</h3>
+              <h3 className="who-we-are-heading">Get to know us a little</h3>
+              <p>
+              Get to know the team of professionals behind <br/>those great works
+              </p>
               <Link to="/team">Meet our team</Link>
             </div> 
           </div>
           <div className="col-md-6 col-sm-12  mob-margin " style={{marginTop: "100px"}}>
-              <img src="/banner3.jpg" className="img-fluid" />     
+              <img src="/banner3.jpg" style={{width:"100%" , height:"auto"}} />     
             {/* <img src={otherData.team_image} className="img-fluid" />  */}
           </div>
 

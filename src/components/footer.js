@@ -68,7 +68,7 @@ function FooterComponent(props) {
 
       </div>
         {/* Desktop view */}
-      <div className="container-fluid desktop-view">
+      <div className="container-fluid desktop-view p-0">
         <div className='container' >
         <div className="row">
           <div className="col-md-8 p-3 row ">
@@ -109,7 +109,7 @@ function FooterComponent(props) {
           </div>
         </div>
         </div>
-        <hr/>
+        <hr />
         <div className='container ' >
         <div className="row ">
           <div className="col-md-5 ml-auto ">

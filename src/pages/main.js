@@ -177,13 +177,17 @@ function MainPage() {
           </div>
 
           <div className="col-md-6 col-sm-12 work box" style={{marginTop: "100px"}}>
-            <div className="inner inner2 " style={{height:"342px"}}> 
+            <div className="inner inner3 " style={{height:"342px"}}> 
               <h6>Team</h6>
               <h3 className="who-we-are-heading">Get to know us a little</h3>
               <p>
               Get to know the team of professionals behind <br/>those great works
               </p>
-              <Link to="/team">Meet our team</Link>
+              <Link className="nav-link Mobile-view" to="/work-at-acc/" >Apply now</Link>
+
+              <Link className="desktop-view" to="/team">Meet our team</Link>
+
+
             </div> 
           </div>
           <div className="col-md-6 col-sm-12  mob-margin " style={{marginTop: "100px"}}>

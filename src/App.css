@@ -904,10 +904,10 @@ box-shadow: #00000029 0.5px 0px 0px 0px;
       margin-left: 20px;
   }
   .Mobile-view{
-      display: none;
+      display: none !important;
   }
 .desktop-view{
-    display: block;
+    display: block !important;
 }
 .mobile-work-img{
     display: none;
@@ -929,6 +929,9 @@ padding: 0 !important;
     
 }
 @media screen and (max-width: 770px) {
+   .copyRight{
+       margin-top: 0px !important;
+   }
     .work-at-acc-mob-img{
         padding-left: 15px !important;
 padding-right: 15px !important;
@@ -1049,10 +1052,13 @@ display: none;
 }
 
 .desktop-view{
-    display: none;
+    display: none !important;
 }
 .Mobile-view{
-    display: block;
+    display: block !important;
+}
+.inner3{
+    height: 201px !important;
 }
 }
 

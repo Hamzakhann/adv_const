@@ -9,7 +9,7 @@ function FooterComponent(props) {
          <div className="container-fluid Mobile-view">
         <div className='container' >
         <div className="row">
-          <div className="col-md-8 p-3 row col-12 col-sm-12 row border-bottom">
+          <div className="col-md-8 p-3 row col-12 col-sm-12 row ">
           <ul className="nav pt-3 col-4 col-sm-4">
               <li className="nav-item">
                <Link style={{color:'black'}}  className="nav-link p-0 pb-2" to="/">Home</Link></li>
@@ -39,10 +39,10 @@ function FooterComponent(props) {
                 <Link style={{color:'black'}} className="nav-link p-0 pb-2" to="/contact-us">Contact Us</Link>
               </li>
               </ul>
-             </div>
 
+          </div>
 
-<div className=" row">
+<div className=" row border-top">
 
               <ul className="nav mr-0 w-50 col-5 col-sm-5 p-0">
                 <li className="nav-item "><a target="_blank" href="https://www.facebook.com/advancedconstructionsa/" className="nav-link icoFacebook social-icon mt-4" title="Facebook"><img src="/fb.png" /></a></li>
@@ -59,8 +59,7 @@ function FooterComponent(props) {
           </div>
         </div>
         </div>
-        <hr/>
-        <div className="row ">
+        <div className="row border-top mt-3">
           <div className="col-9 ml-auto">
             <p style={{color:'#000000', fontSize:'10px'}} className="copyRight">&copy; 1996-2020 Advance Construction Co. <span>All right Reserved</span></p>
           </div>

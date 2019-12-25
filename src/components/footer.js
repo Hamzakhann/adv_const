@@ -62,7 +62,7 @@ function FooterComponent(props) {
         <hr/>
         <div className="row ">
           <div className="col-9 ml-auto">
-            <p style={{color:'black', fontSize:'10px'}} className="copyRight">&copy; 1996-2020 Advance Construction Co. <span>All right Reserved</span></p>
+            <p style={{color:'#000000', fontSize:'10px'}} className="copyRight">&copy; 1996-2020 Advance Construction Co. <span>All right Reserved</span></p>
           </div>
         </div>
 
@@ -109,15 +109,16 @@ function FooterComponent(props) {
           </div>
         </div>
         </div>
-        </div>
         <hr/>
-        <div className='container' >
+        <div className='container ' >
         <div className="row ">
-          <div className="col-md-5 ml-auto">
+          <div className="col-md-5 ml-auto ">
             <p style={{color:'black'}} className="copyRight">&copy; 1996-2020 Advance Construction Co. <span>All right Reserved</span></p>
           </div>
         </div>
         </div>
+        </div>
+
     </footer>
   );
 }

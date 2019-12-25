@@ -74,15 +74,16 @@ function WorkAtAccPage(props) {
                   </button>
                 </form>
               </div>
+              <hr className="Mobile-view"/>
             </div>
 
-            <div className="col-md-6 col-sm-12 work-at-acc-image">
+            <div className="col-md-6 col-sm-12 p-0 work-at-acc-image">
               <img src="/contact-us-banner.png" className="img-fluid" />
             </div>
           </div>
           <div className="row">
-            <div className="col-md-6 col-sm-12 box work" style={{ marginTop: '100px' }}>
-              <div className="inner inner2" style={{ height: '374px', background: '#FFFDFD' }}>
+            <div className="col-md-6 col-sm-12 box works" style={{ marginTop: '100px' }}>
+              <div className="inner inner2 worked" style={{ height: '360px', background: '#FFFDFD' }}>
                 <h6>Team</h6>
                 <h3 className="h3-responsive who-we-are-heading font-weight-bold">Get to know us a little</h3>
                 <p>
@@ -96,7 +97,7 @@ function WorkAtAccPage(props) {
               </div>
             </div>
             <div className="col-md-6 col-sm-12 p-0 " style={{ marginTop: '100px' }}>
-              <img src="/banner3.jpg" className="img-fluid" />
+              <img src="/banner3.jpg" className="img-fluid work-at-acc-mob-img" />
             </div>
           </div>
 

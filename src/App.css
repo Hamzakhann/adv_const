@@ -929,7 +929,18 @@ padding: 0 !important;
     
 }
 @media screen and (max-width: 770px) {
-  .work-at-acc-image{
+    .work-at-acc-mob-img{
+        padding-left: 15px !important;
+padding-right: 15px !important;
+
+    }
+    .worked{
+      background: none !important;
+  }
+    .works{
+      margin-top: 0px !important;
+  }
+    .work-at-acc-image{
       display: none;
   }
     .buton{

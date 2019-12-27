@@ -40,9 +40,14 @@ function MainPage() {
 
 
   const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-    setDirection(e.direction);
-
+    console.log("hello select" , cityFilteredProjects.length)
+    if(cityFilteredProjects.length > selectedIndex + 1){
+      setIndex(selectedIndex);
+      setDirection(e.direction);
+    }else{
+      setIndex(0);
+      setDirection(e.direction);  
+    }
   };
 
   const onChangeCity = (city) => {
@@ -59,7 +64,7 @@ function MainPage() {
             <div className="container">
             <div className="row header-text">
                 <div className="col-md-12 white-text text-left text-md-left mt-xl-5 mb-5  wow">
-                <h6 >What we do</h6>
+                <h6 className='what-we' >What we do</h6>
                 <p className="main-page-h1">Facing new challenges with<br />excellence and innovation</p>
                 </div>
             </div>
@@ -100,19 +105,16 @@ function MainPage() {
               <div className="inner">
                 <h6>{(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? cityFilteredProjects[selectedIndex].city +' ' + cityFilteredProjects[selectedIndex].type: null }</h6>
                 <h3 className="h3-responsive font-weight-bold">{ (cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? cityFilteredProjects[selectedIndex].short_description: null }</h3>
-                <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">See details</a>
+                <a style={{fontSize:"16px"}} data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-arrow-down"></i></a>
               </div>  
           </div> : null }
           { (cityFilteredProjects && cityFilteredProjects.length > 0) ? 
           <div className="col-md-2 col-sm-12 top-margin">
             <div className="inner" style={{ padding: "30px" }}>
          
-              <h6>{(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? cityFilteredProjects[selectedIndex].city +' ' + cityFilteredProjects[selectedIndex].type: null }</h6>
-              <div style={{position:"absolute" , right:"-15%" , top:"28%" , fontSize:"35px"}} >
-              <i style={{cursor:'pointer'}} onClick={() => history.push('/product-details/' + cityFilteredProjects[selectedIndex].id ,  {projects:cityFilteredProjects})} class="fas fa-arrow-right"></i>
-              </div>             
+              <h6>{(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? (cityFilteredProjects[selectedIndex + 1].city ? cityFilteredProjects[selectedIndex + 1].city : cityFilteredProjects[selectedIndex].city) +' ' + (cityFilteredProjects[selectedIndex + 1].type ? cityFilteredProjects[selectedIndex + 1].type : cityFilteredProjects[selectedIndex].type): null }</h6>      
               <div>
-              <a href='#'   role="button" >See details</a>
+              <a href='#'  style={{cursor:'pointer'}} onClick={() => history.push('/product-details/' + cityFilteredProjects[selectedIndex +1].id ,  {projects:cityFilteredProjects})}  role="button" >See details</a>
               </div>
 
             </div>    
@@ -128,6 +130,9 @@ function MainPage() {
                   <li>Long Description : {(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? cityFilteredProjects[selectedIndex].long_description : null} </li>
                   <li>Total Price : {(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? cityFilteredProjects[selectedIndex].total_price : null} </li>
                   </ul> 
+                  <div>
+              <a href='#'  style={{cursor:'pointer' , float:"right" , color:"#C92027" , fontWeight:"bold"}} onClick={() => history.push('/product-details/' + cityFilteredProjects[selectedIndex].id ,  {projects:cityFilteredProjects})}  role="button" >See details</a>
+              </div>   
                 </div>            
               </div>
             </div>
@@ -142,7 +147,7 @@ function MainPage() {
             <div className="inner2 inner" style={{height:"340px"}}>
               <h6>Work With Us</h6>
               <h3 className="h3-responsive font-weight-bold">Join Our Community of qualified professionals</h3>
-              <Link className="nav-link" to="/work-at-acc/" >Apply now</Link>
+              <Link style={{marginLeft:"-15px"}} className="nav-link" to="/work-at-acc/" >Apply now</Link>
             </div> 
           </div>
           <div className="col-md-6 col-sm-12 box mobile-work-img" >
@@ -153,8 +158,8 @@ function MainPage() {
               <div className="icon">
               <img src="/2.svg" className="main-page-icon" />
               </div> 
-              <h3 className="h3-responsive font-weight-bold" style={{fontSize:"20px"}}>{otherData.service_1_title}</h3>
-              <p>{otherData.service_1_desc}</p>
+              <h3 className="h3-responsive who-we-are-content-edit font-weight-bold" style={{fontSize:"30px"}}>{otherData.service_1_title}</h3>
+              <p className='font-weight-bold who-we-are-content-edit' >{otherData.service_1_desc}</p>
             </div> 
           </div>
           <div className="col-md-4 col-sm-12 mob-margin box" style={{marginTop: "100px"}}>
@@ -162,8 +167,8 @@ function MainPage() {
               <div className="icon">
                 <img src="/1.svg" className="main-page-icon" />
               </div>
-              <h3 className="h3-responsive font-weight-bold" style={{fontSize:"20px"}}>{otherData.service_2_title}</h3>
-              <p>{otherData.service_2_desc}g</p>
+              <h3 className="h3-responsive who-we-are-content-edit font-weight-bold" style={{fontSize:"30px"}}>{otherData.service_2_title}</h3>
+              <p className='font-weight-bold who-we-are-content-edit' >{otherData.service_2_desc}</p>
             </div> 
           </div>
           <div className="col-md-4 col-sm-12 mob-margin" style={{marginTop: "100px"}}>
@@ -171,8 +176,8 @@ function MainPage() {
               <div className="icon">
                 <img src="/3.svg" className="main-page-icon" />
               </div>
-              <h3 className="h3-responsive font-weight-bold" style={{fontSize:"20px"}}>{otherData.service_3_title}</h3>
-              <p>{otherData.service_3_desc}</p>
+              <h3 className="h3-responsive who-we-are-content-edit font-weight-bold" style={{fontSize:"30px"}}>{otherData.service_3_title}</h3>
+              <p className='font-weight-bold who-we-are-content-edit' >{otherData.service_3_desc}</p>
             </div> 
           </div>
 

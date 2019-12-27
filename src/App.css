@@ -47,13 +47,23 @@ p{   font-family: 'FoundersGroteskWeb-Regular'; }
 
 
 .navbar-brand img{ 
-    padding: 5px !important;
-    width: 220px !important;  
-    height: 90px !important;
-    margin-left: 10px !important;
+    padding: 7px !important;
+    width: 230px !important;
+    height: 85px !important;
+    margin-left: 14px !important;
+    margin-top: 2px !important;
 }
 
-.dropdown-menu{ margin: 2rem 0 0 !important; background-color: #000000 !important; }
+.dropdown-menu{
+    display: flex !important;
+    justify-content: space-evenly !important;
+    align-items: center;
+    margin: 2rem 0 0 !important; 
+    background-color: #000000 !important;
+    font-size: small !important;
+    font-family: 'NationWeb' !important;
+    
+}
 
 .dropdown-item:focus, .dropdown-item:hover {
     background-color: transparent !important;
@@ -165,6 +175,7 @@ h6{
     box-shadow: unset;
 }
 .nav-container{
+    height: 85px !important;
     background: #fff;
 }
 
@@ -264,8 +275,9 @@ ul.social-network li {
 }
 
 .copyRight{
-    color:#707070;
-    margin-top: 20px;
+    color: #707070 !important;
+    margin-top: 20px !important;
+    margin-left: 30px !important;
 }
 
 
@@ -733,7 +745,7 @@ section{
 .navbar-expand-md .navbar-nav .dropdown-menu {
     position: absolute;
     /* right: -8px; */
-    left: -127px !important;
+    left: -93px !important;
 }
 
 .job-tabs-list li{
@@ -758,6 +770,7 @@ section{
     font-family: 'FoundersGroteskWeb-Regular' !important;
     word-spacing: 0.2em;
     line-height: 50px !important;
+    margin-left: 55px !important;
 }
 
 .main-page-icon{
@@ -785,30 +798,30 @@ section{
     display: inherit;
 }
 .all-img{
-    width: 38px !important;
-    height: 37px !important;
-    margin-top: -12px !important;
+    width: 31px !important;
+    height: 36px !important;
+    margin-top: -13px !important;
 
 }
 
 .road-img{
-    width: 38px !important;
-    height: 43px !important;
-    margin-top: -22px !important;
+    width: 33px !important;
+    height: 42px !important;
+    margin-top: -21px !important;
 }
 .building-img{
-    width: 38px !important;
-    height: 38px !important;
-    margin-top: -19px !important;
+    width: 33px !important;
+    height: 36px !important;
+    margin-top: -14px !important;
 }
 .marine-img{
-    width: 57px !important;
-    height: 28px !important;
-    margin-top: -9px !important;
+    width: 48px !important;
+    height: 25px !important;
+    margin-top: -4px !important;
 }
 .bridge-img{
-    width: 57px !important;
-    margin-top: -1px !important;
+    width: 48px !important;
+    margin-top: 5px !important;
 }
 
 @media (max-width: 1440px){
@@ -1085,4 +1098,18 @@ display: none;
     margin-left: 15px !important;
     font-size: 30px !important;
     color: #383636;
+}
+
+.s-btn{
+    border-radius: -0.7rem !important;
+}
+
+nav{
+    width: 75% !important;
+    margin: 0 auto !important;
+    height: 100px !important;
+}
+
+.what-we{
+    margin-left: 55px !important;
 }

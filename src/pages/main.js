@@ -194,7 +194,7 @@ function MainPage() {
               <p>
               Get to know the team of professionals behind <br/>those great works
               </p>
-              <Link className="nav-link Mobile-view" to="/work-at-acc/" >Apply now</Link>
+              <Link className="nav-link pl-0 Mobile-view" to="/work-at-acc/" >Apply now</Link>
 
               <Link className="desktop-view" to="/team">Meet our team</Link>
 

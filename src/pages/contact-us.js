@@ -14,22 +14,22 @@ const ContactUsPage = () => {
         <div style={{ background: '#fff' }}>
             <HeaderComponent style={{ background: "#fff" }} topclassName={" mob-header"}></HeaderComponent>
         	<main style={{background: "#fff"}} className="mt-5 mb-4">
-    	<div class="container">
+    	<div class="container ">
     		<div class="row contactUs-text-container">
     			<div class="col-md-6 col-sm-12 contactInfo">
     			    <h3 class="h3-responsive font-weight-bold aboutus who-we-are-heading ">Contact Us</h3>
     			    <p className='who-we-are-heading'>INQUIRIES<br />
     			     <a href="mailto:projects@advanceconstruction.com.sa" class="contactEmail who-we-are-heading">{contact ? contact.email: null}</a>
     			    </p>
-    			    <p className='who-we-are-heading'>PHONE NUMBERS</p>
-					{contact ? contact.phone.map(cell => (<p>{cell}</p>)) : null}
-    			    <p  class="who-we-are-heading">ADDRESS<br />
+    			    <p className='who-we-are-heading mb-0'>PHONE NUMBERS</p>
+					{contact ? contact.phone.map(cell => (<p className="mb-0 who-we-are-heading">{cell}</p>)) : null}
+    			    <p  class="who-we-are-heading mt-3">ADDRESS<br />
 					{contact ? contact.address: null}
     			    </p>
     			</div>
     			
     			<div class="col-md-6 col-sm-12">
-    			    <img src="/contact-us.jpg" style={{marginTop:'22px' , maxWidth:'100%' , height:'400px'}} />
+    			    <img className="mob-image" src="/contact-us.jpg" style={{marginTop:'22px' , maxWidth:'100%' , height:'400px'}} />
     			</div>
     		</div>
     	

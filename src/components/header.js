@@ -11,7 +11,7 @@ function HeaderComponent(props) {
   }
   
   const openNav=()=> {
-    document.getElementById("mySidenav").style.width="70%";
+    document.getElementById("mySidenav").style.width="289px";
     document.getElementById("Overly").style.display="block";
   
   }

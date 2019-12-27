@@ -948,6 +948,7 @@ padding: 0 !important;
     
 }
 @media screen and (max-width: 770px) {
+  
     
     .fixed-top-header {
         right: unset;
@@ -1000,6 +1001,7 @@ padding-right: 15px !important;
     .mob-header{
        padding-top: 30px !important;
        padding-bottom: 0px !important;
+       margin-left: 0px !important;
 
    }
     .main-page-h1 {

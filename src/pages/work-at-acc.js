@@ -26,9 +26,9 @@ function WorkAtAccPage(props) {
     <div id='top' style={{ background: '#fff' }}>
       <HeaderComponent  topclassName={" mob-header"}/>
     { scroll ? <main style={{ background: '#fff' }} className="mb-md-4 mt-md-4">
-        <div className="container">
+        <div  className="container">
           <div className="row contactUs-text-container">
-            <div className="col-md-4 mr-md-auto col-sm-12">
+            <div className="col-md-5 mr-md-auto col-sm-12">
               <div className="contactUs-text">
                 <h4 className="h3-responsive who-we-are-heading font-weight-bold work-at-acc-h4">
                   We are always looking for <br/>
@@ -69,7 +69,7 @@ function WorkAtAccPage(props) {
                       </div>
                     </div>
                   </div>
-                  <button type="submit" className="btn btn-lg btn-danger buton">
+                  <button type="submit" className="btn btn-lg btn-danger buton s-btn">
                     Send
                   </button>
                 </form>

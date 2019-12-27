@@ -112,7 +112,7 @@ function FooterComponent(props) {
         <div className='container ' >
         <div className="row ">
           <div className="col-md-5 ml-auto ">
-            <p style={{color:'black'}} className="copyRight">&copy; 1996-2020 Advance Construction Co. <span>All right Reserved</span></p>
+            <p  className="copyRight">&copy; 1996-2020 Advance Construction Co. <span>All right Reserved</span></p>
           </div>
         </div>
         </div>

@@ -909,12 +909,18 @@ box-shadow: #00000029 0.5px 0px 0px 0px;
 .desktop-view{
     display: block !important;
 }
+.desktop-view2{
+    display: -webkit-inline-box !important;
+}
 .mobile-work-img{
     display: none;
 }
 .img-logo-mobile{
     display: none;
    
+}
+.arrow-margin{
+    margin-left: 270px;
 }
 /* .navbar-brand img{
 width: auto !important;
@@ -929,6 +935,13 @@ padding: 0 !important;
     
 }
 @media screen and (max-width: 770px) {
+    
+    .mob-view-margin{
+        margin-top: 60px !important;
+    }
+ .mob-cv-upload{
+        height: 100px !important;
+    }
    .copyRight{
        margin-top: 0px !important;
    }
@@ -1054,6 +1067,9 @@ display: none;
 .desktop-view{
     display: none !important;
 }
+.desktop-view2{
+    display: none !important;
+}
 .Mobile-view{
     display: block !important;
 }
@@ -1086,3 +1102,4 @@ display: none;
     font-size: 30px !important;
     color: #383636;
 }
+

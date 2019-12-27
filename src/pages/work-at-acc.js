@@ -55,12 +55,12 @@ function WorkAtAccPage(props) {
                     <label for="curriculumvita">curriculum (CV)</label>
                     <div className="file-upload-wrapper  ">
                       <div className="card  card-body file-upload">
-                        <div className="card-text file-upload-message ">
-                          <p>
+                        <div className="card-text text-center file-upload-message mob-cv-upload ">
+                           <p className="desktop-view">
                             Drop Your Curriculum Here
                             <br />
                             or
-                          </p>
+                          </p> 
                           <p>
                             <span>Choose A File</span>
                           </p>

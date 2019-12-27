@@ -104,8 +104,8 @@ function MainPage() {
               </div>  
           </div> : null }
           { (cityFilteredProjects && cityFilteredProjects.length > 0) ? 
-          <div className="col-md-2 col-sm-12 top-margin">
-            <div className="inner" style={{ padding: "30px" }}>
+          <div className="col-md-2 col-sm-12 top-margin ">
+            <div className="inner desktop-view" style={{ padding: "30px" }}>
          
               <h6>{(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? cityFilteredProjects[selectedIndex].city +' ' + cityFilteredProjects[selectedIndex].type: null }</h6>
               <div style={{position:"absolute" , right:"-15%" , top:"28%" , fontSize:"35px"}} >
@@ -115,8 +115,14 @@ function MainPage() {
               <a href='#'   role="button" >See details</a>
               </div>
 
-            </div>    
+            </div>  
+            <div style={{position:"absolute"  ,  fontSize:"35px"}} className="Mobile-view">
+            <i style={{cursor:'pointer', background:"white" }}  class=" fas fa-arrow-left"></i>
+
+            <i style={{cursor:'pointer', background:"white"}}  class="fas fa-arrow-right arrow-margin"></i>
+</div>
            </div> 
+           
            
            : null }
             <div className="col-md-12 col-sm-12 mt-2 box">
@@ -138,8 +144,8 @@ function MainPage() {
           <div className="col-md-6 col-sm-12 box desktop-work-img" style={{marginTop: "100px"}}>
             <img src="/banner2.jpg" className="img-fluid" />    
           </div>
-          <div className="col-md-6 col-sm-12 col-12 work" style={{marginTop: "100px"}}>
-            <div className="inner2 inner" style={{height:"340px"}}>
+          <div className="col-md-6 col-sm-12 col-12 mob-view-margin work" style={{marginTop: "100px"}}>
+            <div className="inner2 inner inner4" style={{height:"340px"}}>
               <h6>Work With Us</h6>
               <h3 className="h3-responsive font-weight-bold">Join Our Community of qualified professionals</h3>
               <Link className="nav-link" to="/work-at-acc/" >Apply now</Link>
@@ -176,7 +182,7 @@ function MainPage() {
             </div> 
           </div>
 
-          <div className="col-md-6 col-sm-12 work box" style={{marginTop: "100px"}}>
+          <div className="col-md-6 col-sm-12 work box mob-view-margin" style={{marginTop: "100px"}}>
             <div className="inner inner3 " style={{height:"342px"}}> 
               <h6>Team</h6>
               <h3 className="who-we-are-heading">Get to know us a little</h3>

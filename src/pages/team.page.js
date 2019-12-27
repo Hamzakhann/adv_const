@@ -45,7 +45,7 @@ function TeamPage() {
                         )): null} 
                 </div>
             </main>
-            <section className='mb-n5' >
+            <section className='mb-n5 desktop-view' >
                 <div className="container p-0 mb-4">
                     <div className="row">
                         <div className="col-md-6 col-sm-12 " style={{marginTop: "20px"}}>

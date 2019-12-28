@@ -80,7 +80,7 @@ function MainPage() {
           <div className="col-md-12 col-sm-12 text-center">
 
 
-                <ul className="nav nav-pills nav-justified mb-3" id="myTab" role="tablist">
+                <ul className="nav nav-pills mob-tab nav-justified mb-3" id="myTab" role="tablist">
                   {cities ? cities.map(city => (<li className="nav-item" key={city.id}>
                     <a className={selectedCity === city.name ? 'nav-link p-3 active': 'nav-link p-3'} id={city.id + '-tab'} data-toggle="tab" href="#one" role="tab" aria-controls={city.id}  onClick={() => onChangeCity(city.name)}>{city.name}</a>
                   </li>)) : null}

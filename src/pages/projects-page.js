@@ -140,8 +140,8 @@ export default function ProjectsPage() {
                   </div>
 
 
-                  <div >
-                    <ul className="nav nav-pills mb-3">
+                  <div className= ' project-page-tab '>
+                    <ul className="nav nav-pills mob-tab nav-justified mb-3 project-page-border " role="tablist">
 
                     <li className="nav-item" >
                               <a className={ selectedCity === 'all' ? "nav-link p-2 active"
@@ -199,7 +199,7 @@ export default function ProjectsPage() {
                 </div>
 
                 <div className="mt-4">
-                  <div className="" >
+                  <div  >
                     <div className="container">
                       <div className="row">
                         {isLoading ? 'Loading........' : cityFilteredProjects && cityFilteredProjects.length ? (

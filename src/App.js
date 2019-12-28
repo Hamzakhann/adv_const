@@ -23,6 +23,7 @@ import AdminWorkWithUsPage from './pages/admin-work-with-us.page';
 import AdminWhoWeArePage from './pages/admin-who-we-are.page';
 import AdminHomePage from './pages/admin-home.page';
 import AdminJobPage from './pages/admin-job.page';
+import Carosal from './components/Carosal';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
             <Route path="/admin/who-we-are" component={AdminWhoWeArePage} />
             <Route path="/admin/home" component={AdminHomePage} />
             <Route path="/admin/jobs" component={AdminJobPage} />
+            <Route path="/carousal" component={Carosal} />
           </Switch>
         </div>
         </ScrollToTop>

@@ -731,7 +731,7 @@ section{
 
 .who-we-are-heading{
     font-family: 'NationWeb' !important;
-    font-weight: bold;
+    font-weight: bold !important;
 }
 .who-h1{
     font-family: 'NationWeb' !important;
@@ -1026,10 +1026,6 @@ padding-right: 15px !important;
     .who-we-are-img-1{
         height: 300px !important;
   }
-    .who-we-are-heading{
-    padding-right: 0px !important;
-    font-weight: bolder !important;
-  }
   .who-we-are-content-edit p{
       padding-right: 0px !important;
   }
@@ -1150,4 +1146,8 @@ nav{
 
 .what-we{
     margin-left: 55px ;
+}
+
+.founder-font{
+    font-family: 'FoundersGroteskWeb-Regular' !important;
 }

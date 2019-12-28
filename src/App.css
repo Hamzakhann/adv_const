@@ -903,7 +903,7 @@ box-shadow: #00000029 0.5px 0px 0px 0px;
     margin-left: 50px;
   }
   .sideNav-logo{
-      padding: 15px 15px 15px 15px;
+      padding: 25px 25px 25px 25px;
       width: 100% !important;
   }
   .Mobile-header{
@@ -922,12 +922,18 @@ box-shadow: #00000029 0.5px 0px 0px 0px;
 .desktop-view{
     display: block !important;
 }
+.desktop-view2{
+    display: -webkit-inline-box !important;
+}
 .mobile-work-img{
     display: none;
 }
 .img-logo-mobile{
     display: none;
    
+}
+.arrow-margin{
+    margin-left: 270px;
 }
 /* .navbar-brand img{
 width: auto !important;
@@ -942,6 +948,29 @@ padding: 0 !important;
     
 }
 @media screen and (max-width: 770px) {
+  
+    
+    .fixed-top-header {
+        right: unset;
+    }
+    .what-we{
+        margin-left: 0px !important;
+    }
+    .main-page-h1{
+       
+        margin-left: 0px !important;
+    }
+    .mob-image{
+        height: 300px !important;
+    }
+    
+    .mob-view-margin{
+        margin-top: 60px !important;
+    
+    }
+ .mob-cv-upload{
+        height: 100px !important;
+    }
    .copyRight{
        margin-top: 0px !important;
    }
@@ -972,6 +1001,7 @@ padding-right: 15px !important;
     .mob-header{
        padding-top: 30px !important;
        padding-bottom: 0px !important;
+       margin-left: 0px !important;
 
    }
     .main-page-h1 {
@@ -998,11 +1028,13 @@ padding-right: 15px !important;
   }
     .who-we-are-heading{
     padding-right: 0px !important;
+    font-weight: bolder !important;
   }
   .who-we-are-content-edit p{
       padding-right: 0px !important;
   }
     .mob{
+        margin-bottom: 100% !important;
             margin-left: 0px !important;
             width: 137px !important;
             height: 52px !important;
@@ -1067,11 +1099,17 @@ display: none;
 .desktop-view{
     display: none !important;
 }
+.desktop-view2{
+    display: none !important;
+}
 .Mobile-view{
     display: block !important;
 }
 .inner3{
     height: 201px !important;
+}
+.copyRight{
+    margin-left: 0px !important;
 }
 }
 
@@ -1111,5 +1149,5 @@ nav{
 }
 
 .what-we{
-    margin-left: 55px !important;
+    margin-left: 55px ;
 }

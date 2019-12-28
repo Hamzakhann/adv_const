@@ -162,28 +162,28 @@ function MainPage() {
           <div className="col-md-4 col-sm-12 box mob-margin" style={{marginTop: "100px"}}>
             <div className="inner">
               <div className="icon">
-              <img src="/2.svg" className="main-page-icon" />
+              <img src="/2.svg" className="main-page-icon mb-3" />
               </div> 
-              <h3 className="h3-responsive who-we-are-content-edit font-weight-bold" style={{fontSize:"30px"}}>{otherData.service_1_title}</h3>
-              <p className='font-weight-bold who-we-are-content-edit' >{otherData.service_1_desc}</p>
+              <h3 className="h3-responsive who-we-are-content-edit font-weight-bold" style={{fontSize:"30px" , color:"black" , fontWeight:"bold"}}>{otherData.service_1_title}</h3>
+              <p className='font-weight-bold who-we-are-content-edit' style={{color:'black' , fontWeight:"bold"}} >{otherData.service_1_desc}</p>
             </div> 
           </div>
           <div className="col-md-4 col-sm-12 mob-margin box" style={{marginTop: "100px"}}>
             <div className="inner">
               <div className="icon">
-                <img src="/1.svg" className="main-page-icon" />
+                <img src="/1.svg" className="main-page-icon mb-3" />
               </div>
               <h3 className="h3-responsive who-we-are-content-edit font-weight-bold" style={{fontSize:"30px"}}>{otherData.service_2_title}</h3>
-              <p className='font-weight-bold who-we-are-content-edit' >{otherData.service_2_desc}</p>
+              <p className='font-weight-bold who-we-are-content-edit' style={{color:'black' , fontWeight:"bold"}} >{otherData.service_2_desc}</p>
             </div> 
           </div>
           <div className="col-md-4 col-sm-12 mob-margin" style={{marginTop: "100px"}}>
             <div className="inner">
               <div className="icon">
-                <img src="/3.svg" className="main-page-icon" />
+                <img src="/3.svg" className="main-page-icon mb-3" />
               </div>
               <h3 className="h3-responsive who-we-are-content-edit font-weight-bold" style={{fontSize:"30px"}}>{otherData.service_3_title}</h3>
-              <p className='font-weight-bold who-we-are-content-edit' >{otherData.service_3_desc}</p>
+              <p className='font-weight-bold who-we-are-content-edit' style={{color:'black' , fontWeight:"bold"}} >{otherData.service_3_desc}</p>
             </div> 
           </div>
 

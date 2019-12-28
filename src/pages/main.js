@@ -8,7 +8,7 @@ import FooterComponent from '../components/footer';
 import projectService from '../services/front/project.service';
 import CitiesService from '../services/cities.service';
 import indexPageService from '../services/front/index.service';
-
+import './carosal.css';
 
 function MainPage() {
   let history = useHistory();
@@ -20,8 +20,8 @@ function MainPage() {
   const [cityFilteredProjects, setCityFilteredProjects] = useState();
   const [selectedIndex, setIndex] = useState(0);
   const [direction, setDirection] = useState(null);
-
-  
+  const [others , setOthers] = useState('')
+  const [index, setCIndex] = useState(0);
 
   useEffect(() => {
     indexPageService.getAll().then(res => { 
@@ -31,15 +31,19 @@ function MainPage() {
 
       setCityFilteredProjects(res.slider_data.filter(project => project.city === city));
       setSelectedCity(city);
+      let newData = res.slider_data.filter(project => project.city === city)
+      setOthers([...newData.slice(1,newData.length) , newData[0]])
     });
 
     const ciitesService = new CitiesService();
     ciitesService.getAll().then(res => setCities(res));
+
    
   }, [])
 
 
   const handleSelect = (selectedIndex, e) => {
+    console.log(cityFilteredProjects , 'hhhh')
     console.log("hello select" , cityFilteredProjects.length)
     if(cityFilteredProjects.length > selectedIndex + 1){
       setIndex(selectedIndex);
@@ -51,11 +55,27 @@ function MainPage() {
   };
 
   const onChangeCity = (city) => {
+    
     setCityFilteredProjects(projects.filter(project => project.city === city));
     setSelectedCity(city);
+    let newData = projects.filter(project => project.city === city)
+    if(newData.length < 4){
+      alert("Not Enough Data")
+    }else{
+      setOthers([...newData.slice(1,newData.length) , newData[0]])
+    }
     // console.log('filtered city ', projects.filter(project => project.city === city));
   }
-
+  const setcarosal = () =>{
+      
+    if(index < cityFilteredProjects.length-1){
+        setCIndex(index+1)
+    }else{
+        setCIndex(0)
+    }
+    let newArry = others.splice(0,1)
+    setOthers([...others , ...newArry])
+}
   return (
       <div >
       <HeaderComponent topclassName={"fixed-top-header"}>
@@ -87,13 +107,44 @@ function MainPage() {
                 </ul>
 
 
-              <div className="tab-content" id="myTabContent">
-               <Carousel indicators={false} activeIndex={selectedIndex} direction={direction} onSelect={handleSelect} interval={null} stopOnHover>
-               { cityFilteredProjects ? cityFilteredProjects.map((project,index) => (
-                <Carousel.Item key={index}>
-                  <img className="d-block w-100" src={project.image} alt="First slide" />
-                </Carousel.Item> )) : null}
-              </Carousel> 
+                <div className='slider-container' >
+              <Carousel indicators={false} activeIndex={index} direction={direction} controls={false}>
+              {cityFilteredProjects && cityFilteredProjects.map((project)=>{
+              return(
+                <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src={project.image}
+                  alt="First slide"
+                  className='id-block w-100'
+                />
+                </Carousel.Item>
+              )
+          })}
+      </Carousel>
+      <div className='side-crop' >
+      <img
+            className="d-block w-100 sm-carosal"
+            src={others && others[0].image}
+            alt="Third slide"
+          />
+      </div>
+      <div className='side-crop' >
+      <img
+            className="d-block w-100 sm-carosal"
+            src={others && others[1].image}
+            alt="Third slide"
+
+          />
+      </div>
+      <div className='side-crop' >
+      <img
+            className="d-block w-100 sm-carosal"
+            src={others && others[2].image}
+            alt="Third slide"
+
+          />
+      </div>
               </div>
 
           
@@ -111,18 +162,21 @@ function MainPage() {
           { (cityFilteredProjects && cityFilteredProjects.length > 0) ? 
           <div className="col-md-2 col-sm-12 top-margin ">
             <div className="inner desktop-view" style={{ padding: "30px" }}>
-         
-              <h6>{(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? (cityFilteredProjects[selectedIndex + 1].city ? cityFilteredProjects[selectedIndex + 1].city : cityFilteredProjects[selectedIndex].city) +' ' + (cityFilteredProjects[selectedIndex + 1].type ? cityFilteredProjects[selectedIndex + 1].type : cityFilteredProjects[selectedIndex].type): null }</h6>      
-              <div>
+             <div style={{display:"flex"}} >
+             <div>
+              <h6>{(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? (cityFilteredProjects[selectedIndex + 1].city ? cityFilteredProjects[selectedIndex + 1].city : cityFilteredProjects[selectedIndex].city) +' ' + (cityFilteredProjects[selectedIndex + 1].type ? cityFilteredProjects[selectedIndex + 1].type : cityFilteredProjects[selectedIndex].type): null }</h6>
               <a href='#'  style={{cursor:'pointer'}} onClick={() => history.push('/product-details/' + cityFilteredProjects[selectedIndex +1].id ,  {projects:cityFilteredProjects})}  role="button" >See details</a>
               </div>
-
+              <div style={{position:"absolute" , float:"right" , right:"-14%" , top:"34%"}} >
+              <i onClick={()=> setcarosal()} class="fas fa-arrow-right" style={{fontSize:"37px" , cursor:"pointer"}} ></i>
+              </div>
+             </div>
             </div>  
             <div style={{position:"absolute"  ,  fontSize:"35px"}} className="Mobile-view">
             <i style={{cursor:'pointer', background:"white" }}  class=" fas fa-arrow-left"></i>
 
             <i style={{cursor:'pointer', background:"white"}}  class="fas fa-arrow-right arrow-margin"></i>
-</div>
+            </div>
            </div> 
            
            

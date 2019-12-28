@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Carousel } from "react-responsive-carousel";
 
 
 function ProjectComponent(props) {
   return (
-    <div style={{cursor:'pointer'}} onClick={() => props.onClick()} className="col-md-6 col-sm-6 col-6 mb-md-5" key={props.project.id}>
+    <div style={{cursor:'pointer'}} onClick={() => props.onClick()} className="project-comp-mob col-md-6 col-sm-6 col-6 mb-md-5 " key={props.project.id}>
       <Carousel  autoPlay={false} 
         showArrows	= {false}
         showThumbs={false}

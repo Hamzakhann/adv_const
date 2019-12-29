@@ -64,6 +64,7 @@ function MainPage() {
     }else{
       setOthers([...newData.slice(1,newData.length) , newData[0]])
     }
+    setCIndex(0)
     // console.log('filtered city ', projects.filter(project => project.city === city));
   }
   const setcarosal = () =>{
@@ -154,8 +155,8 @@ function MainPage() {
           { (cityFilteredProjects && cityFilteredProjects.length > 0) ? 
           <div className="col-md-10 col-sm-12 top-margin box">
               <div className="inner">
-                <h6>{(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? cityFilteredProjects[selectedIndex].city +' ' + cityFilteredProjects[selectedIndex].type: null }</h6>
-                <h3 className="h3-responsive font-weight-bold">{ (cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? cityFilteredProjects[selectedIndex].short_description: null }</h3>
+                <h6>{(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[index]) ? cityFilteredProjects[index].city +' ' + cityFilteredProjects[index].type: null }</h6>
+                <h3 className="h3-responsive font-weight-bold">{ (cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[index]) ? cityFilteredProjects[index].short_description: null }</h3>
                 <a style={{fontSize:"16px"}} data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-arrow-down"></i></a>
               </div>  
           </div> : null }
@@ -164,8 +165,9 @@ function MainPage() {
             <div className="inner desktop-view" style={{ padding: "30px" }}>
              <div style={{display:"flex"}} >
              <div>
-              <h6>{(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? (cityFilteredProjects[selectedIndex + 1].city ? cityFilteredProjects[selectedIndex + 1].city : cityFilteredProjects[selectedIndex].city) +' ' + (cityFilteredProjects[selectedIndex + 1].type ? cityFilteredProjects[selectedIndex + 1].type : cityFilteredProjects[selectedIndex].type): null }</h6>
-              <a href='#'  style={{cursor:'pointer'}} onClick={() => history.push('/product-details/' + cityFilteredProjects[selectedIndex +1].id ,  {projects:cityFilteredProjects})}  role="button" >See details</a>
+              <h6  style={{lineHeight:"0.7em"}} >{cityFilteredProjects && (cityFilteredProjects[index+1] === undefined ? cityFilteredProjects[0].type :cityFilteredProjects[index +1].type)}</h6>
+               <h4 style={{fontWeight:"bold", lineHeight:"0.8em", width:"73px",whiteSpace:"nowrap" , overflow:"hidden" , textOverflow:"clip"}} >{cityFilteredProjects && (cityFilteredProjects[index+1] === undefined ? cityFilteredProjects[0].short_description :cityFilteredProjects[index +1].short_description)}</h4>
+                  <a   style={{cursor:'pointer'}} onClick={() => history.push('/product-details/' + cityFilteredProjects[(index + 1) == undefined ? 0 :(index+1)].id ,  {projects:cityFilteredProjects})}  role="button" >See details</a>
               </div>
               <div style={{position:"absolute" , float:"right" , right:"-14%" , top:"34%"}} >
               <i onClick={()=> setcarosal()} class="fas fa-arrow-right" style={{fontSize:"37px" , cursor:"pointer"}} ></i>
@@ -185,13 +187,13 @@ function MainPage() {
               <div className="collapse w-100 " id="collapseExample">
                 <div className="card card-body">
                   <ul>
-                  <li>Project Name : {(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? cityFilteredProjects[selectedIndex].name : null} </li>
-                  <li>Short Description : {(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? cityFilteredProjects[selectedIndex].short_description : null} </li>
-                  <li>Long Description : {(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? cityFilteredProjects[selectedIndex].long_description : null} </li>
-                  <li>Total Price : {(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[selectedIndex]) ? cityFilteredProjects[selectedIndex].total_price : null} </li>
+                  <li>Project Name : {(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[index]) ? cityFilteredProjects[index].name : null} </li>
+                  <li>Short Description : {(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[index]) ? cityFilteredProjects[index].short_description : null} </li>
+                  <li>Long Description : {(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[index]) ? cityFilteredProjects[index].long_description : null} </li>
+                  <li>Total Price : {(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[index]) ? cityFilteredProjects[index].total_price : null} </li>
                   </ul> 
                   <div>
-              <a href='#'  style={{cursor:'pointer' , float:"right" , color:"#C92027" , fontWeight:"bold"}} onClick={() => history.push('/product-details/' + cityFilteredProjects[selectedIndex].id ,  {projects:cityFilteredProjects})}  role="button" >See details</a>
+              <a href='#'  style={{cursor:'pointer' , float:"right" , color:"#C92027" , fontWeight:"bold"}} onClick={() => history.push('/product-details/' + cityFilteredProjects[index].id ,  {projects:cityFilteredProjects})}  role="button" >See details</a>
               </div>   
                 </div>            
               </div>

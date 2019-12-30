@@ -67,6 +67,7 @@ function MainPage() {
     setCIndex(0)
     // console.log('filtered city ', projects.filter(project => project.city === city));
   }
+
   const setcarosal = () =>{
       
     if(index < cityFilteredProjects.length-1){
@@ -74,9 +75,11 @@ function MainPage() {
     }else{
         setCIndex(0)
     }
+   
     let newArry = others.splice(0,1)
     setOthers([...others , ...newArry])
 }
+
   return (
       <div >
       <HeaderComponent topclassName={"fixed-top-header"}>
@@ -177,7 +180,7 @@ function MainPage() {
             <div style={{position:"absolute"  ,  fontSize:"35px"}} className="Mobile-view">
             <i style={{cursor:'pointer', background:"white" }}  class=" fas fa-arrow-left"></i>
 
-            <i style={{cursor:'pointer', background:"white"}}  class="fas fa-arrow-right arrow-margin"></i>
+            <i onClick={()=> setcarosal()} style={{cursor:'pointer', background:"white"}}  class="fas fa-arrow-right arrow-margin"></i>
             </div>
            </div> 
            

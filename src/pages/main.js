@@ -80,7 +80,7 @@ function MainPage() {
   return (
       <div >
       <HeaderComponent topclassName={"fixed-top-header"}>
-        <div className="view" style={{ backgroundImage :"url('/bannerr.jpg')", backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}}>
+        <div className="view" style={{ backgroundImage :"url('/bannerr.jpg')", backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
         <div className="mask rgba-gradient align-items-center">
             <div className="container">
             <div className="row header-text">
@@ -165,8 +165,8 @@ function MainPage() {
             <div className="inner desktop-view" style={{ padding: "30px" }}>
              <div style={{display:"flex"}} >
              <div>
-              <h6  style={{lineHeight:"0.7em"}} >{cityFilteredProjects && (cityFilteredProjects[index+1] === undefined ? cityFilteredProjects[0].type :cityFilteredProjects[index +1].type)}</h6>
-               <h4 style={{fontWeight:"bold", lineHeight:"0.8em", width:"73px",whiteSpace:"nowrap" , overflow:"hidden" , textOverflow:"clip"}} >{cityFilteredProjects && (cityFilteredProjects[index+1] === undefined ? cityFilteredProjects[0].short_description :cityFilteredProjects[index +1].short_description)}</h4>
+              <h6  style={{lineHeight:"0.7em", fontSize:"12px"}} >{cityFilteredProjects && (cityFilteredProjects[index+1] === undefined ? cityFilteredProjects[0].type :cityFilteredProjects[index +1].type)}</h6>
+               <h4 style={{fontWeight:"bold", lineHeight:"0.6em", height:"23px",width:"73px",whiteSpace:"nowrap" , overflow:"hidden" , textOverflow:"clip"}} >{cityFilteredProjects && (cityFilteredProjects[index+1] === undefined ? cityFilteredProjects[0].short_description :cityFilteredProjects[index +1].short_description)}</h4>
                   <a   style={{cursor:'pointer'}} onClick={() => history.push('/product-details/' + cityFilteredProjects[(index + 1) == undefined ? 0 :(index+1)].id ,  {projects:cityFilteredProjects})}  role="button" >See details</a>
               </div>
               <div style={{position:"absolute" , float:"right" , right:"-14%" , top:"34%"}} >

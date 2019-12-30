@@ -19,6 +19,7 @@ export default function QualityPage() {
 					<div className="row contactUs-text-container">
 						<div className="col-md-12 col-sm-12">
 							<h3 className="h3-responsive aboutus font-weight-bold">{quality.title}</h3>
+							<br/>
 							<img src={quality.banner_image ? quality.banner_image : '/quality_banner.jpg'} className="img-quality" style={{ marginTop: "10px", marginBottom: "40px" }} />
 							{/* <p className="para font-weight-bold who-we-are-heading">
 							

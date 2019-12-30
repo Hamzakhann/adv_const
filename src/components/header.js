@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 
 function HeaderComponent(props) {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [selectedd , setSelected] = useState("hello");
   const toggleDropdown = () => {
     console.log('toggle dropdown ');
+    setSelected("about")
     const invertDropDown = !showDropdown;
     setShowDropdown(invertDropDown);
   }
@@ -21,15 +23,14 @@ function HeaderComponent(props) {
 
 
   }
-
+  console.log('ya allah ',selectedd)
   return (
     <header>
     <nav className={ "navbar navbar-expand-md navbar-light " + props.topclassName }>
         <div className= {window.location.pathname === '/' ?'container  nav-container mob':'container mob'}>
           <Link className="navbar-brand" to="/">
-            <img src="/final-logo.png" className="img-logo-desktop" />
+            <img src="/AD-logo.png" className="img-logo-desktop" />
             <img src="/small-logo.png"  className="img-logo-mobile " />
-
           </Link>
           <button className="navbar-toggler border-0 pb-1 pl-0" type="button"   onClick={openNav}>
             <span className="navbar-toggler-icon"></span>
@@ -37,17 +38,17 @@ function HeaderComponent(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent-7">
               <ul className="navbar-nav ml-auto headerNav">
                 <li className="nav-item dropdown" style={{cursor: "pointer"}}>
-                <a className="text-dark nav-link px-4 dropdown-toggle" onClick={toggleDropdown} role="button">
+                <a  style={{color:selectedd == 'about' ? "#C92027" :"black"}} className="nav-link px-4 dropdown-toggle" onClick={toggleDropdown} role="button">
                   About Us
                 </a>
                 { showDropdown ? <div className="dropdown-menu d-flex py-4">
-                  <Link id="about-us-dropdown" className="dropdown-item p-0 px-4 " to="/who-we-are">WHO WE ARE</Link>
-                  <Link id="about-us-dropdown" className="dropdown-item p-0 px-4" to="/quality">QUALITY</Link>
-                  <Link id="about-us-dropdown" className="dropdown-item p-0 px-4 border-0" to="/team">TEAM</Link>
+                  <Link  id="about-us-dropdown" className="dropdown-item p-0 px-4 " to="/who-we-are">WHO WE ARE</Link>
+                  <Link  id="about-us-dropdown" className="dropdown-item p-0 px-4" to="/quality">QUALITY</Link>
+                  <Link  id="about-us-dropdown" className="dropdown-item p-0 px-4 border-0" to="/team">TEAM</Link>
                 </div> : null}
                 </li>
                 <li className="nav-item">
-                  <Link className="text-dark nav-link px-4" to="/work-at-acc">WORK AT ACC</Link>
+                  <Link style={{color:selectedd == 'about' ? "#C92027" :"black"}} className="text-dark nav-link px-4" to="/work-at-acc">WORK AT ACC</Link>
                 </li>
                 <li className="nav-item">
                   <Link className="text-dark nav-link px-4" to="/projects">PROJECTS</Link>

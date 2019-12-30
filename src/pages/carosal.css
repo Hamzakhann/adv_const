@@ -1,0 +1,17 @@
+.slider-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.slider-container img{
+    height: 400px !important;
+}
+.side-crop { 
+    width: 215px !important; 
+    overflow: hidden !important;
+}
+.side-crop>.sm-carosal { 
+    max-width: initial;
+    height: 400px !important;
+    object-fit: cover !important;
+}

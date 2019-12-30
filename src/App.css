@@ -948,6 +948,9 @@ padding: 0 !important;
     
 }
 @media screen and (max-width: 770px) {
+    .padding-whoweare-mob{
+        padding-right: 0px !important;
+    }
     .project-comp-mob{
         padding-left: 5px !important;
         padding-right: 5px !important;

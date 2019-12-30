@@ -147,7 +147,7 @@ const setcarosalPrev = () =>{
       <img
             className="d-block w-100 sm-carosal"
             src={others && others[0].image}
-            alt="Second slide"
+            alt="Third slide"
           />
       </div>
       <div className='side-crop' >
@@ -162,7 +162,7 @@ const setcarosalPrev = () =>{
       <img
             className="d-block w-100 sm-carosal"
             src={others && others[2].image}
-            alt="Fourth slide"
+            alt="Third slide"
 
           />
       </div>

@@ -141,7 +141,7 @@ export default function ProjectsPage() {
 
 
                   <div className= ' project-page-tab '>
-                    <ul className="nav nav-pills mob-tab nav-justified mb-3 project-page-border " role="tablist">
+                    <ul className="nav nav-pills mob-tab nav-justified mb-3  " role="tablist">
 
                     <li className="nav-item" >
                               <a className={ selectedCity === 'all' ? "nav-link p-2 active"

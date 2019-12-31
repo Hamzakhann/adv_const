@@ -128,13 +128,13 @@ const setcarosalPrev = () =>{
                 </ul>
 
 
-                <div className='slider-container' >
+                <div className='slider-container ' >
               <Carousel indicators={false} activeIndex={index} direction={direction} controls={false}>
               {cityFilteredProjects && cityFilteredProjects.map((project)=>{
               return(
                 <Carousel.Item>
                 <img
-                  className="d-block w-100"
+                  className="d-block w-100 img-fluid"
                   src={project.image}
                   alt="First slide"
                   className='id-block w-100'
@@ -143,9 +143,9 @@ const setcarosalPrev = () =>{
               )
           })}
       </Carousel>
-      <div className='side-crop' >
+      <div className='side-crop' onClick={()=> setcarosal()}>
       <img
-            className="d-block w-100 sm-carosal"
+            className="d-block w-100 sm-carosal "
             src={others && others[0].image}
             alt="Third slide"
           />

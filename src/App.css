@@ -799,29 +799,30 @@ section{
 }
 .all-img{
     width: 31px !important;
-    height: 36px !important;
-    margin-top: -13px !important;
+    height: 28px !important;
+    margin-top: 7px !important;
 
 }
 
 .road-img{
-    width: 33px !important;
-    height: 42px !important;
-    margin-top: -21px !important;
+    width: 39px!important;
+    height: 34px !important;
+    margin-top: 2px !important;
 }
 .building-img{
-    width: 33px !important;
-    height: 36px !important;
-    margin-top: -14px !important;
+    width: 38px!important;
+    height: 35px!important;
+    margin-top: 0px!important;
 }
 .marine-img{
-    width: 48px !important;
-    height: 25px !important;
-    margin-top: -4px !important;
+    width: 57px!important;
+    height: 28px!important;
+    margin-top: 6px!important;
 }
 .bridge-img{
-    width: 48px !important;
-    margin-top: 5px !important;
+    width: 57px !important;
+    /* height: 28px !important; */
+    margin-top: 9px !important;
 }
 
 @media (max-width: 1440px){

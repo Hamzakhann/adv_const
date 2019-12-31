@@ -51,7 +51,7 @@ function WhoWeArePage() {
 						<div className="row contactUs-text-container">
 							<div className="col-md-12 col-sm-12">
 								<h3 className="who-h1">{whoWeAre.secondary_title}</h3>
-								<p className='font-weight-bold who-we-are-heading ' style={{ lineHeight: '2em', paddingRight: '100px' }} >
+								<p className='font-weight-bold who-we-are-heading padding-whoweare-mob' style={{ lineHeight: '2em', paddingRight: '100px' }} >
 									{whoWeAre.secondary_description}
 								</p>
 

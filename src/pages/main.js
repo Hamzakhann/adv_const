@@ -72,12 +72,29 @@ function MainPage() {
       
     if(index < cityFilteredProjects.length-1){
         setCIndex(index+1)
+
     }else{
         setCIndex(0)
     }
+
    
     let newArry = others.splice(0,1)
+    
+
     setOthers([...others , ...newArry])
+    
+
+
+}
+const setcarosalPrev = () =>{
+      
+  if(index>0){
+      setCIndex(index-1)
+
+  }
+
+
+
 }
 
   return (
@@ -177,8 +194,8 @@ function MainPage() {
               </div>
              </div>
             </div>  
-            <div style={{position:"absolute"  ,  fontSize:"35px"}} className="Mobile-view">
-            <i style={{cursor:'pointer', background:"white" }}  class=" fas fa-arrow-left"></i>
+            <div style={{position:"absolute"   , fontSize:"35px"}} className="Mobile-view">
+            <i onClick={()=> setcarosalPrev()} style={{cursor:'pointer', background:"white" }}  class=" fas fa-arrow-left"></i>
 
             <i onClick={()=> setcarosal()} style={{cursor:'pointer', background:"white"}}  class="fas fa-arrow-right arrow-margin"></i>
             </div>

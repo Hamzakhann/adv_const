@@ -150,7 +150,7 @@ const setcarosalPrev = () =>{
             alt="Third slide"
           />
       </div>
-      <div className='side-crop' >
+      <div className='side-crop'onClick={()=> setcarosal()} >
       <img
             className="d-block w-100 sm-carosal"
             src={others && others[1].image}
@@ -158,7 +158,7 @@ const setcarosalPrev = () =>{
 
           />
       </div>
-      <div className='side-crop' >
+      <div className='side-crop' onClick={()=> setcarosal()} >
       <img
             className="d-block w-100 sm-carosal"
             src={others && others[2].image}

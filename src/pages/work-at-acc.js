@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import axios from 'axios';
+import FormData from 'form-data';
 import HeaderComponent from '../components/header';
 import FooterComponent from '../components/footer';
 import JobsService from '../services/jobs.service';
@@ -13,6 +14,9 @@ function WorkAtAccPage(props) {
   const [jobs, setJobs] = useState();
   const [selectedJob, setSelectedJob] = useState();
   const [scroll, setScroll] = useState(false);
+  const [name , setName] = useState("");
+  const [email , setEmail] = useState("");
+  const [cv , setCv] = useState("");
   
   useEffect(() => {
     jobsService.getAll().then(res => {
@@ -22,6 +26,23 @@ function WorkAtAccPage(props) {
     });
   }, []);
 
+      const sendData =() =>{
+        let data = new FormData();
+        data.append("name",name)
+        data.append("email",email)
+        data.append("cv",cv)
+        axios.post('https://adv-construction.herokuapp.com/front/cv_upload' , data,{
+          headers: {
+            'accept': 'application/json',
+            'Accept-Language': 'en-US,en;q=0.8',
+            'Content-Type': `multipart/form-data; boundary=${data._boundary} `,
+          }
+        }).then(res=>{
+          if(res){
+            window.location.reload();
+          }
+        }).catch(e=>alert(e))
+      }
   return (
     <div id='top' style={{ background: '#fff' }}>
       <HeaderComponent  topclassName={" mob-header"}/>
@@ -36,10 +57,12 @@ function WorkAtAccPage(props) {
                  </h4>
                 <p className="color-red" data-toggle="modal" data-target="#myModal"
                   style={{ cursor: 'pointer' , fontWeight:'bold'}}>Jobs and pre-requistes </p>
-                <form method="post" action="#" enctype="multipart/form-data">
+                <div >
                   <div className="form-group">
                     <label for="fullname">Full Name</label>
                     <input
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                       className="form-control  form-control-lg"
                       id="fullname"
                       name="fullname"
@@ -48,8 +71,12 @@ function WorkAtAccPage(props) {
                   </div>
                   <div className="form-group ">
                     <label  for="email">Email</label>
-                    <input type="email" className="form-control  form-control-lg"
-                      id="email" name="email" placeholder="Email" />
+                    <input 
+                    type="email" className="form-control  form-control-lg"
+                      id="email" name="email" placeholder="Email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      />
                   </div>
                   <div className="form-group  ">
                     <label for="curriculumvita">curriculum (CV)</label>
@@ -65,14 +92,19 @@ function WorkAtAccPage(props) {
                             <span>Choose A File</span>
                           </p>
                         </div>
-                        <input type="file" id="input-file-now" className="file_upload" />
+                        <input
+                        onChange={(e)=> setCv(e.target.files[0])}
+                        type="file" 
+                        id="input-file-now" 
+                        className="file_upload"
+                        />
                       </div>
                     </div>
                   </div>
-                  <button type="submit" className="btn btn-lg btn-danger buton s-btn">
+                  <button onClick={()=>sendData()} className="btn btn-lg btn-danger buton s-btn">
                     Send
                   </button>
-                </form>
+                </div>
               </div>
               <hr className="Mobile-view"/>
             </div>

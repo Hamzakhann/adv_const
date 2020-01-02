@@ -1,0 +1,21 @@
+.stats-card{
+    box-shadow: -1px 2px 15px 12px #8080802b;
+    border-radius: 12px;
+}
+.stats-container{
+    width: 90%;
+    margin: 30px auto;
+}
+.stats-container i{
+    color: darkred;
+    font-size: 30px;
+}
+.stats-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.stats-content h3{
+    color: darkred;
+    font-weight: bold;
+} 

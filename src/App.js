@@ -23,6 +23,7 @@ import AdminWorkWithUsPage from './pages/admin-work-with-us.page';
 import AdminWhoWeArePage from './pages/admin-who-we-are.page';
 import AdminHomePage from './pages/admin-home.page';
 import AdminJobPage from './pages/admin-job.page';
+import AdminProjectsPage from './pages/admin-projects-page';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
             <Route path="/quality" component={QualityPage} />
             <Route path="/admin/" exact component={AdminLoginPage} />
             <Route path="/admin/dashboard" component={AdminDashboardPage} />
+            <Route path="/admin/projects" component={AdminProjectsPage} />
             <Route path="/admin/add-project" component={AdminAddProjectPage} />
             <Route path="/admin/cities" component={AdminCityPage} />
             <Route path="/admin/teams" component={AdminTeamPage} />

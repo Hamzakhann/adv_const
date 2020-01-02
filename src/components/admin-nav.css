@@ -1,0 +1,20 @@
+.admin-nav-item{
+    font-family:'NationWeb' !important;
+    text-transform: uppercase;
+    padding: .5rem 0.75rem;
+    font-size: 14px;
+    border: none !important;
+}
+.admin-nav-item:focus{
+    font-family:'NationWeb' !important;
+    text-transform: uppercase;
+    padding: .5rem 0.75rem;
+    font-size: 14px;
+    border: none !important;
+    color: darkred !important;
+}
+
+.admin-nav-item:hover{
+    border: none !important;
+    text-decoration: none !important;
+}

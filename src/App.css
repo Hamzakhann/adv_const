@@ -214,6 +214,7 @@ h6{
 }
 
 .top-margin{
+    overflow: hidden;
   margin-top: 20px;
 }
 
@@ -704,7 +705,9 @@ section{
     border-bottom:3px solid #C92027 !important;
     border-radius: 5px 5px 0 0;
 }
-
+.icon-margin{
+    margin-bottom: 1rem;
+}
 .job-tabs-list{
     color: #000;
     font-size: 18px;
@@ -872,7 +875,7 @@ section{
 box-shadow: #00000029 0.5px 0px 0px 0px;
     
   }
-  
+
   .sidenav a {
       text-transform: uppercase;
     padding: 8px 8px 8px 16px;
@@ -934,7 +937,7 @@ box-shadow: #00000029 0.5px 0px 0px 0px;
    
 }
 .arrow-margin{
-    margin-left: 270px;
+    margin-left: 18px;
 }
 /* .navbar-brand img{
 width: auto !important;
@@ -949,6 +952,27 @@ padding: 0 !important;
     
 }
 @media screen and (max-width: 770px) {
+    .icon-margin{
+        margin-bottom: 0px !important;
+    }
+    .mob-padd-main{
+        padding-left: 0px !important;
+    }
+  
+    .mob-size{
+        height: 185px !important;
+    }
+    .mob-main-margin{
+        overflow: hidden !important;
+
+    }
+   .mob-view-sliders{
+    height: 200px !important;
+    width: 265px !important;
+}
+    .mob-view-slider{
+       height: 200px !important;
+   }
     .padding-whoweare-mob{
         padding-right: 0px !important;
     }
@@ -961,6 +985,9 @@ padding: 0 !important;
       display: grid;
   }
    .mob-tab{
+       padding-left: 20px !important;
+       padding-right: 20px !important;
+
     overflow-x: scroll !important;
     -webkit-overflow-scrolling: touch !important;
 flex-wrap: nowrap !important;
@@ -1126,7 +1153,11 @@ display: none;
 
 @media screen and (min-width: 771px) {
 
-   
+   .desk-pading{
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+
+}
     .sidenav{
         display: none;
 

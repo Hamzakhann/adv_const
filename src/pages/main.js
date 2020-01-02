@@ -60,7 +60,6 @@ function MainPage() {
     setSelectedCity(city);
     let newData = projects.filter(project => project.city === city)
     if(newData.length < 4){
-      alert("Not Enough Data")
     }else{
       setOthers([...newData.slice(1,newData.length) , newData[0]])
     }
@@ -116,7 +115,7 @@ const setcarosalPrev = () =>{
 
       <main >
       <div className="container"  >
-        {(otherData && projects) ? <div className="row py-5">
+        {(otherData && projects) ? <div className="row desk-pading ">
 
           <div className="col-md-12 col-sm-12 text-center">
 
@@ -132,9 +131,9 @@ const setcarosalPrev = () =>{
               <Carousel indicators={false} activeIndex={index} direction={direction} controls={false}>
               {cityFilteredProjects && cityFilteredProjects.map((project)=>{
               return(
-                <Carousel.Item>
+                <Carousel.Item className="mob-view-sliders ">
                 <img
-                  className="d-block w-100 img-fluid"
+                  className="d-block w-100 img-fluid "
                   src={project.image}
                   alt="First slide"
                   className='id-block w-100'
@@ -143,14 +142,14 @@ const setcarosalPrev = () =>{
               )
           })}
       </Carousel>
-      <div className='side-crop' onClick={()=> setcarosal()}>
+      <div className='side-crop mob-view-slider' onClick={()=> setcarosal()}>
       <img
             className="d-block w-100 sm-carosal "
             src={others && others[0].image}
             alt="Third slide"
           />
       </div>
-      <div className='side-crop'onClick={()=> setcarosal()} >
+      <div className='side-crop mob-view-slider desktop-view'onClick={()=> setcarosal()} >
       <img
             className="d-block w-100 sm-carosal"
             src={others && others[1].image}
@@ -158,7 +157,7 @@ const setcarosalPrev = () =>{
 
           />
       </div>
-      <div className='side-crop' onClick={()=> setcarosal()} >
+      <div className='side-crop mob-view-slider desktop-view' onClick={()=> setcarosal()} >
       <img
             className="d-block w-100 sm-carosal"
             src={others && others[2].image}
@@ -173,36 +172,49 @@ const setcarosalPrev = () =>{
           
 
           { (cityFilteredProjects && cityFilteredProjects.length > 0) ? 
-          <div className="col-md-10 col-sm-12 top-margin box">
-              <div className="inner">
+          
+          <div className="col-md-10 col-sm-9 col-9 mob-padding-main top-margin box">
+              <div className="inner  mob-size">
                 <h6>{(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[index]) ? cityFilteredProjects[index].city +' ' + cityFilteredProjects[index].type: null }</h6>
                 <h3 className="h3-responsive font-weight-bold">{ (cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[index]) ? cityFilteredProjects[index].short_description: null }</h3>
                 <a style={{fontSize:"16px"}} data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-arrow-down"></i></a>
               </div>  
           </div> : null }
           { (cityFilteredProjects && cityFilteredProjects.length > 0) ? 
-          <div className="col-md-2 col-sm-12 top-margin ">
-            <div className="inner desktop-view" style={{ padding: "30px" }}>
+          
+          <div className="col-md-2 col-sm-3 col-3  mob-padd-main " style={{marginTop:"20px"}}>
+            
+            <div className="inner mob-size mob-main-margin" style={{ padding: "30px" }}>
              <div style={{display:"flex"}} >
              <div>
               <h6  style={{lineHeight:"0.7em", fontSize:"12px"}} >{cityFilteredProjects && (cityFilteredProjects[index+1] === undefined ? cityFilteredProjects[0].type :cityFilteredProjects[index +1].type)}</h6>
                <h4 style={{fontWeight:"bold", lineHeight:"0.6em", height:"23px",width:"73px",whiteSpace:"nowrap" , overflow:"hidden" , textOverflow:"clip"}} >{cityFilteredProjects && (cityFilteredProjects[index+1] === undefined ? cityFilteredProjects[0].short_description :cityFilteredProjects[index +1].short_description)}</h4>
                   <a   style={{cursor:'pointer'}} onClick={() => history.push('/product-details/' + cityFilteredProjects[(index + 1) == undefined ? 0 :(index+1)].id ,  {projects:cityFilteredProjects})}  role="button" >See details</a>
               </div>
-              <div style={{position:"absolute" , float:"right" , right:"-14%" , top:"34%"}} >
+              <div style={{position:"absolute" , float:"right" , right:"-14%" , top:"34%"}} className="desktop-view" >
               <i onClick={()=> setcarosal()} class="fas fa-arrow-right" style={{fontSize:"37px" , cursor:"pointer"}} ></i>
               </div>
+             
              </div>
+             
             </div>  
+  
             <div style={{position:"absolute"   , fontSize:"35px"}} className="Mobile-view">
-            <i onClick={()=> setcarosalPrev()} style={{cursor:'pointer', background:"white" }}  class=" fas fa-arrow-left"></i>
-
-            <i onClick={()=> setcarosal()} style={{cursor:'pointer', background:"white"}}  class="fas fa-arrow-right arrow-margin"></i>
-            </div>
+             <i onClick={()=> setcarosalPrev()} style={{cursor:'pointer', background:"white",marginLeft:"-265px" }}  class=" fas fa-arrow-left "></i>
+ 
+             <i onClick={()=> setcarosal()} style={{cursor:'pointer', background:"white",marginLeft:"282px" }}  class="fas fa-arrow-right "></i>
+             </div>
            </div> 
            
-           
+          
            : null }
+           
+             
+              
+           
+         
+           
+                      
             <div className="col-md-12 col-sm-12 mt-2 box">
               <div className="collapse w-100 " id="collapseExample">
                 <div className="card card-body">
@@ -228,7 +240,7 @@ const setcarosalPrev = () =>{
           <div className="col-md-6 col-sm-12 col-12 mob-view-margin work" style={{marginTop: "100px"}}>
             <div className="inner2 inner inner4" style={{height:"340px"}}>
               <h6>Work With Us</h6>
-              <h3 className="h3-responsive font-weight-bold">Join Our Community of qualified professionals</h3>
+              <h3 className="h3-responsive font-weight-bold">Join Our community of qualified professionals</h3>
               <Link style={{marginLeft:"-15px"}} className="nav-link" to="/work-at-acc/" >Apply now</Link>
             </div> 
           </div>
@@ -238,7 +250,7 @@ const setcarosalPrev = () =>{
           <div className="col-md-4 col-sm-12 box mob-margin" style={{marginTop: "100px"}}>
             <div className="inner">
               <div className="icon">
-              <img src="/2.svg" className="main-page-icon mb-3" />
+              <img src="/2.svg" className="main-page-icon icon-margin" />
               </div> 
               <h3 className="h3-responsive who-we-are-content-edit font-weight-bold" style={{fontSize:"30px" , color:"black" , fontWeight:"bold"}}>{otherData.service_1_title}</h3>
               <p className='font-weight-bold who-we-are-content-edit' style={{color:'black' , fontWeight:"bold"}} >{otherData.service_1_desc}</p>
@@ -247,7 +259,7 @@ const setcarosalPrev = () =>{
           <div className="col-md-4 col-sm-12 mob-margin box" style={{marginTop: "100px"}}>
             <div className="inner">
               <div className="icon">
-                <img src="/1.svg" className="main-page-icon mb-3" />
+                <img src="/1.svg" className="main-page-icon icon-margin" />
               </div>
               <h3 className="h3-responsive who-we-are-content-edit font-weight-bold" style={{fontSize:"30px"}}>{otherData.service_2_title}</h3>
               <p className='font-weight-bold who-we-are-content-edit' style={{color:'black' , fontWeight:"bold"}} >{otherData.service_2_desc}</p>
@@ -256,14 +268,14 @@ const setcarosalPrev = () =>{
           <div className="col-md-4 col-sm-12 mob-margin" style={{marginTop: "100px"}}>
             <div className="inner">
               <div className="icon">
-                <img src="/3.svg" className="main-page-icon mb-3" />
+                <img src="/3.svg" className="main-page-icon icon-margin" />
               </div>
               <h3 className="h3-responsive who-we-are-content-edit font-weight-bold" style={{fontSize:"30px"}}>{otherData.service_3_title}</h3>
               <p className='font-weight-bold who-we-are-content-edit' style={{color:'black' , fontWeight:"bold"}} >{otherData.service_3_desc}</p>
             </div> 
           </div>
 
-          <div className="col-md-6 col-sm-12 work box mob-view-margin" style={{marginTop: "100px"}}>
+          <div className="col-md-6 col-sm-12  box mob-view-margin" style={{marginTop: "100px"}}>
             <div className="inner inner3 " style={{height:"342px"}}> 
               <h6>Team</h6>
               <h3 className="who-we-are-heading">Get to know us a little</h3>

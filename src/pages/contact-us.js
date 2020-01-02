@@ -34,12 +34,12 @@ const ContactUsPage = () => {
     		</div>
     	
     	</div>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
+		<br className="desktop-view"/>
+		<br  className="desktop-view"/>
+		<br  className="desktop-view"/>
+		<br  className="desktop-view"/>
+		<br  className="desktop-view"/>
+		<br  className="desktop-view"/>
     </main>
         <FooterComponent>
 			<hr />

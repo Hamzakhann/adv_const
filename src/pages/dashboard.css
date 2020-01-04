@@ -1,6 +1,7 @@
 .stats-card{
+    background-color: white !important;
     box-shadow: -1px 2px 15px 12px #8080802b;
-    border-radius: 12px;
+    border-radius: 15px !important;
 }
 .stats-container{
     width: 90%;
@@ -18,4 +19,39 @@
 .stats-content h3{
     color: darkred;
     font-weight: bold;
-} 
+}
+
+.table-container{
+    max-height: 500px !important;
+    overflow: scroll;
+}
+
+/* width */
+.table-container::-webkit-scrollbar {
+    width: 15px;
+    height: 20px;
+  }
+  
+  /* Track */
+  .table-container::-webkit-scrollbar-track {
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    cursor: pointer !important;
+  }
+   
+  /* Handle */
+  .table-container::-webkit-scrollbar-thumb {
+    background: darkred; 
+    border-radius: 5px;
+    cursor: pointer !important;
+  }
+  
+  /* Handle on hover */
+  .table-container::-webkit-scrollbar-thumb:hover {
+    background: darkred;
+    cursor: pointer !important;
+  }
+
+  .cv-icon{
+    color: darkred !important;
+  }

@@ -63,7 +63,7 @@ function HeaderComponent(props) {
         <div id="mySidenav" class="sidenav">
           <img src="/final-logo.png" className="sideNav-logo img-fluid" />
 
-          <a className="" onClick={toggleDropdown} >
+                <a className="" onClick={toggleDropdown} >
                   About Us
                 </a>
                 { showDropdown ? <div className="">

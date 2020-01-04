@@ -115,7 +115,7 @@ function WorkAtAccPage(props) {
           </div>
           <div className="row">
             <div className="col-md-6 col-sm-12 box works" style={{ marginTop: '100px' }}>
-              <div className="inner inner2 worked" style={{ height: '360px', background: '#FFFDFD' }}>
+              <div className="inner inner2 worked" style={{ height: '100%', background: '#FFFDFD' }}>
                 <h6>Team</h6>
                 <h3 className="h3-responsive who-we-are-heading font-weight-bold">Get to know us a little</h3>
                 <p>

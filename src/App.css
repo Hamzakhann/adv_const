@@ -752,6 +752,9 @@ section{
 .job-tabs-list li{
     font-family: 'NationWeb' !important;  
 }
+#color-about{
+    color:#c4bbbb !important;
+}
 
 .who-we-des{
     font-family:'NationWeb' !important;
@@ -889,7 +892,7 @@ box-shadow: #00000029 0.5px 0px 0px 0px;
       content: "______";
       color: #0000005C;
       display: block;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       opacity: 0.2;
   }
   
@@ -905,7 +908,7 @@ box-shadow: #00000029 0.5px 0px 0px 0px;
     margin-left: 50px;
   }
   .sideNav-logo{
-      padding: 25px 25px 25px 25px;
+      padding: 25px 25px 5px 25px;
       width: 100% !important;
   }
   .Mobile-header{
@@ -1189,10 +1192,12 @@ display: none;
 
 .s-btn{
     border-radius: -0.7rem !important;
+    width: 100px !important;
+    font-size: 1rem !important;
 }
 
 nav{
-    width: 75% !important;
+    width: 75% ;
     margin: 0 auto !important;
     height: 100px !important;
 }
@@ -1212,3 +1217,10 @@ nav{
 .nav-red{
     color: #C92027 !important;
 } */
+
+@media screen and (max-width: 991px) {
+    
+nav{
+    width: 100% !important;
+}
+}

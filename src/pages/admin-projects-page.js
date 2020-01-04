@@ -12,8 +12,8 @@ import {
     Table,
     Button
 } from '@material-ui/core';
+import {Modal} from 'react-bootstrap'
 import Skeleton from '@material-ui/lab/Skeleton';
-import CitiesService from '../services/cities.service';
 import ProjectService from '../services/project.service';
 import AdminFooter from '../components/admin-footer';
 import AdminHeaderComponent from '../components/admin-header.component';
@@ -29,21 +29,41 @@ const useStyles = makeStyles({
 
 export default function AdminProjectsPage() {
   const classes = useStyles();
+  const projectService = new ProjectService();
+  const [flag , setFlag] = useState(false)
   const [projects, setProjects] = useState("");
   const [isLoading , setLoading] = useState(true)
+  const [deleteModal , setDeleteModal] = useState(false)
+  const [selectedProject , setSelectedProject] = useState("")
 
     useEffect(() => {
-        const projectService = new ProjectService();
         projectService.getAll().then(res => {
             console.log(res)
             setProjects(res)
             setLoading(false)
+            setFlag(false)
         });
 
-    }, []);
+    }, [flag]);
 
+    // SET THE PROJECT ID FOR DELETE
+    const setProjectForDelete = (projectId)=>{
+        console.log(projectId)
+        setSelectedProject(projectId)
+        setDeleteModal(true)
+    }
 
-        return (
+    // DELETE THE PROJECT 
+    const confirmDelete = () =>{
+        setLoading(true)
+        setDeleteModal(false)
+        projectService.delete(selectedProject).then(res=>{
+            setFlag(true)
+            setLoading(false)
+        }).catch(err=>alert(err))
+    }
+    
+    return (
         <div className='container-fluid p-0' >
                 <AdminHeaderComponent pageName="Projects" />
                 <br/>
@@ -92,11 +112,11 @@ export default function AdminProjectsPage() {
                                     <IconButton size="medium" ><i class="fas fa-pencil-alt"></i></IconButton>
                                     </TableCell>
                                     <TableCell >
-                                        <IconButton size="medium" ><i class="fas fa-trash-alt"></i></IconButton>
+                                        <IconButton size="medium" onClick={() => setProjectForDelete(project.id)} ><i class="fas fa-trash-alt"></i></IconButton>
                                     </TableCell>
-                                <TableCell >{project.name}</TableCell>
+                                    <TableCell >{project.name}</TableCell>
                                     <TableCell >{project.city}</TableCell>
-                                <TableCell >{project.short_description}</TableCell>
+                                    <TableCell >{project.short_description}</TableCell>
                                     </TableRow>
                                 )
                             })}
@@ -109,6 +129,32 @@ export default function AdminProjectsPage() {
              <br/>
              <br/>
              <AdminFooter/>
+        {/* MODAL FOR DELETE PROJECT START*/}
+        <Modal
+        onHide={()=>setDeleteModal(false)}
+        show={deleteModal} 
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        >
+            <Modal.Header>
+            <Modal.Title style={{color:"darkRed" , fontWeight:"bold"}} >Delete Project !</Modal.Title>
+            </Modal.Header>
+            <Modal.Body className='font-weight-bold' >Are you sure you want to delete this project.</Modal.Body>
+            <Modal.Footer>
+                <Button 
+                variant="contained" 
+                size="small"
+                onClick={()=>setDeleteModal(false)}
+                >Cancel</Button>
+                <Button
+                onClick={()=>confirmDelete()}
+                size="small"
+                style={{background:"darkRed" , color:"white"}} 
+                variant="contained" 
+                >Delete</Button>
+            </Modal.Footer>
+      </Modal>
+    {/* MODAL FOR DELETE PROJECT END */}
         </div>
           );
     

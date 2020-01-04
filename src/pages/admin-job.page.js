@@ -13,6 +13,7 @@ import {
     Button
 } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
+import {Modal} from 'react-bootstrap';
 import JobsService from '../services/jobs.service';
 import AdminFooter from '../components/admin-footer';
 import AdminHeaderComponent from '../components/admin-header.component';
@@ -28,19 +29,37 @@ const useStyles = makeStyles({
 
 export default function AdminJobPage() {
   const classes = useStyles();
+  const jobsService = new JobsService();
+  const [flag , setFlag] = useState(false);
   const [jobs, setJobs] = useState("");
   const [isLoading , setLoading] = useState(true)
-
+  const [deleteModal , setDeleteModal] = useState(false)
+  const [selectedJob , setSelectedJob] = useState("")
     useEffect(() => {
-        const jobsService = new JobsService();
         jobsService.getAll().then(res => {
             console.log(res)
             setJobs(res)
             setLoading(false)
+            setFlag(false)
         });
-    }, []);
+    }, [flag]);
 
+    // SET THE JOB ID FOR DELETE
+    const setJobForDelete = (jobId)=>{
+        console.log(jobId)
+        setSelectedJob(jobId)
+        setDeleteModal(true)
+    }
 
+    // DELETE THE JOB 
+    const confirmDelete = () =>{
+        setLoading(true)
+        setDeleteModal(false)
+        jobsService.delete(selectedJob).then(res=>{
+            setFlag(true)
+            setLoading(false)
+        }).catch(err=>alert(err))
+    }
         return (
         <div className='container-fluid p-0' >
                 <AdminHeaderComponent pageName="Jobs" />
@@ -89,7 +108,7 @@ export default function AdminJobPage() {
                                     <IconButton size="medium" ><i class="fas fa-pencil-alt"></i></IconButton>
                                     </TableCell>
                                     <TableCell >
-                                        <IconButton size="medium" ><i class="fas fa-trash-alt"></i></IconButton>
+                                        <IconButton onClick={()=>setJobForDelete(job.id)} size="medium" ><i class="fas fa-trash-alt"></i></IconButton>
                                     </TableCell>
                                     </TableRow>
                                 )
@@ -103,6 +122,32 @@ export default function AdminJobPage() {
              <br/>
              <br/>
              <AdminFooter/>
+        {/* MODAL FOR DELETE JOB START*/}
+        <Modal
+        onHide={()=>setDeleteModal(false)}
+        show={deleteModal} 
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        >
+            <Modal.Header>
+            <Modal.Title style={{color:"darkRed" , fontWeight:"bold"}} >Delete Job !</Modal.Title>
+            </Modal.Header>
+            <Modal.Body className='font-weight-bold' >Are you sure you want to delete this job.</Modal.Body>
+            <Modal.Footer>
+                <Button 
+                variant="contained" 
+                size="small"
+                onClick={()=>setDeleteModal(false)}
+                >Cancel</Button>
+                <Button
+                onClick={()=>confirmDelete()}
+                size="small"
+                style={{background:"darkRed" , color:"white"}} 
+                variant="contained" 
+                >Delete</Button>
+            </Modal.Footer>
+         </Modal>
+    {/* MODAL FOR DELETE JOB END */}
         </div>
           );
     

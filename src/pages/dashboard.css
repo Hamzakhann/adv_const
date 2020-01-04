@@ -55,3 +55,54 @@
   .cv-icon{
     color: darkred !important;
   }
+
+  .main-form-container{
+    margin: 0 auto;
+    width: 80%;
+    height: auto;
+    background-color: white !important;
+    padding: 25px;
+    border: 1px solid grey !important;
+  }
+
+  .admin-label{
+    color: darkred !important;
+    font-weight: bold !important;
+  }
+  .admin-input{
+    width: 100% !important;
+    height: 45px !important;
+    border: 3px solid #00000038 !important;
+    text-align: left !important;
+    color: black !important;
+  }
+  .admin-input:hover{
+    border: 3px solid grey !important;
+  }
+  .admin-input:focus{
+    border: 3px solid darkred !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  .admin-textArea{
+    width: 100% !important;
+    border: 3px solid #00000038 !important;
+    text-align: left !important;
+    color: black !important;
+  }
+  .admin-textArea:hover{
+    border: 3px solid grey !important;
+  }
+  .admin-textArea:focus{
+    border: 3px solid darkred !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  .admin-block-btn{
+    width: 100% !important;
+    background-color: darkred !important;
+    color: white !important;
+    font-weight: bold !important;
+    margin-top: 20px !important; 
+  }

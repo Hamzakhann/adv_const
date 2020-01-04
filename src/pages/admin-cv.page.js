@@ -1,72 +1,96 @@
-import React, { useState, useEffect } from 'react'
-import DataTable from 'react-data-table-component';
-import Spinner from 'react-bootstrap/Spinner';
 
-import AdminHeaderComponent from '../components/admin-header.component';
+import React , {useEffect , useState} from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { 
+    IconButton,
+    Paper,
+    TableRow,
+    TableHead,
+    TableContainer,
+    TableCell,
+    TableBody,
+    Table,
+    Button
+} from '@material-ui/core';
+import Skeleton from '@material-ui/lab/Skeleton';
 import CvService from '../services/cv.service';
+import AdminFooter from '../components/admin-footer';
+import AdminHeaderComponent from '../components/admin-header.component';
+import './dashboard.css'
 
-function AdminCVPage() {
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+});
 
-    const columns = [
-            {
-                name: 'CV',
-                sortable: true,
-                cell: row => <a className="w-50" href={row.cv}>CV</a>
-            },
-            {
-                name: 'Id',
-                selector: 'id',
-                sortable: true,
-            },
-            {
-                name: 'Name',
-                selector: 'name',
-                sortable: true,
-                right: true,
-            },
-            {
-                name: 'Email',
-                selector: 'email',
-                sortable: true,
-                right: true,
-            }
-        ];
 
-    const [cvList, setCvList] = useState();
-    const [isLoading, setIsLoading] = useState(true);
 
-    const cvService = new CvService();
-    
+export default function AdminCVPage() {
+  const classes = useStyles();
+  const [cvs, setCvs] = useState("");
+  const [isLoading , setLoading] = useState(true)
+
     useEffect(() => {
-        cvService.getAll().then(res => 
-            { 
-                setCvList(res);
-                setIsLoading(false);
-            }
-         );
-    }, [])
+        const cvService = new CvService();
+        cvService.getAll().then((res)=>{
+            console.log(res)
+            setCvs(res)
+            setLoading(false)
+        })
 
-    return (
-       <div>
-           <AdminHeaderComponent />
-            <div className="container mt-md-4">
-              <div className="row">
-                <div className="col-12">
-                { cvList ?  <DataTable
-                    title="CV List"
-                    columns={columns}
-                    data={cvList}
-                    />: null }
-                </div>
-              </div>
-              <div className="row">
-                    <div className="col-md-6 offset-md-6 mt-md-5 py-5">
-                        {isLoading ? (<Spinner animation="border" />): null}
+    }, []);
+
+
+        return (
+        <div className='container-fluid p-0' >
+                <AdminHeaderComponent pageName="Cvs" />
+                <br/>
+                <br/>
+            <div className='container' >
+                {isLoading ? (
+                    <div className='container' >
+                        <Skeleton style={{width:"100%" , height:"100px"}} animation="wave" />
+                        <Skeleton style={{width:"100%" , height:"100px"}} animation="wave" />
+                        <Skeleton style={{width:"100%" , height:"100px"}} animation="wave" />
+                        <Skeleton style={{width:"100%" , height:"100px"}} animation="wave" />
+                        <Skeleton style={{width:"100%" , height:"100px"}} animation="wave" />
                     </div>
-              </div>
-            </div>
-       </div>
-    )
+                ):
+                (
+                <TableContainer className="table-container" component={Paper}>
+                    <Table  className={classes.table}  stickyHeader aria-label="sticky table" aria-label="a dense table">
+                        <TableHead>
+                        <TableRow  >
+                            <TableCell className='font-weight-bold' >Id</TableCell>
+                            <TableCell className='font-weight-bold' >Name</TableCell>
+                            <TableCell className='font-weight-bold' >Email</TableCell>
+                            <TableCell className='font-weight-bold' >Cv</TableCell>
+                        </TableRow>
+                        </TableHead>
+                        <TableBody  >
+                            {cvs && cvs.map(cv=>{
+                                return(
+                            <TableRow key={cv.id} >
+                                <TableCell >{cv.id}</TableCell>
+                                <TableCell >{cv.name}</TableCell>
+                                <TableCell >{cv.email}</TableCell>
+                                <TableCell >
+                                    <a className='cv-icon' href={cv.cv} target="_blank" ><i style={{fontSize:"25px"}} class="fas fa-file-alt"></i></a>
+                                </TableCell>
+                            </TableRow>
+                                )
+                            })}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+                )
+                }      
+             </div>
+             <br/>
+             <br/>
+             <AdminFooter/>
+        </div>
+          );
+    
 }
-
-export default AdminCVPage

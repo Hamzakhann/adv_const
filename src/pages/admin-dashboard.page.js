@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import AdminHeaderComponent from '../components/admin-header.component'
+import AdminHeaderComponent from '../components/admin-header.component';
+import AdminFooter from '../components/admin-footer';
 import './dashboard.css'
 function AdminDashboardPage() {
     
     return (
         <div className='contaiiner' >
-             <AdminHeaderComponent />
+             <AdminHeaderComponent pageName = "Home" />
+             
              <div className='container' >
                 <div className='stats-container' >
                 <div className='row' >
                      <div className='col-sm col-md-4' >
-                     <div class="card bg-light mb-3 stats-card" >
+                              <div class="card mb-3 stats-card" >
                         
-                        <div class="card-body">
+                        <div class="card-body ">
                             <h1 class="card-title text-center"><i class="fas fa-city"></i></h1>
                              <div className='stats-content' >
                             <h3 class="card-text">Cities</h3>
@@ -23,7 +25,7 @@ function AdminDashboardPage() {
                         </div>
                  </div>
                      <div className='col-sm col-md-4' >
-                     <div class="card bg-light mb-3 stats-card" >
+                     <div class="card  mb-3 stats-card" >
                         
                         <div class="card-body">
                             <h1 class="card-title text-center"><i class="fas fa-user-friends"></i></h1>
@@ -35,20 +37,61 @@ function AdminDashboardPage() {
                         </div>
                     </div>
                      <div className='col-sm col-md-4' >
-                     <div class="card bg-light mb-3 stats-card" >
+                          <div class="card  mb-3 stats-card" >
                     
-                    <div class="card-body">
-                        <h1 class="card-title text-center"><i class="fas fa-project-diagram"></i></h1>
-                         <div className='stats-content' >
-                            <h3 class="card-text">Projects</h3>
-                            <h3 class="card-text">120</h3>
-                            </div>
+                              <div class="card-body">
+                            <h1 class="card-title text-center"><i class="fas fa-project-diagram"></i></h1>
+                            <div className='stats-content' >
+                                <h3 class="card-text">Projects</h3>
+                                <h3 class="card-text">120</h3>
+                                </div>
                     </div>
                     </div>
                      </div>
                  </div>
+
+                 <div className='row' >
+                 <div className='col-sm col-md-4' >
+                     <div class="card  mb-3 stats-card" >
+                        
+                        <div class="card-body">
+                            <h1 class="card-title text-center"><i class="fas fa-user-friends"></i></h1>
+                            <div className='stats-content' >
+                            <h3 class="card-text">Users</h3>
+                            <h3 class="card-text">1000</h3>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div className='col-sm col-md-4' >
+                     <div class="card  mb-3 stats-card" >
+                        
+                        <div class="card-body">
+                            <h1 class="card-title text-center"><i class="fas fa-user-friends"></i></h1>
+                            <div className='stats-content' >
+                            <h3 class="card-text">Employees</h3>
+                            <h3 class="card-text">98</h3>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div className='col-sm col-md-4' >
+                     <div class="card  mb-3 stats-card" >
+                        
+                        <div class="card-body">
+                            <h1 class="card-title text-center"><i class="fas fa-user-friends"></i></h1>
+                            <div className='stats-content' >
+                            <h3 class="card-text">CVs</h3>
+                            <h3 class="card-text">100</h3>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                 </div>
+
                 </div>
              </div>
+             <AdminFooter/>
         </div>
     )
 }

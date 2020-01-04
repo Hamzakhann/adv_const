@@ -1,59 +1,103 @@
-import React , {useState} from 'react'
-import { Link } from 'react-router-dom';
-
-import '../admin-header.css'
+import React , {useState} from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import {Drawer , 
+        AppBar , 
+        Toolbar , 
+        Typography,
+        Button,
+        IconButton,
+      }
+  from '@material-ui/core';
+  import {Link} from 'react-router-dom';
 import './admin-nav.css'
-function AdminHeaderComponent() {
-  const [active , setActive] = useState("")
-    return (
-      <nav id="admin-dashboard" class="navbar navbar-expand-lg navbar-dark bg-dark">
-         <Link onClick={() => setActive("home")} style={{color: active == 'home' ? 'darkRed' :"white"}} class="admin-nav-item"  to="/admin/dashboard">Home</Link>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-          <Link onClick={() => setActive("projects")} style={{color: active == 'projects' ? 'darkRed' :"white"}} class="admin-nav-item"  to="/admin/projects">Projects</Link>
-          </li>
-          <li class="nav-item">
-            <Link onClick={() => setActive("teams")} style={{color: active == 'teams' ? 'darkRed' :"white"}} class="admin-nav-item"  to="/admin/teams">Teams</Link>
-          </li>
-          <li class="nav-item">
-            <Link onClick={() => setActive("cities")} style={{color: active == 'cities' ? 'darkRed' :"white"}} class="admin-nav-item"  to="/admin/cities">Cities</Link>
-          </li>
-          <li class="nav-item">
-            <Link onClick={() => setActive("cv")} style={{color: active == 'cv' ? 'darkRed' :"white"}} class="admin-nav-item"  to="/admin/cv">CV List</Link>
-          </li>
-          <li class="nav-item">
-            <Link onClick={() => setActive("contact")}  style={{color: active == 'contact' ? 'darkRed' :"white"}} class="admin-nav-item"  to="/admin/contact-us">Contact Us</Link>
-          </li>
-          <li class="nav-item">
-            <Link onClick={() => setActive("quality")} style={{color: active == 'quality' ? 'darkRed' :"white"}} class="admin-nav-item"  to="/admin/quality">Quality</Link>
-          </li>
-          <li class="nav-item">
-            <Link onClick={() => setActive("workwithus")} style={{color: active == 'workwithus' ? 'darkRed' :"white"}} class="admin-nav-item"  to="/admin/work-with-us">Work With Us</Link>
-          </li>
-          <li class="nav-item">
-            <Link onClick={() => setActive("whoweare")} style={{color: active == 'whoweare' ? 'darkRed' :"white"}} class="admin-nav-item"  to="/admin/who-we-are">Who We Are</Link>
-          </li>
-          <li class="nav-item">
-            <Link onClick={() => setActive("jobs")} style={{color: active == 'jobs' ? 'darkRed' :"white"}} class="admin-nav-item" to="/admin/jobs">Jobs</Link>
-          </li>
-          {/* <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown link
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li> */}
-        </ul>
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+}));
+const AdminHeaderComponent =(props)=>{
+  const classes = useStyles();
+  const [state , setState] = useState(false)
+  return(
+    <div className="container-fluid p-0">
+    <AppBar style={{background:"darkred"}} position="static">
+      <Toolbar>
+        <IconButton onClick={()=>setState(true)} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+        <i class="fas fa-bars"></i>
+        </IconButton>
+        <Typography variant="p" className={classes.title}>
+          Dashboard / {props.pageName}
+        </Typography>
+        <Button color="inherit">Logout</Button>
+      </Toolbar>
+    </AppBar>
+
+    <Drawer open={state} onClose={()=> setState(false)}>
+      <div className='p-3' >
+        <img src="/AD-logo.png" alt='logo' className='img img-fluid' />
       </div>
-    </nav>
-    )
+        <ul class="list-group list-group-flush">
+            <Link  class="admin-nav-item"  to="/admin/dashboard">
+            <li class="list-group-item">
+            <i class="fas fa-long-arrow-alt-right mr-2"></i> Home
+            </li>
+            </Link>
+
+            <Link  class="admin-nav-item"  to="/admin/projects">
+            <li class="list-group-item">
+            <i class="fas fa-long-arrow-alt-right mr-2"></i> Projects
+            </li>
+            </Link>
+            <Link  class="admin-nav-item"  to="/admin/teams">
+            <li class="list-group-item">
+            <i class="fas fa-long-arrow-alt-right mr-2"></i>  Teams
+            </li>
+            </Link>
+            <Link  class="admin-nav-item"  to="/admin/cities">
+            <li class="list-group-item">
+            <i class="fas fa-long-arrow-alt-right mr-2"></i> Cities
+            </li>
+            </Link>
+            <Link class="admin-nav-item"  to="/admin/cv">
+            <li class="list-group-item">
+              <i class="fas fa-long-arrow-alt-right mr-2"></i> CV List
+            </li>
+            </Link>
+            <Link  class="admin-nav-item"  to="/admin/contact-us">
+            <li class="list-group-item">
+            <i class="fas fa-long-arrow-alt-right mr-2"></i> Contact Us
+            </li>
+            </Link>
+            <Link class="admin-nav-item"  to="/admin/quality">
+            <li class="list-group-item">
+            <i class="fas fa-long-arrow-alt-right mr-2"></i> Quality
+            </li>
+            </Link>
+            <Link  class="admin-nav-item"  to="/admin/work-with-us">
+            <li class="list-group-item">
+            <i class="fas fa-long-arrow-alt-right mr-2"></i> Work With Us
+            </li>
+            </Link>
+            <Link  class="admin-nav-item"  to="/admin/who-we-are">
+            <li class="list-group-item">
+            <i class="fas fa-long-arrow-alt-right mr-2"></i> Who We Are
+            </li>
+            </Link>
+            <Link  class="admin-nav-item" to="/admin/jobs">
+            <li class="list-group-item">
+            <i class="fas fa-long-arrow-alt-right mr-2"></i> Jobs
+            </li>
+            </Link>
+        </ul>
+    </Drawer>
+  </div>
+  )
 }
 
-export default AdminHeaderComponent
+export default AdminHeaderComponent;

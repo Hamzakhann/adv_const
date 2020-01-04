@@ -1,69 +1,103 @@
-import React, { useEffect, useState } from 'react';
-import { Form, Row, Col, Button } from 'react-bootstrap';
+import React , {useState , useEffect} from 'react'
+import {Button} from '@material-ui/core';
+import Skeleton from '@material-ui/lab/Skeleton';
 import axios from 'axios';
-import { url } from '../services/url';
 import querystring from 'querystring';
-
-import AdminHeaderComponent from '../components/admin-header.component'
-
-const AdminContactUsPage = () => {
+import { url } from '../services/url';
+import AdminHeaderComponent from '../components/admin-header.component';
+import './dashboard.css'
+export default function AdminContactUsPage() {
+    const [flag , setFlag] = useState(false)
+    const [isLoading , setLoading] = useState(true)
     const [email, setEmail] = useState('');
     const [address, setAddress] = useState('');
     const [phone, setPhone] = useState('');
     const [id, setId] = useState();
 
-    useEffect(() => {
-        axios.get(`${url}front/contactPage`).then(res => {
-            console.log('email ', res.data[0].email);
-            setEmail(res.data[0].email);
-            setId(res.data[0].id);
-            setAddress(res.data[0].address);
-            setPhone(res.data[0].phone.join())
+    useEffect(() =>{
+        axios.get(`${url}front/contactPage`).then(res=>{
+            const data = res.data[0]
+            setEmail(data.email);
+            setId(data.id);
+            setAddress(data.address);
+            setPhone(data.phone.join())
+            setFlag(false)
+            setLoading(false)
         })
-    }, []);
+    },[flag])
 
     const updateContact = () => {
+        setLoading(true)
         const data = {
             email,
             address,
             phone: phone.split(',')
         }
-        console.log('data ', data);
         axios.post(`${url}admin/update_contact_page`, querystring.stringify(data), {
             headers: { 
               "Content-Type": "application/x-www-form-urlencoded"
             }
-          }).then(res => console.log('res ', res));
+          }).then(res => {
+              setLoading(false)
+              setFlag(true)
+          }).catch(e=>alert(e))
     }
     return (
-        <div>
-            <AdminHeaderComponent/>
-                <div className="container mt-md-5">
-                <Form>
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Enter email" />
-                        </Form.Group>
-
-                        <Form.Group as={Col} controlId="formGridPassword">
-                        <Form.Label>Phone</Form.Label>
-                        <Form.Control value={phone} onChange={(e) => setPhone(e.target.value)}/>
-                        </Form.Group>
-                    </Form.Row>
-
-                    <Form.Group controlId="formGridAddress1">
-                        <Form.Label>Address</Form.Label>
-                        <Form.Control value={address} onChange={(e) => setAddress(e.target.value)} placeholder="1234 Main St" />
-                    </Form.Group>
-
-                    <Button variant="primary" type="button" onClick={updateContact}>
-                        Update
-                    </Button>
-                    </Form>
+        <div className='container-fluid p-0' >
+            <AdminHeaderComponent pageName="Contact Us" />
+            <br/>
+            <br/>
+            <div className='container' >
+                <div className='main-form-container'>
+                    {isLoading ? (
+                         <div className='container' >
+                             <Skeleton style={{width:"100%" , height:"100px"}} animation="wave" />
+                             <Skeleton style={{width:"100%" , height:"100px"}} animation="wave" />
+                             <Skeleton style={{width:"100%" , height:"100px"}} animation="wave" />
+                             <Skeleton style={{width:"100%" , height:"100px"}} animation="wave" />
+                         </div>
+                    ):(
+                        <div className='admin-form' >
+                        {/* first input */}
+                        <div class="form-group">
+                            <label className='admin-label' for="exampleInputEmail1">Email</label>
+                            <input 
+                            type="email" 
+                            class="form-control admin-input" 
+                            id="exampleInputEmail1" 
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </div>
+                        {/* second input */}
+                        <div class="form-group">
+                            <label className='admin-label' for="phone">Phone</label>
+                            
+                            <input 
+                            type="text" 
+                            class="form-control admin-input" 
+                            id="phone" 
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
+                            />
+                        </div>
+                        {/* third input */}
+                        <div class="form-group">
+                            <label className='admin-label' for="address">Address</label>
+                            <textarea 
+                            class="form-control admin-textArea" 
+                            id="address" 
+                            value={address}
+                            onChange={(e) => setAddress(e.target.value)}
+                            rows="5">
+                            </textarea>
+                        </div>
+                        {/* Button */}
+                        <Button  onClick={()=>updateContact()}  size="large"  variant="contained" className='btn-block admin-block-btn' >Update</Button>
+                    </div>
+                    )}
                 </div>
+            </div>
         </div>
     )
 }
-
-export default AdminContactUsPage

@@ -47,8 +47,6 @@ p{   font-family: 'FoundersGroteskWeb-Regular'; }
 
 
 .navbar-brand img{ 
-    padding: 7px !important;
-    width: 230px !important;
     height: 85px !important;
     margin-left: 14px !important;
     margin-top: 2px !important;
@@ -175,7 +173,7 @@ h6{
     box-shadow: unset;
 }
 .nav-container{
-    height: 85px !important;
+    height: px !important;
     background: #fff;
 }
 
@@ -952,6 +950,14 @@ padding: 0 !important;
     
 }
 @media screen and (max-width: 770px) {
+    
+    .content1 h6{
+        
+        font-size: 17px !important;
+        
+    
+    }
+
     .icon-margin{
         margin-bottom: 0px !important;
     }
@@ -985,6 +991,7 @@ padding: 0 !important;
       display: grid;
   }
    .mob-tab{
+       margin-top: 1rem !important;
        padding-left: 20px !important;
        padding-right: 20px !important;
 

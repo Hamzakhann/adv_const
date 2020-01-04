@@ -99,8 +99,8 @@ const setcarosalPrev = () =>{
   return (
       <div >
       <HeaderComponent topclassName={"fixed-top-header"}>
-        <div className="view" style={{ backgroundImage :"url('/bannerr.jpg')", backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
-        <div className="mask rgba-gradient align-items-center">
+        <div className="view " style={{ backgroundImage :"url('/bannerr.jpg')", backgroundRepeat: 'round' }}>
+        <div className="mask rgba-gradient align-items-center" >
             <div className="container">
             <div className="row header-text">
                 <div className="col-md-12 white-text text-left text-md-left mt-xl-5 mb-5  wow">
@@ -131,7 +131,7 @@ const setcarosalPrev = () =>{
               <Carousel indicators={false} activeIndex={index} direction={direction} controls={false}>
               {cityFilteredProjects && cityFilteredProjects.map((project)=>{
               return(
-                <Carousel.Item className="mob-view-sliders ">
+                <Carousel.Item className="mob-view-sliders w-100 ">
                 <img
                   className="d-block w-100 img-fluid "
                   src={project.image}
@@ -238,7 +238,7 @@ const setcarosalPrev = () =>{
             <img src="/banner2.jpg" className="img-fluid" />    
           </div>
           <div className="col-md-6 col-sm-12 col-12 mob-view-margin work" style={{marginTop: "100px"}}>
-            <div className="inner2 inner inner4" style={{height:"340px"}}>
+            <div className="inner2 inner inner4" style={{height:"100%"}}>
               <h6>Work With Us</h6>
               <h3 className="h3-responsive font-weight-bold">Join Our community of qualified professionals</h3>
               <Link style={{marginLeft:"-15px"}} className="nav-link" to="/work-at-acc/" >Apply now</Link>
@@ -276,7 +276,7 @@ const setcarosalPrev = () =>{
           </div>
 
           <div className="col-md-6 col-sm-12  box mob-view-margin" style={{marginTop: "100px"}}>
-            <div className="inner inner3 " style={{height:"342px"}}> 
+            <div className="inner inner3 " style={{height:"100%"}}> 
               <h6>Team</h6>
               <h3 className="who-we-are-heading">Get to know us a little</h3>
               <p>

@@ -34,7 +34,14 @@ export default function AdminTeamPage() {
   const [teams, setTeams] = useState("");
   const [isLoading , setLoading] = useState(true)
   const [deleteModal , setDeleteModal] = useState(false)
+  const [updateModal , setUpdateModal] = useState(false)
   const [selectedTeam , setSelectedTeam] = useState("")
+
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [designation, setDesignation] = useState('');
+  const [teamImage, setTeamImage] = useState();
+  const [selectedImage, setSelectedImage] = useState();
 
     useEffect(() => {
         teamService.getAll().then((res) =>{
@@ -42,6 +49,7 @@ export default function AdminTeamPage() {
             setTeams(res)
             setLoading(false)
             setFlag(false)
+            setSelectedImage("")
         })
 
     }, [flag]);
@@ -62,7 +70,47 @@ export default function AdminTeamPage() {
             setLoading(false)
         }).catch(err=>alert(err))
     }
-        return (
+    const setTeamForUpdate = (team) =>{
+        console.log(team)
+        setName(team.name);
+        setDescription(team.description);
+        setDesignation(team.designation);
+        setTeamImage(team.image)
+        setSelectedTeam(team.id);
+        setUpdateModal(true)
+    }
+
+    const confirmTeamUpdate = async() =>{
+        setLoading(true)
+        setUpdateModal(false)
+        let dataImage = new FormData();
+        dataImage.append('image', selectedImage);
+
+        const data = {
+            id: selectedTeam,
+            name,
+            designation,
+            description,
+            image: teamImage
+        }
+        if (selectedImage) {
+            const image = await teamService.uploadImage(dataImage, {
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            });
+            data.image = image;
+        }
+
+        console.log('team service update ', data);
+        teamService.updateTeamMember(data).then(res => {
+            if (res.status === 200) {
+                setLoading(false)
+                setFlag(true)
+            }
+        }).catch(e=>alert(e))
+    }
+    return (
         <div className='container-fluid p-0' >
                 <AdminHeaderComponent pageName="Team" />
                 <br/>
@@ -107,7 +155,7 @@ export default function AdminTeamPage() {
                                 return(
                                     <TableRow key={team.id} >
                                     <TableCell >
-                                    <IconButton size="medium" ><i class="fas fa-pencil-alt"></i></IconButton>
+                                    <IconButton size="medium" onClick={()=>setTeamForUpdate(team)} ><i class="fas fa-pencil-alt"></i></IconButton>
                                     </TableCell>
                                     <TableCell >
                                         <IconButton onClick={()=>setTeamForDelete(team.id)} size="medium" ><i class="fas fa-trash-alt"></i></IconButton>
@@ -151,6 +199,84 @@ export default function AdminTeamPage() {
                 style={{background:"darkRed" , color:"white"}} 
                 variant="contained" 
                 >Delete</Button>
+            </Modal.Footer>
+         </Modal>
+    {/* MODAL FOR DELETE TEAM END */}
+    {/* MODAL FOR DELETE TEAM START*/}
+    <Modal
+        onHide={()=>setUpdateModal(false)}
+        show={updateModal}
+        size="lg"
+        >
+            <Modal.Header>
+            <Modal.Title style={{color:"darkRed" , fontWeight:"bold"}} >Update Team !</Modal.Title>
+            </Modal.Header>
+            <Modal.Body >
+                <div className='container' >
+                    {/* first input */}
+                    <div class="form-group">
+                        <label className='admin-label' for="name">Name</label>    
+                        <input 
+                            type="text" 
+                            class="form-control admin-input" 
+                            id="name" 
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                    </div>
+                    {/* second input */}
+                    <div class="form-group">
+                        <label className='admin-label' for="designation">Designation</label>    
+                        <input 
+                            type="text" 
+                            class="form-control admin-input" 
+                            id="designation" 
+                            value={designation}
+                            onChange={(e) => setDesignation(e.target.value)}
+                        />
+                    </div>
+                    {/* third input */}
+                        <div class="form-group">
+                            <label className='admin-label' for="description">Description</label>
+                            <textarea 
+                            class="form-control admin-textArea" 
+                            id="description" 
+                            rows="5"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                            >
+                            </textarea>
+                        </div>
+                        {/* FILE  INPUT  */}
+                    <div class="form-group">
+                        <label className='admin-label mr-4' for="image">Team Image</label>
+                        <input 
+                        onChange={(e) => setSelectedImage(e.target.files[0])}
+                        accept="image/*" 
+                        style={{display:"none"}} 
+                        id="icon-button-file-2"
+                        type="file" />
+                         <label htmlFor="icon-button-file-2">
+                               <IconButton className='btn-block' style={{color:"darkRed" , border:"1px solid darkRed"}} aria-label="upload picture" component="div">
+                                 <i class="fas fa-camera"></i>
+                                </IconButton>
+                         </label>
+                         <small className='ml-3 font-weight-bold' >{selectedImage ? selectedImage.name :""}</small>
+                    </div>
+                </div>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button 
+                variant="contained" 
+                size="small"
+                onClick={()=>setUpdateModal(false)}
+                >Cancel</Button>
+                <Button
+                onClick={()=>confirmTeamUpdate()}
+                size="small"
+                style={{background:"darkRed" , color:"white"}} 
+                variant="contained" 
+                >Update</Button>
             </Modal.Footer>
          </Modal>
     {/* MODAL FOR DELETE TEAM END */}

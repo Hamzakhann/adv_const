@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 function HeaderComponent(props) {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedd , setSelected] = useState("hello");
+  const [Dropdown, setDropdown] = useState(true);
+
   const toggleDropdown = () => {
     console.log('toggle dropdown ');
     setSelected("about")
@@ -63,10 +65,10 @@ function HeaderComponent(props) {
         <div id="mySidenav" class="sidenav">
           <img src="/final-logo.png" className="sideNav-logo img-fluid" />
 
-                <a className="" onClick={toggleDropdown} >
+          <a id="color-about" >
                   About Us
                 </a>
-                { showDropdown ? <div className="">
+                { Dropdown ? <div className="">
                   <Link  className=" " to="/who-we-are">WHO WE ARE</Link>
                   <Link className=" " to="/quality">QUALITY</Link>
                   <Link  className=" " to="/team">TEAM</Link>

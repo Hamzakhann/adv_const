@@ -35,6 +35,9 @@ export default function AdminTeamPage() {
   const [isLoading , setLoading] = useState(true)
   const [deleteModal , setDeleteModal] = useState(false)
   const [selectedCity , setSelectedCity] = useState("")
+  const [updateModal , setUpdateModal] = useState("")
+  const [name , setName] = useState("")
+
     useEffect(() => {
         citiesService.getAll().then(res=>{
             console.log(res)
@@ -60,8 +63,28 @@ export default function AdminTeamPage() {
             setLoading(false)
         }).catch(err=>alert(err))
     }
-
-        return (
+    const setCityForUpdate = (city)=>{
+        console.log(city)
+        setName(city.name);
+        setSelectedCity(city.id)
+        setUpdateModal(true)
+    }
+    const confirmCityUpdate = ()=>{
+        setLoading(true)
+        setUpdateModal(false)
+        const data = {
+            city_id: selectedCity,
+            name,
+        }
+        citiesService.updateCity(data).then(res => {
+            console.log("chellllll" , res)
+            if (res.status === 200) {
+                setLoading(false)
+                setFlag(true)
+            }
+        }).catch(e=>alert(e))
+    }
+    return (
         <div className='container-fluid p-0' >
                 <AdminHeaderComponent pageName="Cities" />
                 <br/>
@@ -104,7 +127,7 @@ export default function AdminTeamPage() {
                                 return(
                                     <TableRow key={city.id} >
                                     <TableCell >
-                                    <IconButton size="medium" ><i class="fas fa-pencil-alt"></i></IconButton>
+                                    <IconButton size="medium" onClick={() => setCityForUpdate(city)} ><i class="fas fa-pencil-alt"></i></IconButton>
                                     </TableCell>
                                     <TableCell >
                                         <IconButton onClick={() => setCityForDelete(city.id)} size="medium" ><i class="fas fa-trash-alt"></i></IconButton>
@@ -149,6 +172,47 @@ export default function AdminTeamPage() {
             </Modal.Footer>
          </Modal>
     {/* MODAL FOR DELETE CITY END */}
+
+    {/* MODAL FOR UPDATE CITY START*/}
+    <Modal
+        onHide={()=>setUpdateModal(false)}
+        show={updateModal}
+        size="lg"
+        >
+            <Modal.Header>
+            <Modal.Title style={{color:"darkRed" , fontWeight:"bold"}} >Update City !</Modal.Title>
+            </Modal.Header>
+            <Modal.Body >
+                <div className='container' >
+                    {/* second input */}
+                    <div class="form-group">
+                        <label className='admin-label' for="name">Name</label>
+                            
+                            <input 
+                            type="text" 
+                            class="form-control admin-input" 
+                            id="name" 
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            />
+                    </div>
+                </div>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button 
+                variant="contained" 
+                size="small"
+                onClick={()=>setUpdateModal(false)}
+                >Cancel</Button>
+                <Button
+                onClick={()=>confirmCityUpdate()}
+                size="small"
+                style={{background:"darkRed" , color:"white"}} 
+                variant="contained" 
+                >Update</Button>
+            </Modal.Footer>
+         </Modal>
+    {/* MODAL FOR UPDATE CITY END */}
         </div>
           );
     

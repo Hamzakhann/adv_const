@@ -34,7 +34,10 @@ export default function AdminJobPage() {
   const [jobs, setJobs] = useState("");
   const [isLoading , setLoading] = useState(true)
   const [deleteModal , setDeleteModal] = useState(false)
+  const [updateModal , setUpdateModal] = useState("")
   const [selectedJob , setSelectedJob] = useState("")
+  const [title , setTitle] = useState("")
+  const [description , setDescription] = useState("")
     useEffect(() => {
         jobsService.getAll().then(res => {
             console.log(res)
@@ -59,6 +62,30 @@ export default function AdminJobPage() {
             setFlag(true)
             setLoading(false)
         }).catch(err=>alert(err))
+    }
+
+    const setJobForUpdate = (job) =>{
+        console.log(job)
+        setSelectedJob(job.id)
+        setTitle(job.title)
+        setDescription(job.description)
+        setUpdateModal(true)
+    }
+
+    const confirmJobUpdate =()=>{
+        setLoading(true)
+        setUpdateModal(false)
+        const data = {
+            job_id: selectedJob,
+            title:title,
+            description:description
+        }
+        jobsService.updateJob(data).then(res => {
+            if (res.status === 200) {
+                setLoading(false)
+                setFlag(true)
+            }
+        }).catch(e=>alert(e))
     }
         return (
         <div className='container-fluid p-0' >
@@ -105,7 +132,7 @@ export default function AdminJobPage() {
                                 <TableCell >{job.title}</TableCell>
                                 <TableCell >{job.description}</TableCell>
                                 <TableCell >
-                                    <IconButton size="medium" ><i class="fas fa-pencil-alt"></i></IconButton>
+                                    <IconButton onClick={()=>setJobForUpdate(job)} size="medium" ><i class="fas fa-pencil-alt"></i></IconButton>
                                     </TableCell>
                                     <TableCell >
                                         <IconButton onClick={()=>setJobForDelete(job.id)} size="medium" ><i class="fas fa-trash-alt"></i></IconButton>
@@ -148,6 +175,58 @@ export default function AdminJobPage() {
             </Modal.Footer>
          </Modal>
     {/* MODAL FOR DELETE JOB END */}
+
+    {/* MODAL FOR Update JOB START*/}
+    <Modal
+        onHide={()=>setUpdateModal(false)}
+        show={updateModal}
+        size="lg"
+        >
+            <Modal.Header>
+            <Modal.Title style={{color:"darkRed" , fontWeight:"bold"}} >Delete Job !</Modal.Title>
+            </Modal.Header>
+            <Modal.Body  >
+                <div className='container' >
+                    {/* second input */}
+                    <div class="form-group">
+                        <label className='admin-label' for="title">Title</label>       
+                            <input  
+                            type="text" 
+                            class="form-control admin-input" 
+                            id="title" 
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            />
+                    </div>
+                    {/* third input */}
+                    <div class="form-group">
+                            <label className='admin-label' for="description">Description</label>
+                            <textarea 
+                            class="form-control admin-textArea" 
+                            id="description" 
+                            rows="5"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                            >
+                            </textarea>
+                        </div>
+                </div>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button 
+                variant="contained" 
+                size="small"
+                onClick={()=>setUpdateModal(false)}
+                >Cancel</Button>
+                <Button
+                onClick={()=>confirmJobUpdate()}
+                size="small"
+                style={{background:"darkRed" , color:"white"}} 
+                variant="contained" 
+                >Update</Button>
+            </Modal.Footer>
+         </Modal>
+    {/* MODAL FOR Update JOB END */}
         </div>
           );
     

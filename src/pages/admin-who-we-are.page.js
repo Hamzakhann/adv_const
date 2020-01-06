@@ -38,53 +38,58 @@ export default function AdminWhoWeArePage() {
             setWorkWithUsImage(res.data[0].work_with_us_image);
             setFlag(false)
             setLoading(false)
+            setSelectedBannerImage("")
+            setSelectedCeoMessageImage("")
+            setSelectedWorkWithUsImage("")
         })
     },[flag])
 
     const updateContact = async() => {
         setLoading(true)
-        if(selectedBannerImage && selectedCeoMessageImage && selectedWorkWithUsImage){
-            console.log('first condition')
-            let image_1 = new FormData();
-            image_1.append('image', selectedBannerImage);
-            let image_2 = new FormData();
-            image_2.append('image', selectedCeoMessageImage);
-            let image_3 = new FormData();
-            image_3.append('image', selectedWorkWithUsImage);
-            try{
-                let response_1 = await axios.post(`${url}admin/upload`, image_1, {
-                    headers: {'content-type': 'multipart/form-data'}})
-                console.log(response_1)
-                let response_2 = await axios.post(`${url}admin/upload`, image_2, {
-                        headers: {'content-type': 'multipart/form-data'}})
-                console.log(response_2)
-                let response_3 = await axios.post(`${url}admin/upload`, image_3, {
-                    headers: {'content-type': 'multipart/form-data'}})
-                console.log(response_3)
-                const finalResponse = await axios.post(`${url}admin/update_who_we_are_page`, querystring.stringify({
-                    primary_title: title,
-                    banner_image :response_1.data,
-                    primary_description: description,
-                    ceo_message:ceoMessage,
-                    ceo_message_image: response_2.data,
-                    secondary_title: secondaryTitle,
-                    work_with_us_title: workWithUsTitle,
-                    work_with_us_image: response_3.data,
-                    secondary_description: secondaryDescription
-        
-                }), {
-                    headers: { 
-                      "Content-Type": "application/x-www-form-urlencoded"
-                    }
-                  })
+        let data = {
+            primary_title: title,
+            banner_image :bannerImage,
+            primary_description: description,
+            ceo_message:ceoMessage,
+            ceo_message_image: ceoMessageImage,
+            secondary_title: secondaryTitle,
+            work_with_us_title: workWithUsTitle,
+            work_with_us_image: workWithUsImage,
+            secondary_description: secondaryDescription
+        }
+
+        try{
+            if(selectedBannerImage){
+                let dataImage = new FormData();
+                dataImage.append('image', selectedBannerImage);
+                let response = await axios.post(`${url}admin/upload`, dataImage, {
+                headers: {'content-type': 'multipart/form-data'}})
+                data.banner_image = response.data;
+            }
+            if(selectedCeoMessageImage){
+                let dataImage = new FormData();
+                dataImage.append('image', selectedCeoMessageImage);
+                let response = await axios.post(`${url}admin/upload`, dataImage, {
+                headers: {'content-type': 'multipart/form-data'}})
+                data.ceo_message_image = response.data;
+            }
+            if(selectedWorkWithUsImage){
+                let dataImage = new FormData();
+                dataImage.append('image', selectedWorkWithUsImage);
+                let response = await axios.post(`${url}admin/upload`, dataImage, {
+                headers: {'content-type': 'multipart/form-data'}})
+                data.work_with_us_image = response.data;
+            }
+
+            const finalResponse = await axios.post(`${url}admin/update_who_we_are_page`, querystring.stringify(data), {
+                headers: { "Content-Type": "application/x-www-form-urlencoded"}})
             if(finalResponse){
                 setLoading(false)
                 setFlag(true)
             }
-            }catch(e){
-                alert(e)
-            }
 
+        }catch(e){
+            alert(e)
         }
 
     }

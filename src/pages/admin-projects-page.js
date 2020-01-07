@@ -1,5 +1,6 @@
 
 import React , {useEffect , useState} from 'react';
+import {useHistory} from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import { 
     IconButton,
@@ -30,6 +31,7 @@ const useStyles = makeStyles({
 
 export default function AdminProjectsPage() {
   const classes = useStyles();
+  const history = useHistory()
   const projectService = new ProjectService();
   const citiesService = new CitiesService();
   const [flag , setFlag] = useState(false)
@@ -57,7 +59,6 @@ export default function AdminProjectsPage() {
   const [selectedImage, setSelectedImage] = useState();
   const [selectedImageMin1 , setSelectedImageMin1] = useState();
   const [selectedImageMin2, setSelectedImageMin2] = useState();
-
     useEffect(() => {
         citiesService.getAll().then(cities=>{
             projectService.getAll().then(res => {
@@ -176,6 +177,7 @@ export default function AdminProjectsPage() {
             <div className='container' >
                 <div style={{float:"right"}} >
                 <Button
+                    onClick={() => history.push('/admin/add-project')}
                     style={{background:"darkRed" , color:"white"}}
                     variant="contained"
                     className={classes.button}

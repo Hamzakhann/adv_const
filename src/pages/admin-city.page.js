@@ -34,8 +34,9 @@ export default function AdminTeamPage() {
   const [cities, setCities] = useState("");
   const [isLoading , setLoading] = useState(true)
   const [deleteModal , setDeleteModal] = useState(false)
-  const [selectedCity , setSelectedCity] = useState("")
-  const [updateModal , setUpdateModal] = useState("")
+  const [selectedCity , setSelectedCity] = useState(false)
+  const [updateModal , setUpdateModal] = useState(false)
+  const [addModal , setAddModal] = useState(false)
   const [name , setName] = useState("")
 
     useEffect(() => {
@@ -44,6 +45,7 @@ export default function AdminTeamPage() {
             setCities(res)
             setLoading(false)
             setFlag(false)
+            setName("")
         })
 
     }, [flag]);
@@ -84,6 +86,20 @@ export default function AdminTeamPage() {
             }
         }).catch(e=>alert(e))
     }
+
+    const addCity = () => {
+        setLoading(true)
+        setAddModal(false)
+        citiesService.create({ name: name }).then(res => {
+            if(res){
+                setLoading(false)
+                setFlag(true)
+            }
+        }).catch((e) =>{
+            setLoading(false)
+            alert(e)
+        })
+    }
     return (
         <div className='container-fluid p-0' >
                 <AdminHeaderComponent pageName="Cities" />
@@ -92,6 +108,7 @@ export default function AdminTeamPage() {
             <div className='container' >
                 <div style={{float:"right"}} >
                 <Button
+                onClick={() =>setAddModal(true)}
                     style={{background:"darkRed" , color:"white"}}
                     variant="contained"
                     className={classes.button}
@@ -210,6 +227,48 @@ export default function AdminTeamPage() {
                 style={{background:"darkRed" , color:"white"}} 
                 variant="contained" 
                 >Update</Button>
+            </Modal.Footer>
+         </Modal>
+    {/* MODAL FOR UPDATE CITY END */}
+
+
+        {/* MODAL FOR UPDATE CITY START*/}
+        <Modal
+        onHide={()=>setAddModal(false)}
+        show={addModal}
+        size="lg"
+        >
+            <Modal.Header>
+            <Modal.Title style={{color:"darkRed" , fontWeight:"bold"}} >Add City !</Modal.Title>
+            </Modal.Header>
+            <Modal.Body >
+                <div className='container' >
+                    {/* second input */}
+                    <div class="form-group">
+                        <label className='admin-label' for="name">Name</label>
+                            
+                            <input 
+                            type="text" 
+                            class="form-control admin-input" 
+                            id="name" 
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            />
+                    </div>
+                </div>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button 
+                variant="contained" 
+                size="small"
+                onClick={()=>setAddModal(false)}
+                >Cancel</Button>
+                <Button
+                onClick={()=>addCity()}
+                size="small"
+                style={{background:"darkRed" , color:"white"}} 
+                variant="contained" 
+                >Add</Button>
             </Modal.Footer>
          </Modal>
     {/* MODAL FOR UPDATE CITY END */}

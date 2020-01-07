@@ -34,10 +34,12 @@ export default function AdminJobPage() {
   const [jobs, setJobs] = useState("");
   const [isLoading , setLoading] = useState(true)
   const [deleteModal , setDeleteModal] = useState(false)
-  const [updateModal , setUpdateModal] = useState("")
+  const [updateModal , setUpdateModal] = useState(false)
+  const [addModal , setAddModal] = useState(false)
   const [selectedJob , setSelectedJob] = useState("")
   const [title , setTitle] = useState("")
   const [description , setDescription] = useState("")
+
     useEffect(() => {
         jobsService.getAll().then(res => {
             console.log(res)
@@ -87,6 +89,20 @@ export default function AdminJobPage() {
             }
         }).catch(e=>alert(e))
     }
+
+    const addJob = () => {
+        setLoading(true)
+        setAddModal(false)
+        jobsService.create({ title, description }).then(res => {
+            if(res){
+                setLoading(false)
+                setFlag(true)
+            }
+        }).catch((e) =>{
+            setLoading(false)
+            alert(e)
+        })
+    }
         return (
         <div className='container-fluid p-0' >
                 <AdminHeaderComponent pageName="Jobs" />
@@ -95,6 +111,7 @@ export default function AdminJobPage() {
             <div className='container' >
                 <div style={{float:"right"}} >
                 <Button
+                    onClick={()=>setAddModal(true)}
                     style={{background:"darkRed" , color:"white"}}
                     variant="contained"
                     className={classes.button}
@@ -183,7 +200,7 @@ export default function AdminJobPage() {
         size="lg"
         >
             <Modal.Header>
-            <Modal.Title style={{color:"darkRed" , fontWeight:"bold"}} >Delete Job !</Modal.Title>
+            <Modal.Title style={{color:"darkRed" , fontWeight:"bold"}} >Update Job !</Modal.Title>
             </Modal.Header>
             <Modal.Body  >
                 <div className='container' >
@@ -227,6 +244,60 @@ export default function AdminJobPage() {
             </Modal.Footer>
          </Modal>
     {/* MODAL FOR Update JOB END */}
+
+    {/* MODAL FOR Add JOB START*/}
+    <Modal
+        onHide={()=>setAddModal(false)}
+        show={addModal}
+        size="lg"
+        >
+            <Modal.Header>
+            <Modal.Title style={{color:"darkRed" , fontWeight:"bold"}} >Add Job !</Modal.Title>
+            </Modal.Header>
+            <Modal.Body  >
+                <div className='container' >
+                    {/* second input */}
+                    <div class="form-group">
+                        <label className='admin-label' for="title">Title</label>       
+                            <input  
+                            type="text" 
+                            class="form-control admin-input" 
+                            id="title" 
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            />
+                    </div>
+                    {/* third input */}
+                    <div class="form-group">
+                            <label className='admin-label' for="description">Description</label>
+                            <textarea 
+                            class="form-control admin-textArea" 
+                            id="description" 
+                            rows="5"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                            >
+                            </textarea>
+                        </div>
+                </div>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button 
+                variant="contained" 
+                size="small"
+                onClick={()=>setAddModal(false)}
+                >Cancel</Button>
+                <Button
+                onClick={()=>addJob()}
+                size="small"
+                style={{background:"darkRed" , color:"white"}} 
+                variant="contained" 
+                >Add</Button>
+            </Modal.Footer>
+         </Modal>
+    {/* MODAL FOR Add JOB END */}
+
+
         </div>
           );
     

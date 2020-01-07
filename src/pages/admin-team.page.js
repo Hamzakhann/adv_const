@@ -1,5 +1,6 @@
 
 import React , {useEffect , useState} from 'react';
+import { useHistory } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import { 
     IconButton,
@@ -28,6 +29,7 @@ const useStyles = makeStyles({
 
 
 export default function AdminTeamPage() {
+    const history = useHistory()
   const classes = useStyles();
   const teamService = new TeamService()
   const [flag , setFlag] = useState(false)
@@ -118,6 +120,7 @@ export default function AdminTeamPage() {
             <div className='container' >
                 <div style={{float:"right"}} >
                 <Button
+                    onClick={() => history.push("/admin/add-team")}
                     style={{background:"darkRed" , color:"white"}}
                     variant="contained"
                     className={classes.button}

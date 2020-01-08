@@ -10,7 +10,7 @@ function TeamPage() {
         teamService.getAll().then(res => setTeam(res));
        
     }, []);
-   
+   console.log(`temassss`,teams);
     
     
         

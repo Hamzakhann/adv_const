@@ -119,22 +119,22 @@ export default function ProjectsPage() {
                       <li className="nav-item  ml-4  icon-li"
                               style={{borderBottom:projectType === 'marine'?'4px solid #C92027':'none'}}
                                   onClick={() => onChangeProjectType("marine")}>
-                       {projectType === 'marine' ?<img src="/3.png " className='marine-img' /> :<img src="/final-icon-2.png " className='marine-img' />}
+                       {projectType === 'marine' ?<img src="/red-cruise.svg " className='marine-img' /> :<img src="/black-cruise.svg " className='marine-img' />}
                         </li>
                       <li className="nav-item  ml-4  icon-li" 
                       style={{borderBottom:projectType === 'building'?'4px solid #C92027':'none'}}
                       onClick={() => onChangeProjectType("building")}>
-                        {projectType === 'building' ?<img  src="/2.png" className='building-img' />: <img  src="/pr-icon-1.png" className='building-img' />}
+                        {projectType === 'building' ?<img  src="/red-building.svg" className='building-img' />: <img  src="/black-building.svg" className='building-img' />}
                       </li>
                       <li className="nav-item  ml-4  icon-li"
                       style={{borderBottom:projectType === 'road'?'4px solid #C92027':'none'}}
                       onClick={() => onChangeProjectType("road")}>
-                      {projectType === 'road' ? <img src="/1.png" className='road-img' />:<img src="/pr-icon-4.png" className='road-img' />}
+                      {projectType === 'road' ? <img src="/red-road.svg" className='road-img' />:<img src="/black-road.svg" className='road-img' />}
                       </li>
                       <li className="nav-item  ml-4  icon-li" 
                       style={{borderBottom:projectType === 'all'?'4px solid #C92027':'none'}}
                       onClick={() => onChangeResetProjectType(selectedCity)}>
-                       {projectType === 'all' ?<img  src="/4.png" className='all-img' />: <img  src="/icon.png" className='all-img' />}
+                       {projectType === 'all' ?<img  src="/red-reset.svg" className='all-img' />: <img  src="/black-reset.svg" className='all-img' />}
                       </li>
                     </ul>
                   </div>
@@ -171,27 +171,27 @@ export default function ProjectsPage() {
                       <li  className="nav-item  ml-4  icon-li" 
                                   style={{borderBottom:projectType === 'bridge'?'4px solid #C92027':'none'}}
                                    onClick={() => onChangeProjectType("bridge")}>
-                      {projectType === 'bridge' ?<img  src="/bridge-red.png" className='bridge-img'  /> :<img  src="/bridge-black.png" className='bridge-img'  />}
+                      {projectType === 'bridge' ?<img  src="/red-bridge.svg" className='bridge-img'  /> :<img  src="/black-bridge.svg" className='bridge-img'  />}
                       </li>
                       <li className="nav-item  ml-4  icon-li"
                               style={{borderBottom:projectType === 'marine'?'4px solid #C92027':'none'}}
                                   onClick={() => onChangeProjectType("marine")}>
-                       {projectType === 'marine' ?<img src="/marine-red.png" className='marine-img' /> :<img src="/marine-black.png" className='marine-img' />}
+                       {projectType === 'marine' ?<img src="/red-cruise.svg" className='marine-img' /> :<img src="/black-cruise.svg" className='marine-img' />}
                         </li>
                       <li className="nav-item  ml-4  icon-li" 
                       style={{borderBottom:projectType === 'building'?'4px solid #C92027':'none'}}
                       onClick={() => onChangeProjectType("building")}>
-                        {projectType === 'building' ?<img  src="/building-red.png" className='building-img' />: <img  src="/building-black.png" className='building-img' />}
+                        {projectType === 'building' ?<img  src="/red-building.svg" className='building-img' />: <img  src="/black-building.svg" className='building-img' />}
                       </li>
                       <li className="nav-item  ml-4  icon-li"
                       style={{borderBottom:projectType === 'road'?'4px solid #C92027':'none'}}
                       onClick={() => onChangeProjectType("road")}>
-                      {projectType === 'road' ? <img src="/road-red.png" className='road-img' />:<img src="/road-black.png" className='road-img' />}
+                      {projectType === 'road' ? <img src="/red-road.svg" className='road-img' />:<img src="/black-road.svg" className='road-img' />}
                       </li>
                       <li className="nav-item  ml-4  icon-li" 
                       style={{borderBottom:projectType === 'all'?'4px solid #C92027':'none'}}
                       onClick={() => onChangeResetProjectType(selectedCity)}>
-                       {projectType === 'all' ?<img  src="/4.png" className='all-img' />: <img  src="/icon.png" className='all-img' />}
+                       {projectType === 'all' ?<img  src="/red-reset.svg" className='all-img' />: <img  src="/black-reset.svg" className='all-img' />}
                       </li>
                     </ul>
                   </div>

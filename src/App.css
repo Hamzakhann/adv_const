@@ -47,8 +47,8 @@ p{   font-family: 'FoundersGroteskWeb-Regular'; }
 
 
 .navbar-brand img{ 
+    padding: 7px;
     height: 85px !important;
-    margin-left: 14px !important;
     margin-top: 2px !important;
 }
 
@@ -1201,7 +1201,7 @@ display: none;
 nav{
     width: 75% ;
     margin: 0 auto !important;
-    height: 100px !important;
+    height: 121px !important;
 }
 
 .what-we{

@@ -16,9 +16,13 @@ const ContactUsPage = () => {
         	<main style={{background: "#fff"}} className="mt-5 mb-4">
     	<div class="container ">
     		<div class="row contactUs-text-container">
+			
+
     			<div class="col-md-6 col-sm-12 contactInfo">
     			    <h3 class="h3-responsive font-weight-bold aboutus who-we-are-heading ">Contact Us</h3>
-    			    <p className='who-we-are-heading'>INQUIRIES<br />
+					<br className="desktop-view"/>
+			
+				    <p className='who-we-are-heading'>INQUIRIES<br />
     			     <a href="mailto:projects@advanceconstruction.com.sa" class=" founder-font contactEmail ">{contact ? contact.email: null}</a>
     			    </p>
     			    <p className='founder-font mb-0 mt-4'>PHONE NUMBERS</p>

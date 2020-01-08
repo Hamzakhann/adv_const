@@ -53,7 +53,7 @@ function FooterComponent(props) {
             
           
             <Link className="float-right mt-md-2 col-6 col-sm-6 mt-2  pl-0 pr-2" to="/">
-              <img src="/final-logo.png" className="img-fluid" />
+              <img src="/logo-final.svg" className="img-fluid" />
             </Link>
             
           </div>
@@ -102,7 +102,7 @@ function FooterComponent(props) {
           </div>
           <div className="col-md-4 p-3">
             <Link className="float-right mt-md-2" to="/">
-              <img src="/final-logo.png" className="img-fluid" />
+              <img src="/logo-final.svg" className="img-fluid" />
             </Link>
             
           </div>

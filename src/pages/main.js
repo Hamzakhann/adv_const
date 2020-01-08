@@ -256,7 +256,7 @@ console.log("others check" , others)
           <div className="col-md-4 col-sm-12 box mob-margin" style={{marginTop: "100px"}}>
             <div className="inner">
               <div className="icon">
-              <img src="/2.svg" className="main-page-icon icon-margin" />
+              <img src="/bridge-home.svg" className="main-page-icon icon-margin" />
               </div> 
               <h3 className="h3-responsive who-we-are-content-edit font-weight-bold" style={{fontSize:"30px" , color:"black" , fontWeight:"bold"}}>{otherData.service_1_title}</h3>
               <p className='font-weight-bold who-we-are-content-edit' style={{color:'black' , fontWeight:"bold"}} >{otherData.service_1_desc}</p>
@@ -265,7 +265,7 @@ console.log("others check" , others)
           <div className="col-md-4 col-sm-12 mob-margin box" style={{marginTop: "100px"}}>
             <div className="inner">
               <div className="icon">
-                <img src="/1.svg" className="main-page-icon icon-margin" />
+                <img src="/electro-home.svg" className="main-page-icon icon-margin" />
               </div>
               <h3 className="h3-responsive who-we-are-content-edit font-weight-bold" style={{fontSize:"30px"}}>{otherData.service_2_title}</h3>
               <p className='font-weight-bold who-we-are-content-edit' style={{color:'black' , fontWeight:"bold"}} >{otherData.service_2_desc}</p>
@@ -274,7 +274,7 @@ console.log("others check" , others)
           <div className="col-md-4 col-sm-12 mob-margin" style={{marginTop: "100px"}}>
             <div className="inner">
               <div className="icon">
-                <img src="/3.svg" className="main-page-icon icon-margin" />
+                <img src="/cruise-home.svg" className="main-page-icon icon-margin" />
               </div>
               <h3 className="h3-responsive who-we-are-content-edit font-weight-bold" style={{fontSize:"30px"}}>{otherData.service_3_title}</h3>
               <p className='font-weight-bold who-we-are-content-edit' style={{color:'black' , fontWeight:"bold"}} >{otherData.service_3_desc}</p>

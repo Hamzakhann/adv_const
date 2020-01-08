@@ -12,7 +12,7 @@ import './carosal.css';
 
 function MainPage() {
   let history = useHistory();
-  const [city, setCity] = useState('jeddah');
+  const [city, setCity] = useState('UMLUJ');
   const [cities, setCities] = useState();
   const [selectedCity, setSelectedCity] = useState();
   const [projects, setProjects] = useState();
@@ -96,6 +96,7 @@ const setcarosalPrev = () =>{
 
 }
 
+console.log("others check" , others)
   return (
       <div >
       <HeaderComponent topclassName={"fixed-top-header"}>

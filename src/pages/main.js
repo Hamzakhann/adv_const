@@ -91,9 +91,14 @@ const setcarosalPrev = () =>{
       setCIndex(index-1)
 
   }
+  else{
+    setCIndex(0)
+}
 
 
 
+    
+    
 }
 
   return (
@@ -144,12 +149,12 @@ const setcarosalPrev = () =>{
       </Carousel>
       <div className='side-crop mob-view-slider' onClick={()=> setcarosal()}>
       <img
-            className="d-block w-100 sm-carosal "
+            className="d-block  sm-carosal "
             src={others && others[0].image}
             alt="Third slide"
           />
       </div>
-      <div className='side-crop mob-view-slider desktop-view'onClick={()=> setcarosal()} >
+      <div className='side-crop  desktop-view'onClick={()=> setcarosal()} >
       <img
             className="d-block w-100 sm-carosal"
             src={others && others[1].image}
@@ -157,7 +162,7 @@ const setcarosalPrev = () =>{
 
           />
       </div>
-      <div className='side-crop mob-view-slider desktop-view' onClick={()=> setcarosal()} >
+      <div className='side-crop  desktop-view' onClick={()=> setcarosal()} >
       <img
             className="d-block w-100 sm-carosal"
             src={others && others[2].image}

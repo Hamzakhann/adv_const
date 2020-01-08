@@ -975,12 +975,14 @@ padding: 0 !important;
         overflow: hidden !important;
 
     }
+  
    .mob-view-sliders{
     height: 200px !important;
     width: 265px !important;
 }
     .mob-view-slider{
        height: 200px !important;
+       width: 100px !important;
    }
     .padding-whoweare-mob{
         padding-right: 0px !important;

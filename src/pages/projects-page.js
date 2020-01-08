@@ -114,7 +114,7 @@ export default function ProjectsPage() {
                       <li  className="nav-item  ml-4  icon-li" 
                                   style={{borderBottom:projectType === 'bridge'?'4px solid #C92027':'none'}}
                                    onClick={() => onChangeProjectType("bridge")}>
-                      {projectType === 'bridge' ?<img  src="/5.png" className='bridge-img'  /> :<img  src="/final-icon-1.png" className='bridge-img'  />}
+                      {projectType === 'bridge' ?<img  src="/red-bridge.svg" className='bridge-img'  /> :<img  src="/black-bridge.svg" className='bridge-img'  />}
                       </li>
                       <li className="nav-item  ml-4  icon-li"
                               style={{borderBottom:projectType === 'marine'?'4px solid #C92027':'none'}}

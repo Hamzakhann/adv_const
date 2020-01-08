@@ -7,7 +7,7 @@
     height: 400px !important;
 }
 .side-crop { 
-    width: 215px !important; 
+    width: 215px ; 
     overflow: hidden !important;
 }
 .side-crop>.sm-carosal { 

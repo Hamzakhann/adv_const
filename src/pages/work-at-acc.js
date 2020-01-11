@@ -58,6 +58,7 @@ function WorkAtAccPage(props) {
                 <p className="color-red" data-toggle="modal" data-target="#myModal"
                   style={{ cursor: 'pointer' , fontWeight:'bold'}}>Jobs and pre-requistes </p>
                 <div >
+                  <br className="desktop-view"></br>
                   <div className="form-group">
                     <label for="fullname">Full Name</label>
                     <input

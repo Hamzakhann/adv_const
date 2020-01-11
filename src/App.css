@@ -86,7 +86,7 @@ p{   font-family: 'FoundersGroteskWeb-Regular'; }
 
 p{
     line-height:1.8;
-    color:#585858;
+    columns: #000000;
 }
 
 header,
@@ -414,7 +414,7 @@ ul.social-network li {
 }
 
 .contactUs-text h4{
-    font-size: 27px !important;
+    font-size: 35px !important;
     margin-top: 30px;
     font-weight: bold!important;
 }
@@ -459,7 +459,9 @@ ul.social-network li {
     
 }
 
-
+.card-text{
+    height: 70px !important ;
+}
 .card-text p{
     color:#CACACA;
     font-size:14px;
@@ -556,7 +558,9 @@ ul.social-network li {
     box-shadow: 0 0 0 0.2rem rgba(238, 238, 238, 0.5);
         
 }
-
+.form-control-lg{
+    height: calc(1.5em + 1rem + 10px) !important;
+}
 
 .aboutus{
     margin-top:20px;
@@ -581,11 +585,11 @@ ul.social-network li {
 }
 
 .contactInfo p{
-   color:#585858; 
+   color:#000000 !important ;
 }
 
 .contactInfo a{
-   color:#585858; 
+   color:#000000 !important; 
 }
 
 .aboutPresident .col-md-6{
@@ -733,6 +737,7 @@ section{
 .who-we-are-heading{
     font-family: 'NationWeb' !important;
     font-weight: bold !important;
+    color: #000000 !important;
 }
 .who-h1{
     font-family: 'NationWeb' !important;
@@ -853,6 +858,7 @@ section{
     padding-right: 30px;
     font-weight: 700!important;
     font-size: 16px;
+    color:#000000  !important;
 }
 
 .who-we-are-content-edit h3{
@@ -953,6 +959,12 @@ padding: 0 !important;
     
 }
 @media screen and (max-width: 770px) {
+    
+    .contactUs-text h4{
+        font-size: 32px !important;
+     
+    }
+    
     .navbar-brand img{ 
    padding:4px !important;
    margin-left: 5px;
@@ -1026,9 +1038,13 @@ flex-wrap: nowrap !important;
     .mob-view-margin{
         margin-top: 60px !important;
     
+        
+    }
+    .font-col {
+        color: #000000 !important;
     }
  .mob-cv-upload{
-        height: 100px !important;
+        height: 60px !important;
     }
    .copyRight{
        margin-top: 0px !important;

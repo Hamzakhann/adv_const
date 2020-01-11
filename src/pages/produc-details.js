@@ -60,6 +60,8 @@ function ProductDetails(props) {
 
 	  }
   }
+
+
   console.log('check nextttt' ,nextProduct)
   return (
         <div style={{backgroundColor:"white"}} >
@@ -96,10 +98,10 @@ function ProductDetails(props) {
     				<div className="content  content1 ">
     					<h6>{product.total_price}</h6>
     					<p>
-    						<strong >million</strong>
+    						million
     					</p>
     				</div>
-    				<p className="text-center">
+    				<p className="text-center font-col">
     					<strong>TOTAL PRICE</strong>
     				</p>
     			</div>
@@ -107,10 +109,10 @@ function ProductDetails(props) {
     				<div className="content content1">
     					<h6 >{product.length} </h6>
     					<p className="">
-    						<strong >Kilometers</strong>
+    					Kilometers
     					</p>
     				</div>	
-    				<p className="text-center">
+    				<p className="text-center font-col">
     					<strong>LENGTH OF THE<br />CONSTRUCTION</strong>
     				</p>
     				<hr style={{marginTop: "30px", width: "60%"}} />
@@ -119,7 +121,7 @@ function ProductDetails(props) {
     				<div className="content content2">
     					<h6 className="complete-date-heading">{product.completion_date}</h6>
     				</div>	
-    				<p className="text-center">
+    				<p className="text-center font-col">
     					<strong>COMPLETION</strong>
     				</p>
     			</div>

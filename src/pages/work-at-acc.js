@@ -80,9 +80,10 @@ function WorkAtAccPage(props) {
                       />
                   </div>
                   <div className="form-group  ">
-                    <label for="curriculumvita">curriculum (CV)</label>
+                    <label for="curriculumvita">Curriculum (CV)</label>
                     <div className="file-upload-wrapper  ">
                       <div className="card  card-body file-upload">
+                          <p>{cv ? cv.name : ""}</p>
                         <div className="card-text text-center file-upload-message mob-cv-upload ">
                            <p className="desktop-view">
                             Drop Your Curriculum Here

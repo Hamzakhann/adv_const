@@ -24,7 +24,7 @@ export default function QualityPage() {
 							{/* <p className="para font-weight-bold who-we-are-heading">
 							
 							</p> */}
-							<div dangerouslySetInnerHTML={{__html:quality.description}}>
+							<div   dangerouslySetInnerHTML={{__html:quality.description}}>
 								
 							</div>
 						</div>
@@ -35,7 +35,7 @@ export default function QualityPage() {
 							<div className="content content1">
 								<h6 className='font-weight-bold' >{quality.saudi_riyals}</h6>
 								<p>
-									<strong>Saudi Riyals</strong>
+									<b>Saudi Riyals</b>
 								</p>
 							</div>
 						</div>
@@ -43,7 +43,7 @@ export default function QualityPage() {
 							<div className="content content1">
 								<h6 className='font-weight-bold' >{quality.projects_completed}</h6>
 								<p style={{ lineHeight:"1" }} >
-									<strong>Projects Completed</strong>
+									<b>Projects Completed</b>
 								</p>
 							</div>
 							<hr style={{ marginTop: "30px", width: "60%" }} />
@@ -52,7 +52,7 @@ export default function QualityPage() {
 							<div className="content content2">
 								<h6 className='font-weight-bold' >{quality.current_projects}</h6>
 								<p>
-									<strong>Current Projects</strong>
+									<b>Current Projects</b>
 								</p>
 							</div>
 						</div>
@@ -73,6 +73,12 @@ export default function QualityPage() {
 			</main>
 			<hr style={{ width: '100%', marginBottom: '0px' }} />
 			<FooterComponent />
+
+		<style  jsx>{`
+		strong{
+			color:#000000 !important;
+		}
+		`}</style>
 		</div>
 	)
 }

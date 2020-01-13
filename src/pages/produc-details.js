@@ -128,7 +128,7 @@ function ProductDetails(props) {
     		</div>
 
     		<div className="row" style={{marginTop: "30px"}}>
-    			<div className="col-md-12 col-sm-12">
+    			<div className="col-md-6 col-sm-12 " style={{margin:"0 auto"}}>
     				<p className="text-center" style={{color:"#000", lineHeight: "1.7"}}>
 						{product.long_description}
     				</p>
@@ -146,7 +146,7 @@ function ProductDetails(props) {
 					</div>	
     			</div>
     			<div className="col-md-6 col-sm-12">
-    				<img src={nextProduct && nextProduct.image} style={{width:'90%', height:'300px'}} />
+    				<img src={nextProduct && nextProduct.image} style={{width:'90%', height:'300px' }} />
     			</div>
     		</div>
 			

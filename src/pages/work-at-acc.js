@@ -13,7 +13,7 @@ function WorkAtAccPage(props) {
   const jobsService = new JobsService();
   const [jobs, setJobs] = useState();
   const [selectedJob, setSelectedJob] = useState();
-  const [scroll, setScroll] = useState(false);
+  const [scroll, setScroll] = useState(true);
   const [name , setName] = useState("");
   const [email , setEmail] = useState("");
   const [cv , setCv] = useState("");

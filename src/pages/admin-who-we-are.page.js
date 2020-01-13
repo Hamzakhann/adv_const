@@ -62,7 +62,7 @@ export default function AdminWhoWeArePage() {
             if(selectedBannerImage){
                 let dataImage = new FormData();
                 dataImage.append('image', selectedBannerImage);
-                let response = await axios.post(`${url}admin/upload`, dataImage, {
+                let response = await axios.post(`${url}admin/upload`, dataImage,  {
                 headers: {'content-type': 'multipart/form-data'}})
                 data.banner_image = response.data;
             }

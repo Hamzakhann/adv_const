@@ -205,11 +205,7 @@ console.log("others check" , others)
              
             </div>  
   
-            <div style={{position:"absolute"   , fontSize:"35px"}} className="Mobile-view">
-             <i onClick={()=> setcarosalPrev()} style={{cursor:'pointer', background:"white",marginLeft:"-265px" }}  class=" fas fa-arrow-left "></i>
- 
-             <i onClick={()=> setcarosal()} style={{cursor:'pointer', background:"white",marginLeft:"282px" }}  class="fas fa-arrow-right "></i>
-             </div>
+            
            </div> 
            
           
@@ -217,11 +213,18 @@ console.log("others check" , others)
            
              
               
-           
+         
          
            
                       
             <div className="col-md-12 col-sm-12 mt-2 box">
+               {/* Mobile arrow buttons  */}
+            <div style={{position:"absolute"   , fontSize:"35px",position:"inherit"}} className="Mobile-view">
+             <i onClick={()=> setcarosalPrev()} style={{cursor:'pointer', background:"white", }}  class=" fas fa-arrow-left "></i>
+ 
+             <i onClick={()=> setcarosal()} style={{cursor:'pointer', background:"white",marginTop:"8px",float:"right" }}  class="fas fa-arrow-right "></i>
+             </div>
+
               <div className="collapse w-100 " id="collapseExample">
                 <div className="card card-body">
                   <ul>
@@ -236,7 +239,7 @@ console.log("others check" , others)
                 </div>            
               </div>
             </div>
-
+           
 
           {/* Collapse ends here */}
 

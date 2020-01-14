@@ -28,6 +28,7 @@ function ProductDetails(props) {
 	// 	   setProduct(res.data[0]);
 	//    })
    }, [])
+   console.log('bc bhund ',nextProduct)
   const nextProject = ()=>{
 	  if(nextProduct !== undefined){
 		if(currentId == ids[ids.length -1] || nextProduct.id == ids[ids.length -1]){

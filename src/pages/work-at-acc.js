@@ -103,7 +103,7 @@ function WorkAtAccPage(props) {
                       </div>
                     </div>
                   </div>
-                  <button onClick={()=>sendData()} className="btn btn-lg btn-danger buton s-btn">
+                  <button onClick={()=>sendData()} className="btn  btn-danger buton s-btn">
                     Send
                   </button>
                 </div>

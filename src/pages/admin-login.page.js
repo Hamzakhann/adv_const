@@ -1,20 +1,54 @@
-import React from 'react'
-
+import React , {useState} from 'react'
+import {useHistory} from 'react-router-dom';
 import '../admin-login.css';
 function AdminLoginPage() {
+    const [email , setEmail] = useState("")
+    const [pass , setPass] = useState("")
+    const history = useHistory()
+
+
+    const onLogin =(e)=>{
+        if(email ==='admin' && pass == '12345'){
+            history.push('/admin/dashboard')
+        }else{
+            alert("Invalid Login")
+        }
+    }
     return (
         <div className="wrapper fadeInDown">
-        <div id="formContent">
-        <div className="fadeIn first">
-        <img src="https://user-images.githubusercontent.com/35910158/35493994-36e2c50e-04d9-11e8-8b38-890caea01850.png" id="icon" alt="User Icon" />
+             <div id="formContent">
+                <br/>
+                <br/>
+                <div className="fadeIn first text-center">
+                    <img src='https://advancedconstructionco.net/logo-final.svg' className='img img-fluid' />
+                </div>
+        <br/>
+        <br/>
+        <div  className='login-form' >
+        <div class="form-group p-3">
+        <label className='admin-label' style={{textAlign:"left"}} for="name">Email</label>
+            <input 
+                type="email" 
+                class="form-control admin-input" 
+                id="name" 
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+            />
         </div>
-
-        <form>
-        <input type="text" id="login" className="fadeIn second" name="login" placeholder="login" />
-        <input type="password" id="password" className="fadeIn third" name="login" placeholder="password" />
-        <input type="submit" className="fadeIn fourth" value="Log In" />
-        </form>
-
+        <div class="form-group p-3">
+        <label className='admin-label' style={{textAlign:"left"}} for="pass">Password</label>
+            <input 
+                type="password" 
+                class="form-control admin-input" 
+                id="pass" 
+                value={pass}
+                onChange={(e) => setPass(e.target.value)}
+            />
+        </div>
+        <div className='p-3' >
+        <button size="large" onClick={() =>onLogin()}  variant="contained" className='btn btn-lg btn-block admin-block-btn' >Login</button>  
+        </div>
+      </div>
         <div id="formFooter">
         <a className="underlineHover" href="#">Forgot Password?</a>
         </div>

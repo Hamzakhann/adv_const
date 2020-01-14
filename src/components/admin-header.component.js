@@ -1,4 +1,6 @@
 import React , {useState} from 'react';
+
+import {useHistory} from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import {Drawer , 
         AppBar , 
@@ -22,6 +24,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 const AdminHeaderComponent =(props)=>{
+  const history = useHistory()
   const classes = useStyles();
   const [state , setState] = useState(false)
   return(
@@ -34,7 +37,7 @@ const AdminHeaderComponent =(props)=>{
         <Typography variant="p" className={classes.title}>
           Dashboard / {props.pageName}
         </Typography>
-        <Button color="inherit">Logout</Button>
+        <Button onClick={()=>history.push('/admin')}  color="inherit">Logout</Button>
       </Toolbar>
     </AppBar>
 

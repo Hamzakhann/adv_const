@@ -12,7 +12,7 @@ import './carosal.css';
 
 function MainPage() {
   let history = useHistory();
-  const [city, setCity] = useState('UMLUJ');
+  const [city, setCity] = useState('JEDDAH');
   const [cities, setCities] = useState();
   const [selectedCity, setSelectedCity] = useState();
   const [projects, setProjects] = useState();

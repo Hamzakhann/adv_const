@@ -19,7 +19,7 @@ function ProductDetails(props) {
 	   let p_1 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + currentId)
 	   let p_2 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + (Number(currentId) + 1))
 	   axios.all([p_1,p_2]).then(axios.spread((...response)=>{
-		   console.log('all wala' ,response[1].data[0])
+		   console.log('all walay' ,response[1].data[0])
 		   setProduct(response[0].data[0]);
 		   setNextProduct(response[1].data[0])
 	   }))
@@ -38,7 +38,7 @@ function ProductDetails(props) {
 			let p_1 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + newId)
 			let p_2 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + ids[0])
 			axios.all([p_1,p_2]).then(axios.spread((...response)=>{
-				console.log('all wala' ,response[1].data[0])
+				console.log('all walaaaa' ,response[1].data[0])
 				setProduct(response[0].data[0]);
 				setNextProduct(response[1].data[0])
 			}))	  
@@ -49,7 +49,7 @@ function ProductDetails(props) {
 			let p_1 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + newId)
 			let p_2 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + (Number(newId) + 1))
 			axios.all([p_1,p_2]).then(axios.spread((...response)=>{
-				console.log('all wala' ,response[1].data[0])
+				console.log('all waloo' ,response[1].data[0])
 				setProduct(response[0].data[0]);
 				setNextProduct(response[1].data[0])
 			}))
@@ -61,8 +61,9 @@ function ProductDetails(props) {
 
 	  }
   }
-
-
+  console.log("idyyy",ids);
+  console.log("curent idd",currentId);
+ console.log("project",product);
   console.log('check nextttt' ,nextProduct)
   return (
         <div style={{backgroundColor:"white"}} >

@@ -46,6 +46,9 @@ export default function AdminTeamPage() {
   const [selectedImage, setSelectedImage] = useState();
 
     useEffect(() => {
+        if(!localStorage.getItem("jwtToken")){
+            history.push("/admin")
+        }
         teamService.getAll().then((res) =>{
             console.log(res)
             setTeams(res)

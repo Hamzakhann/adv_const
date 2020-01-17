@@ -12,6 +12,7 @@ import {
     Table,
     Button
 } from '@material-ui/core';
+import {useHistory} from 'react-router-dom'
 import Skeleton from '@material-ui/lab/Skeleton';
 import {Modal} from 'react-bootstrap';
 import CitiesService from '../services/cities.service';
@@ -28,6 +29,7 @@ const useStyles = makeStyles({
 
 
 export default function AdminTeamPage() {
+    const history = useHistory()
   const classes = useStyles();
   const citiesService = new CitiesService();
   const [flag , setFlag] = useState(false)
@@ -40,6 +42,9 @@ export default function AdminTeamPage() {
   const [name , setName] = useState("")
 
     useEffect(() => {
+        if(!localStorage.getItem("jwtToken")){
+            history.push("/admin")
+        }
         citiesService.getAll().then(res=>{
             console.log(res)
             setCities(res)

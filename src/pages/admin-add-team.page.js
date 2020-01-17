@@ -17,7 +17,11 @@ export default function AdminAddTeamPage() {
     const [designation , setDesignation] = useState("");
     const [description , setDescription] = useState("");
     const [teamImage , setImage] = useState("");
-
+    useEffect(()=>{
+        if(!localStorage.getItem("jwtToken")){
+            history.push("/admin")
+        }
+    })
     const createTeam =() =>{
         if(!teamImage){
             alert("please select team image")

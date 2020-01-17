@@ -3,12 +3,13 @@ import { Form, Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
 import { url } from '../services/url';
 import querystring from 'querystring';
-
+import {useHistory} from 'react-router-dom'
 import AdminHeaderComponent from '../components/admin-header.component';
 
 
 
 function AdminHomePage() {
+    const history = useHistory()
     const [workWithUsTitle, setWorkWithUsTitle] = useState();
     const [workWithUsImage, setWorkWithUsImage] = useState();
     const [teamTitle, setTeamTitle] = useState();
@@ -33,6 +34,9 @@ function AdminHomePage() {
     const [selectedService3Icon, setSelectedService3Icon] = useState();
     const [selectedTeamImage, setSelectedTeamImage] = useState();
     useEffect(() => {
+        if(!localStorage.getItem("jwtToken")){
+            history.push("/admin")
+        }
         axios.get(`${url}front/indexPage`).then(res => {
             console.log('res ', res.data);
             setWorkWithUsTitle(res.data.index_page_data[0].work_with_us_title);

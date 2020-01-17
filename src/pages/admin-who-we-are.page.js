@@ -1,4 +1,5 @@
 import React , {useState , useEffect} from 'react'
+import {useHistory} from 'react-router-dom'
 import {Button , IconButton} from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
 import ReactQuill from 'react-quill';
@@ -10,6 +11,7 @@ import AdminHeaderComponent from '../components/admin-header.component';
 import './dashboard.css'
 
 export default function AdminWhoWeArePage() {
+    const history =useHistory()
     const [flag , setFlag] = useState(false)
     const [isLoading , setLoading] = useState(true)
     const [title, setTitle] = useState();
@@ -25,6 +27,9 @@ export default function AdminWhoWeArePage() {
     const [selectedCeoMessageImage, setSelectedCeoMessageImage] = useState();
     const [selectedWorkWithUsImage, setSelectedWorkWithUsImage] = useState();
     useEffect(() =>{
+        if(!localStorage.getItem("jwtToken")){
+            history.push("/admin")
+        }
         axios.get(`${url}front/whoWeArePage`).then(res => {
             console.log('res ', res);
             setTitle(res.data[0].primary_title);

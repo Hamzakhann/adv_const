@@ -1,5 +1,6 @@
 import React , {useState , useEffect} from 'react'
 import {Button} from '@material-ui/core';
+import {useHistory} from 'react-router-dom'
 import Skeleton from '@material-ui/lab/Skeleton';
 import axios from 'axios';
 import querystring from 'querystring';
@@ -7,6 +8,7 @@ import { url } from '../services/url';
 import AdminHeaderComponent from '../components/admin-header.component';
 import './dashboard.css'
 export default function AdminContactUsPage() {
+    const history = useHistory()
     const [flag , setFlag] = useState(false)
     const [isLoading , setLoading] = useState(true)
     const [email, setEmail] = useState('');
@@ -15,6 +17,9 @@ export default function AdminContactUsPage() {
     const [id, setId] = useState();
 
     useEffect(() =>{
+        if(!localStorage.getItem("jwtToken")){
+            history.push("/admin")
+        }
         axios.get(`${url}front/contactPage`).then(res=>{
             const data = res.data[0]
             setEmail(data.email);

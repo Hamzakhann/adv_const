@@ -18,6 +18,7 @@ function ProductDetails(props) {
 	   setIds(props.location.state.projects.map((project) =>project.id))
 	   let p_1 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + currentId)
 	   let p_2 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + (Number(currentId) + 1))
+
 	   axios.all([p_1,p_2]).then(axios.spread((...response)=>{
 		   console.log('all wala' ,response[1].data[0])
 		   setProduct(response[0].data[0]);

@@ -12,6 +12,7 @@ import {
     Table,
     Button
 } from '@material-ui/core';
+import {useHistory} from 'react-router-dom'
 import Skeleton from '@material-ui/lab/Skeleton';
 import {Modal} from 'react-bootstrap';
 import JobsService from '../services/jobs.service';
@@ -28,6 +29,7 @@ const useStyles = makeStyles({
 
 
 export default function AdminJobPage() {
+    const history = useHistory()
   const classes = useStyles();
   const jobsService = new JobsService();
   const [flag , setFlag] = useState(false);
@@ -41,6 +43,9 @@ export default function AdminJobPage() {
   const [description , setDescription] = useState("")
 
     useEffect(() => {
+        if(!localStorage.getItem("jwtToken")){
+            history.push("/admin")
+        }
         jobsService.getAll().then(res => {
             console.log(res)
             setJobs(res)

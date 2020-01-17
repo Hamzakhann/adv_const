@@ -12,6 +12,7 @@ import {
     Table,
     Button
 } from '@material-ui/core';
+import {useHistory} from 'react-router-dom'
 import Skeleton from '@material-ui/lab/Skeleton';
 import CvService from '../services/cv.service';
 import AdminFooter from '../components/admin-footer';
@@ -27,11 +28,15 @@ const useStyles = makeStyles({
 
 
 export default function AdminCVPage() {
+    const history = useHistory()
   const classes = useStyles();
   const [cvs, setCvs] = useState("");
   const [isLoading , setLoading] = useState(true)
 
     useEffect(() => {
+        if(!localStorage.getItem("jwtToken")){
+            history.push("/admin")
+        }
         const cvService = new CvService();
         cvService.getAll().then((res)=>{
             console.log(res)

@@ -60,6 +60,9 @@ export default function AdminProjectsPage() {
   const [selectedImageMin1 , setSelectedImageMin1] = useState();
   const [selectedImageMin2, setSelectedImageMin2] = useState();
     useEffect(() => {
+        if(!localStorage.getItem("jwtToken")){
+            history.push("/admin")
+        }
         citiesService.getAll().then(cities=>{
             projectService.getAll().then(res => {
                 console.log(res)

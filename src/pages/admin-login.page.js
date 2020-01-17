@@ -1,19 +1,33 @@
-import React , {useState} from 'react'
+import React , {useState , useEffect} from 'react'
 import {useHistory} from 'react-router-dom';
+import setAuthToken from './setAuthToken';
+import axios from 'axios'
 import '../admin-login.css';
 function AdminLoginPage() {
     const [email , setEmail] = useState("")
     const [pass , setPass] = useState("")
+    const [loading , setLoading] = useState(false)
     const history = useHistory()
 
+    useEffect(() =>{
+        if(localStorage.getItem("jwtToken")){
+            history.push("/admin/dashboard")
+        }
+    })
 
     const onLogin =(e)=>{
-        if(email ==='admin' && pass == '12345'){
-            history.push('/admin/dashboard')
-        }else{
-            alert("Invalid Login")
-        }
+        setLoading(true)
+        axios.post("https://adv-construction.herokuapp.com/admin/login",{
+            username:email,
+            password:pass
+        }).then(res=>{
+            setAuthToken(res.data.user_data.jwt_access_key)
+            localStorage.setItem('jwtToken' , res.data.user_data.jwt_access_key);
+            setLoading(false)
+            history.push("/admin/dashboard")
+        }).catch(e=>alert(e))
     }
+
     return (
         <div className="wrapper fadeInDown">
              <div id="formContent">
@@ -46,7 +60,7 @@ function AdminLoginPage() {
             />
         </div>
         <div className='p-3' >
-        <button size="large" onClick={() =>onLogin()}  variant="contained" className='btn btn-lg btn-block admin-block-btn' >Login</button>  
+        <button size="large" onClick={() =>onLogin()}  variant="contained" className='btn btn-lg btn-block admin-block-btn' >{loading ? "Loading...":"Login"}</button>  
         </div>
       </div>
         <div id="formFooter">

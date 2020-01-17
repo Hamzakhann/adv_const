@@ -1,5 +1,6 @@
 import React , {useState , useEffect} from 'react'
 import {Button , IconButton} from '@material-ui/core';
+import {useHistory} from 'react-router-dom' 
 import Skeleton from '@material-ui/lab/Skeleton';
 import axios from 'axios';
 import FormData from 'form-data'
@@ -9,6 +10,7 @@ import AdminHeaderComponent from '../components/admin-header.component';
 import './dashboard.css'
 
 export default function AdminWorkWithUsPage() {
+    const history =useHistory()
     const [flag , setFlag] = useState(false)
     const [isLoading , setLoading] = useState(true)
     const [title, setTitle] = useState();
@@ -19,6 +21,9 @@ export default function AdminWorkWithUsPage() {
     const [teamImage, setTeamImage] = useState();
 
     useEffect(() =>{
+        if(!localStorage.getItem("jwtToken")){
+            history.push("/admin")
+        }
         axios.get(`${url}front/workWithUsPage`).then(res => {
             setTitle(res.data[0].team_title);
             setDescription(res.data[0].team_message);

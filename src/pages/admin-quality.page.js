@@ -1,4 +1,5 @@
 import React , {useState , useEffect} from 'react'
+import {useHistory} from 'react-router-dom'
 import {Button , IconButton} from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
 import ReactQuill from 'react-quill';
@@ -10,6 +11,7 @@ import AdminHeaderComponent from '../components/admin-header.component';
 import './dashboard.css';
 
 export default function AdminQualityPage() {
+    const history =useHistory()
     const [flag , setFlag] = useState(false)
     const [isLoading , setLoading] = useState(true)
     const [title, setTitle] = useState();
@@ -23,6 +25,10 @@ export default function AdminQualityPage() {
     
 
     useEffect(() =>{
+        
+        if(!localStorage.getItem("jwtToken")){
+            history.push("/admin")
+        }
         axios.get(`${url}front/qualityPage`).then(res => {
             console.log('res ', res.data[0]);
             setTitle(res.data[0].title);

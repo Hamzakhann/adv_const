@@ -79,7 +79,6 @@ p{   font-family: 'FoundersGroteskWeb-Regular'; }
     color: #fff;
 }
 
-
 .bodyBg{
    background: #F8F7F8;
 }
@@ -1036,7 +1035,7 @@ flex-wrap: nowrap !important;
     }
     
     .mob-view-margin{
-        margin-top: 60px !important;
+        margin-top: 30px !important;
     
         
     }

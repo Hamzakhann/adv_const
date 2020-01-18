@@ -15,12 +15,15 @@ function ProductDetails(props) {
    const [isDisabled , setDisabled] = useState(false)
 
    useEffect(() => {
-	   setIds(props.location.state.projects.map((project) =>project.id))
+	   let newIds =props.location.state.projects.map((project) =>project.id) 
+		setIds(newIds)
+
 	   let p_1 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + currentId)
-	   let p_2 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + (Number(currentId) + 1))
+	   let p_2 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + newIds[1])
 
 	   axios.all([p_1,p_2]).then(axios.spread((...response)=>{
-		   console.log('all walay' ,response[1].data[0])
+		   console.log(props.location.state.projects.map((project) =>project.id) , 'aftetr res')
+		//    console.log('all walay' ,response[1].data[0])
 		   setProduct(response[0].data[0]);
 		   setNextProduct(response[1].data[0])
 	   }))
@@ -29,7 +32,6 @@ function ProductDetails(props) {
 	// 	   setProduct(res.data[0]);
 	//    })
    }, [])
-   console.log('bc bhund ',nextProduct)
   const nextProject = ()=>{
 	  if(nextProduct !== undefined){
 		if(currentId == ids[ids.length -1] || nextProduct.id == ids[ids.length -1]){
@@ -45,10 +47,11 @@ function ProductDetails(props) {
 			}))	  
 		}else{
 			let newId = ids[ids.indexOf(Number(currentId)) + 1]
+			let nextNewId = ids[ids.indexOf(Number(currentId)) + 2]
 			setCurrentId(newId)
 			history.push('/product-details/' + newId)
 			let p_1 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + newId)
-			let p_2 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + (Number(newId) + 1))
+			let p_2 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + nextNewId)
 			axios.all([p_1,p_2]).then(axios.spread((...response)=>{
 				console.log('all waloo' ,response[1].data[0])
 				setProduct(response[0].data[0]);

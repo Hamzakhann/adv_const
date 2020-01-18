@@ -27,6 +27,12 @@ const AdminHeaderComponent =(props)=>{
   const history = useHistory()
   const classes = useStyles();
   const [state , setState] = useState(false)
+
+  const logout = ()=>{
+    localStorage.removeItem("jwtToken")
+    history.push("/admin")
+  }
+
   return(
     <div className="container-fluid p-0">
     <AppBar style={{background:"darkred"}} position="static">
@@ -37,7 +43,7 @@ const AdminHeaderComponent =(props)=>{
         <Typography variant="p" className={classes.title}>
           Dashboard / {props.pageName}
         </Typography>
-        <Button onClick={()=>history.push('/admin')}  color="inherit">Logout</Button>
+        <Button onClick={()=>logout()}  color="inherit">Logout</Button>
       </Toolbar>
     </AppBar>
 

@@ -23,7 +23,7 @@ export default function ProjectsPage() {
   useEffect(() => {
     Promise.all([projectService.getAll(), ciitesService.getAll()]).then(res => {
       console.log("res check", res);
-      setProjectList(res[0].reverse());
+      setProjectList(res[0].sort((a,b) => parseFloat(a.id) - parseFloat(b.id)));
       setCitites(res[1]);
       setSelectedCity('all');
       setProjectType('all')

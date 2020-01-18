@@ -4,6 +4,7 @@ import  HeaderComponent from '../components/header';
 import FooterComponent from '../components/footer';
 import '../product-detail.css';
 import axios from 'axios';
+import projectService from '../services/front/project.service';
 
 function ProductDetails(props) {
    const [ids,setIds] = useState()
@@ -14,7 +15,11 @@ function ProductDetails(props) {
    const [currentId , setCurrentId] = useState(id)
    const [isDisabled , setDisabled] = useState(false)
 
+   
+
    useEffect(() => {
+   
+	
 	   setIds(props.location.state.projects.map((project) =>project.id))
 	   let p_1 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + currentId)
 	   let p_2 = axios.get('https://adv-construction.herokuapp.com/front/projectPage?id=' + (Number(currentId) + 1))

@@ -105,7 +105,7 @@ console.log("others check" , others)
   return (
       <div >
       <HeaderComponent topclassName={"fixed-top-header"}>
-        <div className="view " style={{ backgroundImage :"url('/bannerr.jpg')", backgroundRepeat: 'round' }}>
+        <div className="view " style={{ backgroundImage :"url('/bannerr.jpg')", backgroundPosition:"top center", backgroundRepeat: 'no-repeat' ,backgroundSize:"cover" }}>
         <div className="mask rgba-gradient align-items-center" >
             <div className="container">
             <div className="row header-text">

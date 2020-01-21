@@ -4,6 +4,7 @@ import  HeaderComponent from '../components/header';
 import FooterComponent from '../components/footer';
 import '../product-detail.css';
 import axios from 'axios';
+import projectService from '../services/front/project.service';
 
 function ProductDetails(props) {
    const [ids,setIds] = useState()
@@ -13,6 +14,8 @@ function ProductDetails(props) {
    let history = useHistory();
    const [currentId , setCurrentId] = useState(id)
    const [isDisabled , setDisabled] = useState(false)
+
+   
 
    useEffect(() => {
 	   let newIds =props.location.state.projects.map((project) =>project.id) 

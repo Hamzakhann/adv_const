@@ -19,16 +19,16 @@ const ContactUsPage = () => {
 			
 
     			<div class="col-md-6 col-sm-12 contactInfo">
-    			    <h3 class="h3-responsive font-weight-bold aboutus who-we-are-heading ">Contact Us</h3>
+    			    <h3 class="h3-responsive font-weight-bold aboutus who-we-are-heading " style={{fontSize:"30px"}}>Contact Us</h3>
 					<br className="desktop-view"/>
 			
-				    <p className='who-we-are-heading'>INQUIRIES<br />
+				    <p className='founder-font' >INQUIRIES<br />
     			     <a href="mailto:projects@advanceconstruction.com.sa" class=" founder-font contactEmail ">{contact ? contact.email: null}</a>
     			    </p>
-    			    <p className='founder-font mb-0 mt-4'>PHONE NUMBERS</p>
+    			    <p className='founder-font mb-0 mt-4 '>PHONE NUMBERS</p>
 					{contact ? contact.phone.map(cell => (<p className="mb-0 mt-0 founder-font">{cell}</p>)) : null}
-    			    <p  class="founder-font mt-4">ADDRESS<br />
-					{contact ? contact.address: null}
+    			    <p  class="founder-font mt-4 ">ADDRESS<br />
+					<p>{contact ? contact.address: null}</p>
     			    </p>
     			</div>
     			

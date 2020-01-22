@@ -357,9 +357,10 @@ ul.social-network li {
 
 .content1 h6{
     color:#fff;
-    font-size: 24px;
+    font-size: 30px;
     padding-top: 24px;
     text-transform:unset !important;
+    margin-bottom: 0px !important;
 }
 
 .content1 p{
@@ -374,8 +375,9 @@ ul.social-network li {
 
 .content2 h6{
     color:#fff;
-    font-size: 24px;
+    font-size: 30px !important;
     padding-top: 26px;
+    margin-bottom: 0px !important;
 }
 
 .content2 p{
@@ -1011,6 +1013,7 @@ padding: 0 !important;
 
     .project-page-tab{
       display: grid;
+    
   }
    .mob-tab{
        margin-top: 1rem !important;

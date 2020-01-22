@@ -18,6 +18,7 @@ function ProductDetails(props) {
    
 
    useEffect(() => {
+	   
 	   let newIds =props.location.state.projects.map((project) =>project.id) 
 		setIds(newIds)
 
@@ -68,6 +69,7 @@ function ProductDetails(props) {
 
 	  }
   }
+
   console.log("idyyy",ids);
   console.log("curent idd",currentId);
  console.log("project",product);
@@ -107,7 +109,7 @@ function ProductDetails(props) {
     				<div className="content  content1 ">
     					<h6>{product.total_price}</h6>
     					<p>
-    						million
+    						Million &#36;
     					</p>
     				</div>
     				<p className="text-center font-col">
@@ -131,7 +133,7 @@ function ProductDetails(props) {
     					<h6 className="complete-date-heading">{product.completion_date}</h6>
     				</div>	
     				<p className="text-center font-col">
-    					<strong>COMPLETION</strong>
+    					<strong>COMPLETION DATE</strong>
     				</p>
     			</div>
     		</div>

@@ -24,6 +24,8 @@ export default function ProjectsPage() {
     Promise.all([projectService.getAll(), ciitesService.getAll()]).then(res => {
       console.log("res check", res);
       setProjectList(res[0].sort((a,b) => parseFloat(a.id) - parseFloat(b.id)));
+      console.log( `wahahahaha`, res[0].sort((a,b) => parseFloat(a.id) - parseFloat(b.id)));
+
       setCitites(res[1]);
       setSelectedCity('all');
       setProjectType('all')
@@ -101,7 +103,7 @@ export default function ProjectsPage() {
           <div className="row">
             <div className="col-md-12 col-sm-12">
               <div className="two-heding">
-                <h3 className="h3-responsive font-weight-bold" style={{ marginTop: "30px" }}>
+                <h3 className="h3-responsive font-weight-bold" style={{ marginTop: "30px",paddingLeft:"15px" }}>
                   We have pride in our <br className="Mobile-view"/> portfolio
                 </h3>
               </div>
@@ -140,7 +142,7 @@ export default function ProjectsPage() {
                   </div>
 
 
-                  <div className= ' project-page-tab '>
+                  <div className= ' project-page-tab' style={{paddingLeft:"15px"}}>
                     <ul className="nav nav-pills mob-tab nav-justified mb-3 project-page-border " role="tablist">
 
                     <li className="nav-item" >
@@ -166,7 +168,7 @@ export default function ProjectsPage() {
                     </ul>
                   </div>
 
-                  <div  className='icons desktop-view2' >
+                  <div  className='icons desktop-view2 ' >
                     <ul  className="nav nav-pills " id="myTab2" role="tablist">
                       <li  className="nav-item  ml-4  icon-li" 
                                   style={{borderBottom:projectType === 'bridge'?'4px solid #C92027':'none'}}

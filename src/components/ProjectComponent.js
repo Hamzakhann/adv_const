@@ -4,7 +4,7 @@ import { Carousel } from "react-responsive-carousel";
 
 function ProjectComponent(props) {
   return (
-    <div style={{cursor:'pointer'}} onClick={() => props.onClick()} className="project-comp-mob col-md-6 col-sm-6 col-6 mb-md-5 " key={props.project.id}>
+    <div style={{cursor:'pointer'}} onClick={() => props.onClick()} className="project-comp-mob col-md-6 col-sm-6 col-6 mb-md-5  "  key={props.project.id}>
       <Carousel  autoPlay={false} 
         showArrows	= {false}
         showThumbs={false}
@@ -12,8 +12,8 @@ function ProjectComponent(props) {
         showStatus={false} infiniteLoop stopOnHover
         onClickItem={ ()=> null } >
         <div>
-          <img style={{ height: "320px" }} src={props.project.image} 
-          className="img-fluid" />
+          <img style={{ height: "320px"  }} src={props.project.image} 
+          className="img-fluid " />
         </div>
         <div>
           <img style={{ height: "320px" }} className="img-fluid"

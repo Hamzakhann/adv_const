@@ -23,6 +23,7 @@ function MainPage() {
   const [others , setOthers] = useState('')
   const [index, setCIndex] = useState(0);
 
+  console.log(`aha`,otherData);
   useEffect(() => {
     indexPageService.getAll().then(res => { 
       console.log('index page ', res);

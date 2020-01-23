@@ -258,7 +258,7 @@ console.log("others check" , others)
             <img src="/banner2.jpg" className="img-fluid" />    
           </div>
           <div className="col-md-4 col-sm-12 box mob-margin" style={{marginTop: "100px"}}>
-            <div className="inner">
+            <div className="inner" style={{height:"260px"}} >
               <div className="icon">
               <img src="/bridge-home.svg" className="main-page-icon icon-margin" />
               </div> 
@@ -267,7 +267,7 @@ console.log("others check" , others)
             </div> 
           </div>
           <div className="col-md-4 col-sm-12 mob-margin box" style={{marginTop: "100px"}}>
-            <div className="inner">
+            <div className="inner"style={{height:"260px"}}>
               <div className="icon">
                 <img src="/electro-home.svg" className="main-page-icon icon-margin" />
               </div>
@@ -276,7 +276,7 @@ console.log("others check" , others)
             </div> 
           </div>
           <div className="col-md-4 col-sm-12 mob-margin" style={{marginTop: "100px"}}>
-            <div className="inner">
+            <div className="inner" style={{height:"260px"}}>
               <div className="icon">
                 <img src="/cruise-home.svg" className="main-page-icon icon-margin" />
               </div>

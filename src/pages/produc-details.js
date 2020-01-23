@@ -157,7 +157,7 @@ function ProductDetails(props) {
 					</div>	
     			</div>
     			<div className="col-md-6 col-sm-12">
-    				<img src={nextProduct && nextProduct.image} style={{width:'90%', height:'300px' }} />
+    				<img src={nextProduct && nextProduct.image} style={{width:'90%', height:'300px' }} className="mob-width" />
     			</div>
     		</div>
 			

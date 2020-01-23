@@ -121,7 +121,7 @@ console.log("others check" , others)
       </HeaderComponent>
 
       <main >
-      <div className="container"  >
+      <div className="container" style={{paddingLeft:"0px",paddingRight:"0px"}} >
         {(otherData && projects) ? <div className="row desk-pading ">
 
           <div className="col-md-12 col-sm-12 text-center">

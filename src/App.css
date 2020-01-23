@@ -349,6 +349,7 @@ ul.social-network li {
     text-align: center;
     padding:20px;
     height: 150px;
+    margin: 10px !important;
 }
 
 .content1{
@@ -961,6 +962,9 @@ padding: 0 !important;
     
 }
 @media screen and (max-width: 770px) {
+   .mob-width{
+       width: 100% !important;
+   }
     
     .contactUs-text h4{
         font-size: 32px !important;
@@ -1228,9 +1232,10 @@ display: none;
     border-radius: -0.7rem !important;
 }
 nav{
-    width: 75% ;
+    width: 1316px ;
     margin: 0 auto !important;
     height: 121px !important;
+   
 }
 
 .what-we{

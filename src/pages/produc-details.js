@@ -19,6 +19,7 @@ function ProductDetails(props) {
 
    useEffect(() => {
 	   
+
 	   let newIds =props.location.state.projects.map((project) =>project.id) 
 		setIds(newIds)
 
@@ -82,7 +83,7 @@ function ProductDetails(props) {
     		<div className="row">
     			<div className="col-md-12 col-sm-12">
     				<div className="two-heding">
-    					<h6>Ongoing project</h6>
+  { product.completion_date.toUpperCase() ==="ONGOING" ? <h6>{product.completion_date +` Project`}</h6>:null }
     					<h3 className="h3-responsive font-weight-bold">{product.name}</h3>
     				</div>
     				<img src={product.image} className="img-fluid" />

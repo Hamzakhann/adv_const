@@ -147,7 +147,7 @@ function WorkAtAccPage(props) {
               <div>
                 <div>
                 <p className="who-we-are-heading" style={{ fontSize: '32px' , fontWeight:'700' , lineHeight:'1.2em' }}><span class="TextColor">We would love to have you on board,</span> We just need
-                          to make sure that you have</p> 
+                          to make sure that you have...</p> 
                 </div>
                 <div className='container' >
                 <Tabs>

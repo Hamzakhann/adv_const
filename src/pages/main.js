@@ -106,7 +106,7 @@ console.log("others check" , others)
   return (
       <div >
       <HeaderComponent topclassName={"fixed-top-header"}>
-        <div className="view " style={{ backgroundImage :"url('/bannerr.jpg')", backgroundPosition:"top center", backgroundRepeat: 'no-repeat' ,backgroundSize:"cover" }}>
+        <div className="view " style={{ backgroundImage :"url('/bannerr.jpg')", backgroundPosition:"center", backgroundRepeat: 'no-repeat' ,backgroundSize:"cover" }}>
         <div className="mask rgba-gradient align-items-center" >
             <div className="container">
             <div className="row header-text">
@@ -121,7 +121,7 @@ console.log("others check" , others)
       </HeaderComponent>
 
       <main >
-      <div className="container" style={{paddingLeft:"0px",paddingRight:"0px"}} >
+      <div className="container padding-mobi" >
         {(otherData && projects) ? <div className="row desk-pading ">
 
           <div className="col-md-12 col-sm-12 text-center">
@@ -250,7 +250,7 @@ console.log("others check" , others)
           <div className="col-md-6 col-sm-12 col-12 mob-view-margin work" style={{marginTop: "100px"}}>
             <div className="inner2 inner inner4" style={{height:"100%"}}>
               <h6>Work With Us</h6>
-              <h3 className="h3-responsive font-weight-bold">Join Our community of qualified professionals</h3>
+              <h3 className="h3-responsive font-weight-bold">Join our community of qualified professionals</h3>
               <Link style={{marginLeft:"-15px"}} className="nav-link" to="/work-at-acc/" >Apply now</Link>
             </div> 
           </div>

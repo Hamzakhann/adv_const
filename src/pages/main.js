@@ -250,7 +250,7 @@ console.log("others check" , others)
           <div className="col-md-6 col-sm-12 col-12 mob-view-margin work" style={{marginTop: "100px"}}>
             <div className="inner2 inner inner4" style={{height:"100%"}}>
               <h6>Work With Us</h6>
-              <h3 className="h3-responsive font-weight-bold">Join our community of qualified professionals</h3>
+          <h3 className="h3-responsive font-weight-bold">{otherData.work_with_us_title}</h3>
               <Link style={{marginLeft:"-15px"}} className="nav-link" to="/work-at-acc/" >Apply now</Link>
             </div> 
           </div>

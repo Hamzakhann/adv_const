@@ -24,7 +24,6 @@ export default function ProjectsPage() {
     Promise.all([projectService.getAll(), ciitesService.getAll()]).then(res => {
       console.log("res check", res);
       setProjectList(res[0].sort((a,b) => parseFloat(a.id) - parseFloat(b.id)));
-      console.log( `wahahahaha`, res[0].sort((a,b) => parseFloat(a.id) - parseFloat(b.id)));
 
       setCitites(res[1]);
       setSelectedCity('all');
@@ -46,7 +45,9 @@ export default function ProjectsPage() {
       setVisible(8)
       setSelectedCity(city);
       setCityFilteredProjects(
-        projectList.filter(project => project.city === city)
+        projectList.filter(project =>
+           project.city === city
+           )
       );
     }
     // setProjectIds(cityFilteredProjects.map(project=>project.id))
@@ -67,8 +68,10 @@ export default function ProjectsPage() {
       setCityFilteredProjects(
         projectList.filter(
           project => project.type === type && selectedCity === project.city
+          
         )
       );
+
     }
   };
 
@@ -204,9 +207,11 @@ export default function ProjectsPage() {
                   <div  >
                     <div className="container">
                       <div className="row">
+                        
                         {isLoading ? 'Loading........' : cityFilteredProjects && cityFilteredProjects.length ? (
                          cityFilteredProjects.slice(0,visible).map(project => (
                             <ProjectComponent
+                            
                             setCarosal={setCarosal}
                             project={project} 
                             onClick={()=>{history.push("/product-details/" + project.id, {projects:cityFilteredProjects})}}

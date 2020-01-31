@@ -52,7 +52,7 @@ function TeamPage() {
                             <div className="inner"> 
                                 <h6>Quality</h6>
                                 <h3 className="h3-responsive who-we-are-heading">Delivering agile solutions to<br />complex projects</h3>
-                                <Link to="/quality">Learn about our work</Link>
+                                <Link to="/quality" className="sidenavFont">Learn about our work</Link>
                             </div>
                         </div>
                         <div className="col-md-6 col-sm-12 " style={{ marginTop: "20px"}}>

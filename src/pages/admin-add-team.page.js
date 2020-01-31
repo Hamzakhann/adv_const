@@ -49,7 +49,7 @@ export default function AdminAddTeamPage() {
         }).catch(e=>{
             setLoading(false)
             alert(e)
-        })
+        }) 
     }
     return (
         <div className='container-fluid p-0' >

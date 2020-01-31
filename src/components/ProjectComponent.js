@@ -28,7 +28,7 @@ function ProjectComponent(props) {
         </div>
        
       </Carousel>
-      <a href='#' style={{cursor:'pointer' , color:'black' , fontSize:'17px'}} className="my-3 d-block font-weight-bold" onClick={() => props.onClick()} >{props.project.name}</a>
+      <a href='#' style={{cursor:'pointer' , color:'black' , fontSize:'17px'}} className="my-3 d-block font-weight-bold sidenavFont" onClick={() => props.onClick()} >{props.project.name}</a>
 
 
     </div>

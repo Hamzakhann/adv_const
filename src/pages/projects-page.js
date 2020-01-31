@@ -113,8 +113,8 @@ export default function ProjectsPage() {
             </div>
           </div>
 
-                <div className='city-inline'>
-                <div  className=' Mobile-view' >
+                <div className='city-inline '>
+                <div  className=' Mobile-view ' >
                     <ul  className="nav nav-pills " id="myTab2" role="tablist">
                       <li  className="nav-item  ml-4  icon-li" 
                                   style={{borderBottom:projectType === 'bridge'?'4px solid #C92027':'none'}}
@@ -145,7 +145,7 @@ export default function ProjectsPage() {
                   </div>
 
 
-                  <div className= ' project-page-tab' style={{paddingLeft:"15px"}}>
+                  <div className= ' project-page-tab ' style={{paddingLeft:"15px"}}>
                     <ul className="nav nav-pills mob-tab nav-justified mb-3 project-page-border " role="tablist">
 
                     <li className="nav-item" >
@@ -171,7 +171,7 @@ export default function ProjectsPage() {
                     </ul>
                   </div>
 
-                  <div  className='icons desktop-view2 ' >
+                  <div  className='icons desktop-view2  ' >
                     <ul  className="nav nav-pills " id="myTab2" role="tablist">
                       <li  className="nav-item  ml-4  icon-li" 
                                   style={{borderBottom:projectType === 'bridge'?'4px solid #C92027':'none'}}

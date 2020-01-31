@@ -31,7 +31,7 @@ function HeaderComponent(props) {
     <nav className={ "navbar navbar-expand-md navbar-light " + props.topclassName }>
         <div className= {window.location.pathname === '/' ?'container  nav-container mob':'container mob'}>
           <Link className="navbar-brand" to="/">
-            <img src="/logo-final.svg" className="img-logo-desktop" />
+            <img src="/logo-final.svg" className="img-logo-desktop " />
             <img src="/small-logo.png"  className="img-logo-mobile " />
           </Link>
           <button className="navbar-toggler border-0 pb-1 pl-0" type="button"   onClick={openNav}>
@@ -56,7 +56,7 @@ function HeaderComponent(props) {
                   <Link className="text-dark nav-link px-4" to="/projects">PROJECTS</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="text-dark nav-link px-4 border-0" to="/contact-us">CONTACT US</Link>
+                  <Link style={{paddingRight:"9px"}} className="text-dark nav-link pl-4 border-0" to="/contact-us">CONTACT US</Link>
                 </li>
               </ul>
             </div>
@@ -65,18 +65,18 @@ function HeaderComponent(props) {
         <div id="mySidenav" class="sidenav">
           <img src="/logo-final.svg" className="sideNav-logo img-fluid" />
 
-          <a id="color-about" >
+          <a id="color-about" className="sidenavFont" >
                   About Us
                 </a>
                 { Dropdown ? <div className="">
-                  <Link  className=" " to="/who-we-are">WHO WE ARE</Link>
-                  <Link className=" " to="/quality">QUALITY</Link>
-                  <Link  className=" " to="/team">TEAM</Link>
+                  <Link  className=" sidenavFont" to="/who-we-are">WHO WE ARE</Link>
+                  <Link className=" sidenavFont" to="/quality">QUALITY</Link>
+                  <Link  className=" sidenavFont" to="/team">TEAM</Link>
                 </div> : null}
-                  <Link className="" to="/projects">PROJECTS</Link>
-                  <Link className="" to="/work-at-acc">WORK AT ACC</Link>
+                  <Link className="sidenavFont" to="/projects">PROJECTS</Link>
+                  <Link className="sidenavFont" to="/work-at-acc">WORK AT ACC</Link>
 
-                  <Link className="" to="/contact-us">CONTACT US</Link>
+                  <Link className="sidenavFont" to="/contact-us">CONTACT US</Link>
           </div>
           <div className="overly" id="Overly" onClick={closeNav}></div>
 

@@ -19,9 +19,9 @@ function WhoWeArePage() {
 				{whoWeAre ?
 					<div className="container">
 						<div className="row contactUs-text-container">
-							<div className="col-sm-12">
-								<div>
-									<img src={whoWeAre.banner_image} className="who-we-are-img-1" />
+							<div className="col-sm-12 ">
+								<div >
+									<img src={whoWeAre.banner_image} className="who-we-are-img-1 img-fluid" />
 								</div>
 								<br />
 								<div className='row' >
@@ -38,9 +38,9 @@ function WhoWeArePage() {
 							<div className="col-md-7 col-sm-12 mobile-work-img " style={{ marginTop: "50px" }}>
 								<img src={whoWeAre.ceo_message_image} className="img-fluid" />
 							</div>
-								<div className="inner" >
+								<div className="inner" style={{paddingLeft:'0px'}} >
 									<h3 className='who-we-are-heading font-weight-bold' style={{ paddingRight: '40px', fontSize: '34px' }} >{whoWeAre.ceo_message}</h3>
-									<a href="#">CEO</a>
+									<a href="#" className="sidenavFont">CEO</a>
 								</div>
 							</div>
 							<div className="col-md-7 col-sm-12 desktop-work-img " style={{ marginTop: "50px" }}>
@@ -67,7 +67,7 @@ function WhoWeArePage() {
 								<div className="inner">
 									<h6 className='' >Work With Us</h6>
 									<h3 className="h3-responsive font-weight-bold ">{whoWeAre.work_with_us_title}</h3>
-									<Link to="/work-at-acc" className='' >Apply now</Link>
+									<Link to="/work-at-acc" className='sidenavFont' >Apply now</Link>
 								</div>
 								<div className="col-md-6 col-sm-12 box mobile-work-img" >
             <img src="/banner2.jpg" className="img-fluid" />    

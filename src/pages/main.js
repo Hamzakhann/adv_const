@@ -12,7 +12,7 @@ import './carosal.css';
 
 function MainPage() {
   let history = useHistory();
-  const [city, setCity] = useState('JEDDAH');
+  const [city, setCity] = useState('Jeddah');
   const [cities, setCities] = useState();
   const [selectedCity, setSelectedCity] = useState();
   const [projects, setProjects] = useState();
@@ -292,9 +292,9 @@ console.log("others check" , others)
               <p>
               Get to know the team of professionals behind <br/>those great works
               </p>
-              <Link className="nav-link pl-0 Mobile-view" to="/work-at-acc/" >Apply now</Link>
+              <Link className="nav-link pl-0 Mobile-view sidenavFont" to="/work-at-acc/" >Apply now</Link>
 
-              <Link className="desktop-view" to="/team">Meet our team</Link>
+              <Link className="desktop-view sidenavFont" to="/team">Meet our team</Link>
 
 
             </div> 

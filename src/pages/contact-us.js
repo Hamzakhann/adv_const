@@ -28,7 +28,7 @@ const ContactUsPage = () => {
     			    <p className='founder-font mb-0 mt-4 '>PHONE NUMBERS</p>
 					{contact ? contact.phone.map(cell => (<p className="mb-0 mt-0 founder-font">{cell}</p>)) : null}
     			    <p  class="founder-font mt-4 ">ADDRESS<br />
-					<p>{contact ? contact.address: null}</p>
+					<p className="founder-font">{contact ? contact.address: null}</p>
     			    </p>
     			</div>
     			

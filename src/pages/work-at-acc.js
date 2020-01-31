@@ -49,7 +49,7 @@ function WorkAtAccPage(props) {
     { scroll ? <main style={{ background: '#fff' }} className="mb-md-4 mt-md-4">
         <div  className="container">
           <div className="row contactUs-text-container">
-            <div className="col-md-5 mr-md-auto col-sm-12">
+            <div className="col-md-5 col-sm-12" style={{marginRight:"70px"}}>
               <div className="contactUs-text">
                 <h4 className="h3-responsive who-we-are-heading font-weight-bold work-at-acc-h4">
                   We are always looking for <br/>
@@ -125,8 +125,8 @@ function WorkAtAccPage(props) {
                   <br />
                   those great works
                 </p>
-                <Link className="desktop-view" to="/team">Meet our team</Link>
-                <Link className="Mobile-view" to="/work-at-acc/" >Apply now</Link>
+                <Link className="desktop-view sidenavFont" to="/team">Meet our team</Link>
+                <Link className="Mobile-view sidenavFont" to="/work-at-acc/" >Apply now</Link>
 
               </div>
             </div>

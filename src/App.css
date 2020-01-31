@@ -3,7 +3,7 @@ html{
     scroll-behavior: smooth;
 }
 body{
-  font-family: FoundersGroteskWeb-Regular, sans-serif;
+  font-family: 'NationWeb' , sans-serif;
 }
 
 
@@ -24,10 +24,10 @@ body{
 }
 
 
-h1,h2,h3,h4,h5,h6{ font-family: 'FoundersGroteskWeb-Regular';  }
+h1,h2,h3,h4,h5,h6{ font-family: 'NationWeb';  }
 
-a{   font-family: 'FoundersGroteskWeb-Regular'; }
-p{   font-family: 'FoundersGroteskWeb-Regular'; }
+a{   font-family: 'NationWeb ' !important; }
+p{   font-family: 'NationWeb' !important; }
 
 @media (min-width: 1200px){
     .container {
@@ -47,7 +47,10 @@ p{   font-family: 'FoundersGroteskWeb-Regular'; }
 
 
 .navbar-brand img{ 
-    padding: 7px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 9px ;
+
     height: 85px !important;
     margin-top: 2px !important;
 }
@@ -73,6 +76,7 @@ p{   font-family: 'FoundersGroteskWeb-Regular'; }
 
 #about-us-dropdown {
     color: white !important;
+    font-family: "NationWeb" !important;
 }
 
 .header-text {
@@ -152,7 +156,7 @@ header,
 
 
 .wow h6 {
-    font-family: 'FoundersGroteskWeb-Regular';
+    
     line-height: 1.7;
     margin-top: 350px;
     text-transform: uppercase;
@@ -205,7 +209,7 @@ h6{
 
 .nav-pills .nav-link {
     border-radius: 0 !important;
-    color: #333;
+    color:#000000;
     text-transform: uppercase;
     font-weight: bold;
 }
@@ -570,6 +574,7 @@ ul.social-network li {
 }
 
 .aboutus{
+    color:#000000 !important;
     margin-top:20px;
     margin-bottom:20px;
  }
@@ -781,11 +786,11 @@ section{
 } */
 .main-page-h1{
     color: white !important;
-    font-size: 63px;
-    font-family: 'FoundersGroteskWeb-Regular' !important;
-    word-spacing: 0.2em;
-    line-height: 50px !important;
-    margin-left: 55px !important;
+    font-size: 70px;
+    font-family: 'NationWeb' !important;
+    word-spacing: 0.15em;
+    line-height: 55px !important;
+    margin-left: 8px !important;
 }
 
 .main-page-icon{
@@ -888,7 +893,9 @@ section{
 box-shadow: #00000029 0.5px 0px 0px 0px;
     
   }
-
+.sidenavFont{
+    font-family: "NationWeb" !important;
+}
   .sidenav a {
       text-transform: uppercase;
     padding: 8px 8px 8px 16px;
@@ -1043,9 +1050,7 @@ flex-wrap: nowrap !important;
     .fixed-top-header {
         right: unset;
     }
-    .what-we{
-        margin-left: 0px !important;
-    }
+   
     .main-page-h1{
        
         margin-left: 0px !important;
@@ -1118,6 +1123,7 @@ padding-right: 15px !important;
       margin-top: 10px;
   }
     .who-we-are-img-1{
+        
         height: 300px !important;
   }
   .who-we-are-content-edit p{
@@ -1234,7 +1240,8 @@ display: none;
 }
 
 .s-btn{
-    border-radius: -0.7rem !important;
+    height: 48px;
+    border-radius: 0.4rem !important;
     width: 100px !important;
     font-size: 1rem !important;
 }
@@ -1251,9 +1258,6 @@ nav{
    
 }
 
-.what-we{
-    margin-left: 55px ;
-}
 
 .founder-font{
     font-family: 'FoundersGroteskWeb-Regular' !important;

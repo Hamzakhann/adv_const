@@ -153,7 +153,7 @@ function ProductDetails(props) {
     				<div className="inner"> 
   					<h3 className="h3-responsive font-weight-bold">{nextProduct && nextProduct.name}</h3>
 					  <p className='text-justify' >{nextProduct && nextProduct.long_description}</p>
-					  <a href="#top" disabled={isDisabled ? "disabled" : ''} onClick={() =>nextProject()} >Next Project</a>
+					  <a href="#top" className="sidenavFont" disabled={isDisabled ? "disabled" : ''} onClick={() =>nextProject()} >Next Project</a>
 
 					</div>	
     			</div>

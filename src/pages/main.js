@@ -23,7 +23,7 @@ function MainPage() {
   const [others , setOthers] = useState('')
   const [index, setCIndex] = useState(0);
 
-  console.log(`aha`,otherData);
+  
   useEffect(() => {
     indexPageService.getAll().then(res => { 
       console.log('index page ', res);
@@ -101,7 +101,7 @@ const setcarosalPrev = () =>{
     
     
 }
-
+console.log("dynamic",otherData)
 console.log("others check" , others)
   return (
       <div >
@@ -109,12 +109,13 @@ console.log("others check" , others)
         <div className="view " style={{ backgroundImage :"url('/bannerr.jpg')", backgroundPosition:"center", backgroundRepeat: 'no-repeat' ,backgroundSize:"cover" }}>
         <div className="mask rgba-gradient align-items-center" >
             <div className="container">
+              {otherData ?
             <div className="row header-text">
                 <div className="col-md-12 white-text text-left text-md-left mt-xl-5 mb-5  wow">
                 <h6 className='what-we' >What we do</h6>
                 <p className="main-page-h1">Facing new challenges with<br />excellence and innovation</p>
                 </div>
-            </div>
+            </div>:null}
             </div>
         </div>
         </div>
@@ -196,7 +197,7 @@ console.log("others check" , others)
              <div>
               <h6  style={{lineHeight:"0.7em", fontSize:"12px"}} >{cityFilteredProjects && (cityFilteredProjects[index+1] === undefined ? cityFilteredProjects[0].type :cityFilteredProjects[index +1].type)}</h6>
                <h4 style={{fontWeight:"bold", lineHeight:"0.6em", height:"23px",width:"73px",whiteSpace:"nowrap" , overflow:"hidden" , textOverflow:"clip"}} >{cityFilteredProjects && (cityFilteredProjects[index+1] === undefined ? cityFilteredProjects[0].short_description :cityFilteredProjects[index +1].short_description)}</h4>
-                  <a   style={{cursor:'pointer'}} onClick={() => history.push('/product-details/' + cityFilteredProjects[(index + 1) == undefined ? 0 :(index+1)].id ,  {projects:cityFilteredProjects})}  role="button" >See details</a>
+                  <a className="sidenavFont"  style={{cursor:'pointer'}} onClick={() => history.push('/product-details/' + cityFilteredProjects[(index + 1) == undefined ? 0 :(index+1)].id ,  {projects:cityFilteredProjects})}  role="button" >See details</a>
               </div>
               <div style={{position:"absolute" , float:"right" , right:"-14%" , top:"34%"}} className="desktop-view" >
               <i onClick={()=> setcarosal()} class="fas fa-arrow-right" style={{fontSize:"37px" , cursor:"pointer"}} ></i>

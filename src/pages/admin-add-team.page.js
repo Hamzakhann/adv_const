@@ -17,29 +17,44 @@ export default function AdminAddTeamPage() {
     const [designation , setDesignation] = useState("");
     const [description , setDescription] = useState("");
     const [teamImage , setImage] = useState("");
+    const [teamImageLink , setImageLink] = useState("");
+
     useEffect(()=>{
         if(!localStorage.getItem("jwtToken")){
             history.push("/admin")
         }
+
     })
     const createTeam =() =>{
         if(!teamImage){
             alert("please select team image")
         }
         setLoading(true)
+        let data2 = new FormData();
+        data2.append('image',teamImage);
+
         let data = new FormData();
-        data.append('image', teamImage);
+        data.append('image', teamImageLink);
         data.append('name', name);
         data.append('designation', designation);
         data.append('description', description);
 
         const config = {
             headers: {
-                'content-type': 'multipart/form-data'
+                'content-type': 'application/x-www-form-urlencoded',
             }
         };
 
+        const config2 = {
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded',
+            }
+        };
         const teamService = new TeamService();
+        teamService.uploadImage(data2,config2).then(res=>{
+            setImageLink(res);
+        })
+
         teamService.create(data, config).then(res => {
             if (res.status === 200) {
 

@@ -40,7 +40,7 @@ function WhoWeArePage() {
 							</div>
 								<div className="inner" style={{paddingLeft:'0px'}} >
 									<h3 className='who-we-are-heading font-weight-bold' style={{ paddingRight: '40px', fontSize: '34px' }} >{whoWeAre.ceo_message}</h3>
-									<a href="#" className="sidenavFont">CEO</a>
+									<a  className="sidenavFont">CEO</a>
 								</div>
 							</div>
 							<div className="col-md-7 col-sm-12 desktop-work-img " style={{ marginTop: "50px" }}>

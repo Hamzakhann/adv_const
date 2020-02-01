@@ -100,7 +100,7 @@ function FooterComponent(props) {
             </ul>
 
           </div>
-          <div className="col-md-4 p-3">
+          <div className="col-md-4 " style={{marginLeft:"30px"}}>
             <Link className="float-right mt-md-2" to="/">
               <img src="/final-logo.png" className="img-fluid" />
             </Link>

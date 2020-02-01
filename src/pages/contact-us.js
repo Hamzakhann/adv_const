@@ -19,7 +19,7 @@ const ContactUsPage = () => {
 			
 
     			<div class="col-md-6 col-sm-12 contactInfo">
-    			    <h3 class="h3-responsive font-weight-bold aboutus who-we-are-heading " style={{fontSize:"30px"}}>Contact Us</h3>
+    			    <h3 class="h3-responsive font-weight-bold aboutus who-we-are-heading " style={{fontSize:"36px"}}>Contact Us</h3>
 					<br className="desktop-view"/>
 			
 				    <p className='founder-font' >INQUIRIES<br />
@@ -32,8 +32,8 @@ const ContactUsPage = () => {
     			    </p>
     			</div>
     			
-    			<div class="col-md-6 col-sm-12">
-    			    <img className="mob-image" src="/contact-us.jpg" style={{marginTop:'22px' , maxWidth:'100%' , height:'400px'}} />
+    			<div class="col-md-6 col-sm-12 ">
+    			    <img className="mob-image img-fluid " src="/contact-us.jpg" style={{marginTop:'22px' , maxWidth:'100%' ,height:"420px"}} />
     			</div>
     		</div>
     	

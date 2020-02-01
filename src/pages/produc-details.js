@@ -84,7 +84,8 @@ function ProductDetails(props) {
     			<div className="col-md-12 col-sm-12">
     				<div className="two-heding">
   { product.completion_date.toUpperCase() ==="ONGOING" ? <h6>{product.completion_date +` Project`}</h6>:null }
-    					<h3 className="h3-responsive font-weight-bold">{product.name}</h3>
+    					
+						<h3 style={{fontSize:"32px",paddingBottom:"10px"}} className="h3-responsive font-weight-bold">{product.name}</h3>
     				</div>
     				<img src={product.image} className="img-fluid" />
     			</div>
@@ -150,7 +151,7 @@ function ProductDetails(props) {
 
     		<div className="row" style={{marginTop: "30px"}}>
     			<div className="col-md-6 col-sm-12">
-    				<div className="inner"> 
+    				<div className="inner" style={{padding:"0"}}> 
   					<h3 className="h3-responsive font-weight-bold">{nextProduct && nextProduct.name}</h3>
 					  <p className='text-justify' >{nextProduct && nextProduct.long_description}</p>
 					  <a href="#top" className="sidenavFont" disabled={isDisabled ? "disabled" : ''} onClick={() =>nextProject()} >Next Project</a>
@@ -158,7 +159,7 @@ function ProductDetails(props) {
 					</div>	
     			</div>
     			<div className="col-md-6 col-sm-12">
-    				<img src={nextProduct && nextProduct.image} style={{width:'90%', height:'300px' }} className="mob-width" />
+    				<img src={nextProduct && nextProduct.image} style={{width:'100%', height:'300px' }} className="mob-width img-fluid" />
     			</div>
     		</div>
 			

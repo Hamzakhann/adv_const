@@ -24,7 +24,7 @@ export default function QualityPage() {
 							{/* <p className="para font-weight-bold who-we-are-heading">
 							
 							</p> */}
-							<div   dangerouslySetInnerHTML={{__html:quality.description}}>
+							<div  style={{fontWeight:"lighter"}} dangerouslySetInnerHTML={{__html:quality.description}}>
 								
 							</div>
 						</div>

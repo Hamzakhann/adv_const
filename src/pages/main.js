@@ -182,7 +182,7 @@ console.log("others check" , others)
           { (cityFilteredProjects && cityFilteredProjects.length > 0) ? 
           
           <div className="col-md-10 col-sm-9 col-9 mob-padding-main top-margin box">
-              <div className="inner  mob-size">
+              <div className="inner  mob-size" data-toggle="collapse" href="#collapseExample" role="button" >
                 <h6>{(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[index]) ? cityFilteredProjects[index].city +' ' + cityFilteredProjects[index].type: null }</h6>
                 <h3 className="h3-responsive font-weight-bold">{ (cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[index]) ? cityFilteredProjects[index].short_description: null }</h3>
                 <a style={{fontSize:"16px"}} data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-arrow-down"></i></a>
@@ -236,7 +236,7 @@ console.log("others check" , others)
                   <li>Total Price : {(cityFilteredProjects && cityFilteredProjects.length > 0 && cityFilteredProjects[index]) ? cityFilteredProjects[index].total_price : null} </li>
                   </ul> 
                   <div>
-              <a href='#'  style={{cursor:'pointer' , float:"right" , color:"#C92027" , fontWeight:"bold"}} onClick={() => history.push('/product-details/' + cityFilteredProjects[index].id ,  {projects:cityFilteredProjects})}  role="button" >See details</a>
+              <a className="sidenavFont" href='#'  style={{cursor:'pointer' , float:"right" , color:"#C92027" , fontWeight:"bold"}} onClick={() => history.push('/product-details/' + cityFilteredProjects[index].id ,  {projects:cityFilteredProjects})}  role="button" >See details</a>
               </div>   
                 </div>            
               </div>
@@ -282,15 +282,15 @@ console.log("others check" , others)
                 <img src="/cruise-home.svg" className="main-page-icon icon-margin" />
               </div>
               <h3 className="h3-responsive who-we-are-content-edit font-weight-bold" style={{fontSize:"30px"}}>{otherData.service_3_title}</h3>
-              <p className='font-weight-bold who-we-are-content-edit' style={{color:'black' , fontWeight:"bold"}} >{otherData.service_3_desc}</p>
+              <p className=' who-we-are-content-edit' style={{color:'black' , fontWeight:"bold"}} >{otherData.service_3_desc}</p>
             </div> 
           </div>
 
           <div className="col-md-6 col-sm-12  box mob-view-margin" style={{marginTop: "100px"}}>
             <div className="inner inner3 " style={{height:"100%"}}> 
               <h6>Team</h6>
-              <h3 className="who-we-are-heading">Get to know us a little</h3>
-              <p>
+              <h3 className="who-we-are-heading" >Get to know us a little</h3>
+              <p style={{color:"#707070"}}>
               Get to know the team of professionals behind <br/>those great works
               </p>
               <Link className="nav-link pl-0 Mobile-view sidenavFont" to="/work-at-acc/" >Apply now</Link>

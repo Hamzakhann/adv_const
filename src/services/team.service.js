@@ -12,7 +12,7 @@ class TeamService {
   }
 
   create(data, config) {
-      return axios.post(this.url, data, config);
+      return axios.post(this.url,  querystring.stringify(data), config);
   }
 
   updateTeamMember(data) {
@@ -32,7 +32,7 @@ class TeamService {
   }
 
   uploadImage(data, config) {
-    return axios.post(`${baseUrl}upload`, data, config).then(res => res.data)
+    return axios.post(`${baseUrl}upload`,data, config);
   }
 }
 

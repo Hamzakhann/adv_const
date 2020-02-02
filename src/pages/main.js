@@ -113,7 +113,7 @@ console.log("others check" , others)
             <div className="row header-text">
                 <div className="col-md-12 white-text text-left text-md-left mt-xl-5 mb-5  wow">
                 <h6 className='what-we' >What we do</h6>
-                <p className="main-page-h1">Facing new challenges with<br />excellence and innovation</p>
+              <p className="main-page-h1">{otherData.banner_text}</p>
                 </div>
             </div>:null}
             </div>
@@ -289,7 +289,7 @@ console.log("others check" , others)
           <div className="col-md-6 col-sm-12  box mob-view-margin" style={{marginTop: "100px"}}>
             <div className="inner inner3 " style={{height:"100%"}}> 
               <h6>Team</h6>
-              <h3 className="who-we-are-heading" >Get to know us a little</h3>
+          {otherData ?( <h3 className="who-we-are-heading" >{otherData.team_title}</h3>):null}
               <p style={{color:"#707070"}}>
               Get to know the team of professionals behind <br/>those great works
               </p>

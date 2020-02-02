@@ -52,15 +52,24 @@ const AdminHeaderComponent =(props)=>{
         <img src="/AD-logo.png" alt='logo' className='img img-fluid' />
       </div>
         <ul class="list-group list-group-flush">
-            <Link  class="admin-nav-item"  to="/admin/dashboard">
+        <Link  class="admin-nav-item"  to="/admin/dashboard">
+            <li class="list-group-item">
+            <i class="fas fa-long-arrow-alt-right mr-2"></i> Dashboard
+            </li>
+            </Link>
+            <Link  class="admin-nav-item"  to="/admin/home">
             <li class="list-group-item">
             <i class="fas fa-long-arrow-alt-right mr-2"></i> Home
             </li>
             </Link>
-
-            <Link  class="admin-nav-item"  to="/admin/projects">
+            <Link  class="admin-nav-item"  to="/admin/who-we-are">
             <li class="list-group-item">
-            <i class="fas fa-long-arrow-alt-right mr-2"></i> Projects
+            <i class="fas fa-long-arrow-alt-right mr-2"></i> Who We Are
+            </li>
+            </Link>
+            <Link class="admin-nav-item"  to="/admin/quality">
+            <li class="list-group-item">
+            <i class="fas fa-long-arrow-alt-right mr-2"></i> Quality
             </li>
             </Link>
             <Link  class="admin-nav-item"  to="/admin/teams">
@@ -68,6 +77,23 @@ const AdminHeaderComponent =(props)=>{
             <i class="fas fa-long-arrow-alt-right mr-2"></i>  Teams
             </li>
             </Link>
+         
+            <Link  class="admin-nav-item"  to="/admin/work-with-us">
+            <li class="list-group-item">
+            <i class="fas fa-long-arrow-alt-right mr-2"></i> Work With Us
+            </li>
+            </Link>
+            <Link  class="admin-nav-item"  to="/admin/projects">
+            <li class="list-group-item">
+            <i class="fas fa-long-arrow-alt-right mr-2"></i> Projects
+            </li>
+            </Link>
+            <Link  class="admin-nav-item"  to="/admin/contact-us">
+            <li class="list-group-item">
+            <i class="fas fa-long-arrow-alt-right mr-2"></i> Contact Us
+            </li>
+            </Link>
+         
             <Link  class="admin-nav-item"  to="/admin/cities">
             <li class="list-group-item">
             <i class="fas fa-long-arrow-alt-right mr-2"></i> Cities
@@ -78,26 +104,9 @@ const AdminHeaderComponent =(props)=>{
               <i class="fas fa-long-arrow-alt-right mr-2"></i> CV List
             </li>
             </Link>
-            <Link  class="admin-nav-item"  to="/admin/contact-us">
-            <li class="list-group-item">
-            <i class="fas fa-long-arrow-alt-right mr-2"></i> Contact Us
-            </li>
-            </Link>
-            <Link class="admin-nav-item"  to="/admin/quality">
-            <li class="list-group-item">
-            <i class="fas fa-long-arrow-alt-right mr-2"></i> Quality
-            </li>
-            </Link>
-            <Link  class="admin-nav-item"  to="/admin/work-with-us">
-            <li class="list-group-item">
-            <i class="fas fa-long-arrow-alt-right mr-2"></i> Work With Us
-            </li>
-            </Link>
-            <Link  class="admin-nav-item"  to="/admin/who-we-are">
-            <li class="list-group-item">
-            <i class="fas fa-long-arrow-alt-right mr-2"></i> Who We Are
-            </li>
-            </Link>
+         
+           
+          
             <Link  class="admin-nav-item" to="/admin/jobs">
             <li class="list-group-item">
             <i class="fas fa-long-arrow-alt-right mr-2"></i> Jobs

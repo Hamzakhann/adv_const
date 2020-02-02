@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Form, Row, Col, Button } from 'react-bootstrap';
+import { Form, Row, Col } from 'react-bootstrap';
+import {Button , IconButton} from '@material-ui/core';
+import Skeleton from '@material-ui/lab/Skeleton';
+import ReactQuill from 'react-quill';
 import axios from 'axios';
 import { url } from '../services/url';
 import querystring from 'querystring';
@@ -10,6 +13,7 @@ import AdminHeaderComponent from '../components/admin-header.component';
 
 function AdminHomePage() {
     const history = useHistory()
+    const [isLoading , setLoading] = useState(true)
     const [workWithUsTitle, setWorkWithUsTitle] = useState();
     const [workWithUsImage, setWorkWithUsImage] = useState();
     const [teamTitle, setTeamTitle] = useState();
@@ -54,6 +58,7 @@ function AdminHomePage() {
             setServiceIcon3(res.data.index_page_data[0].service_3_icon);
             setBannerImage(res.data.index_page_data[0].banner_image);
             setBannerText(res.data.index_page_data[0].banner_text);
+            setLoading(false);
         })
     } ,[])
 
@@ -64,7 +69,7 @@ function AdminHomePage() {
     
             const response = await axios.post(`${url}admin/upload`, data, {
                 headers: {
-                    'content-type': 'multipart/form-data'
+                    'content-type': 'application/x-www-form-urlencode'
                 }
             });
     
@@ -77,7 +82,7 @@ function AdminHomePage() {
     
             const response = await axios.post(`${url}admin/upload`, data, {
                 headers: {
-                    'content-type': 'multipart/form-data'
+                    'content-type': 'application/x-www-form-urlencoded'
                 }
             });
     
@@ -90,7 +95,7 @@ function AdminHomePage() {
     
             const response = await axios.post(`${url}admin/upload`, data, {
                 headers: {
-                    'content-type': 'multipart/form-data'
+                    'content-type': 'application/x-www-form-urlencoded'
                 }
             });
     
@@ -103,7 +108,7 @@ function AdminHomePage() {
     
             const response = await axios.post(`${url}admin/upload`, data, {
                 headers: {
-                    'content-type': 'multipart/form-data'
+                    'content-type':  'application/x-www-form-urlencoded'
                 }
             });
     
@@ -146,125 +151,168 @@ function AdminHomePage() {
               "Content-Type": "application/x-www-form-urlencoded"
             }
           }).then(res => console.log('res ', res))
+          setLoading(false);
 
     }
     return (
         <div>
-            <AdminHeaderComponent />
+            <AdminHeaderComponent  pageName="Home"/>
             <div className="container mt-md-5">
-                <Form>
-                <div>
-                    <label for="avatar" >Work With Us Image:</label>
-
-                        <input type="file" 
-                            id="avatar" name="avatar" onChange={e => setSelectedWorkWithUsImage(e.target.files[0])} />
-                </div>
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Label>Work Wit Us Title</Form.Label>
-                        <Form.Control value={workWithUsTitle} onChange={(e) => setWorkWithUsTitle(e.target.value)}  />
-                        </Form.Group>
-                    </Form.Row>
-
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Label>Team title</Form.Label>
-                        <Form.Control value={teamTitle} onChange={(e) => setTeamTitle(e.target.value)}/>
-                        </Form.Group>
-                        <Col>
-                            <div>
-                                <label for="avatar" >Team Image:</label>
-
-                                    <input type="file" 
-                                        id="avatar" name="avatar" onChange={e => setSelectedTeamImage(e.target.files[0])} />
-                            </div>
-                        </Col>
-                    </Form.Row>
-
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Label>Banner Text</Form.Label>
-                        <Form.Control value={bannerText} onChange={(e) => setBannerText(e.target.value)}/>
-                        </Form.Group>
-                        <Col>
-                            <div>
-                                <label for="avatar" >Banner Image:</label>
-
-                                    <input type="file" 
-                                        id="avatar" name="avatar" onChange={e => setSelectedBannerImage(e.target.files[0])} />
-                            </div>
-                        </Col>
-                    </Form.Row>
-
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Label>Service 1 Title</Form.Label>
-                        <Form.Control value={serviceTitle1} onChange={(e) => setServiceTitle1(e.target.value)}  />
-                        </Form.Group>
-
-                        <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Label>Service 1 Description</Form.Label>
-                        <Form.Control value={serviceDescription1} onChange={(e) => setServiceDescription1(e.target.value)} as="textarea" rows="7"  />
-                        </Form.Group>
-
-                        <Col>
-                            <div>
-                                <label for="avatar" >Service 1 Icon:</label>
-
-                                    <input type="file" 
-                                        id="avatar" name="avatar" onChange={e => setSelectedService1Icon(e.target.files[0])} />
-                            </div>
-                        </Col>
-                    </Form.Row>
-
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Label>Sevice 2 Title</Form.Label>
-                        <Form.Control value={serviceTitle2} onChange={(e) => setServiceTitle2(e.target.value)}  />
-                        </Form.Group>
-            
-                        <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Label>Service 2 Description</Form.Label>
-                        <Form.Control value={serviceDescription2} onChange={(e) => setServiceDescription2(e.target.value)} as="textarea" rows="7"  />
-                        </Form.Group>
-
-                        <Col>
-                            <div>
-                                <label for="avatar" >Service 2 Icon:</label>
-
-                                    <input type="file" 
-                                        id="avatar" name="avatar" onChange={e => setSelectedService1Icon(e.target.files[0])} />
-                            </div>
-                        </Col>
-                    
-                    </Form.Row>
-
-                    <Form.Row>
-                        <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Label>Service 3 Title</Form.Label>
-                        <Form.Control value={serviceTitle3} onChange={(e) => setServiceTitle3(e.target.value)}  />
-                        </Form.Group>
+            <div className='main-form-container'>
+          {isLoading ?
+           ( <div className='container' >
+                             <Skeleton style={{width:"100%" , height:"100px"}} animation="wave" />
+                             <Skeleton style={{width:"100%" , height:"100px"}} animation="wave" />
+                             <Skeleton style={{width:"100%" , height:"100px"}} animation="wave" />
+                             <Skeleton style={{width:"100%" , height:"100px"}} animation="wave" />
+                         </div>):
+              ( <div className="admin-form">
                 
-                        <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Label>Service 3 Description</Form.Label>
-                        <Form.Control value={serviceDescription3} onChange={(e) => setServiceDescription3(e.target.value)} as="textarea" rows="7" />
-                        </Form.Group>
+                        <div class="form-group">
+                            <label className='admin-label' for="title">Work With Us Title</label>
+                            <input 
+                            type="text" 
+                            class="form-control admin-input" 
+                            
+                            value={workWithUsTitle} 
+                            onChange={(e) => setWorkWithUsTitle(e.target.value)}                             />
+                        </div>
+                        <div class="form-group">
+                        <label className='admin-label mr-4' for="desc">Work With Us Image:</label>
+                        <input onChange={e => setSelectedWorkWithUsImage(e.target.files[0])} accept="image/*" style={{display:"none"}} id="icon-button-file" type="file" />
+                         <label htmlFor="icon-button-file">
+                               <IconButton className='btn-block' style={{color:"darkRed" , border:"1px solid darkRed"}} aria-label="upload picture" component="div">
+                                 <i class="fas fa-camera"></i>
+                                </IconButton>
+                         </label>
+                         <small className='ml-3 font-weight-bold' >{selectedWorkWithUsImage ? selectedWorkWithUsImage.name :""}</small>
+                        </div>
+                        <div class="form-group">
+                            <label className='admin-label' for="title">Team Title</label>
+                            <input 
+                            type="text" 
+                            class="form-control admin-input" 
+                            
+                            value={teamTitle} onChange={(e) => setTeamTitle(e.target.value)}                         />
+                        </div>
 
-                        <Col>
-                            <div>
-                                <label for="avatar" >Service 3 Icon:</label>
+                        <div class="form-group">
+                        <label className='admin-label mr-4' for="desc">Team Image:</label>
+                        <input onChange={e => setSelectedTeamImage(e.target.files[0])} accept="image/*" style={{display:"none"}} id="icon-button-file" type="file" />
+                         <label htmlFor="icon-button-file">
+                               <IconButton className='btn-block' style={{color:"darkRed" , border:"1px solid darkRed"}} aria-label="upload picture" component="div">
+                                 <i class="fas fa-camera"></i>
+                                </IconButton>
+                         </label>
+                         <small className='ml-3 font-weight-bold' >{selectedTeamImage ? selectedTeamImage.name :""}</small>
+                        </div>
+             
+                    {/* ======================= */}
+                    <div class="form-group">
+                            <label className='admin-label' for="title">Banner Text</label>
+                            <input 
+                            type="text" 
+                            class="form-control admin-input" 
+                            
+                            value={bannerText} onChange={(e) => setBannerText(e.target.value)}                        />
+                        </div>
 
-                                    <input type="file" 
-                                        id="avatar" name="avatar" onChange={e => setSelectedService3Icon(e.target.files[0])} />
-                            </div>
-                        </Col>
-                    </Form.Row>
+                        <div class="form-group">
+                        <label className='admin-label mr-4' for="desc">Banner Image:</label>
+                        <input onChange={e => setSelectedBannerImage(e.target.files[0])} accept="image/*" style={{display:"none"}} id="icon-button-file" type="file" />
+                         <label htmlFor="icon-button-file">
+                               <IconButton className='btn-block' style={{color:"darkRed" , border:"1px solid darkRed"}} aria-label="upload picture" component="div">
+                                 <i class="fas fa-camera"></i>
+                                </IconButton>
+                         </label>
+                         <small className='ml-3 font-weight-bold' >{selectedBannerImage ? selectedBannerImage.name :""}</small>
+                        </div>
 
-
-                    <Button variant="primary" type="button" onClick={updateQuality}>
-                        Update
-                    </Button>
-                    </Form>
+                  
+                  <div class="form-group">
+                            <label className='admin-label' for="title">First Service Title</label>
+                            <input 
+                            type="text" 
+                            class="form-control admin-input" 
+                            
+                            value={serviceTitle1} onChange={(e) => setServiceTitle1(e.target.value)}                        />
+                        </div>
+                        <div class="form-group">
+                            <label className='admin-label' for="title">First Service Description</label>
+                            <input 
+                            type="text" 
+                            class="form-control admin-input" 
+                            
+                            value={serviceDescription1} onChange={(e) => setServiceDescription1(e.target.value)}                    />
+                        </div>
+                        <div class="form-group">
+                        <label className='admin-label mr-4' for="desc">First Service Image:</label>
+                        <input onChange={e => setSelectedService1Icon(e.target.files[0])} accept="image/*" style={{display:"none"}} id="icon-button-file" type="file" />
+                         <label htmlFor="icon-button-file">
+                               <IconButton className='btn-block' style={{color:"darkRed" , border:"1px solid darkRed"}} aria-label="upload picture" component="div">
+                                 <i class="fas fa-camera"></i>
+                                </IconButton>
+                         </label>
+                         <small className='ml-3 font-weight-bold' >{selectedService1Icon ? selectedService1Icon.name :""}</small>
+                        </div>
+                  
+                        <div class="form-group">
+                            <label className='admin-label' for="title">Second Service Title</label>
+                            <input 
+                            type="text" 
+                            class="form-control admin-input" 
+                            
+                            value={serviceTitle2} onChange={(e) => setServiceTitle2(e.target.value)}                   />
+                        </div>
+                        <div class="form-group">
+                            <label className='admin-label' for="title">Second Service Description</label>
+                            <input 
+                            type="text" 
+                            class="form-control admin-input" 
+                            
+                            value={serviceDescription2} onChange={(e) => setServiceDescription2(e.target.value)}                 />
+                        </div>
+                        <div class="form-group">
+                        <label className='admin-label mr-4' for="desc">Second Service Image:</label>
+                        <input onChange={e => setSelectedService2Icon(e.target.files[0])} accept="image/*" style={{display:"none"}} id="icon-button-file" type="file" />
+                         <label htmlFor="icon-button-file">
+                               <IconButton className='btn-block' style={{color:"darkRed" , border:"1px solid darkRed"}} aria-label="upload picture" component="div">
+                                 <i class="fas fa-camera"></i>
+                                </IconButton>
+                         </label>
+                         <small className='ml-3 font-weight-bold' >{selectedService2Icon ? selectedService2Icon.name :""}</small>
+                        </div>
+                  
+                        <div class="form-group">
+                            <label className='admin-label' for="title">Third Service Title</label>
+                            <input 
+                            type="text" 
+                            class="form-control admin-input" 
+                            
+                            value={serviceTitle3} onChange={(e) => setServiceTitle3(e.target.value)}               />
+                        </div>
+                        <div class="form-group">
+                            <label className='admin-label' for="title">ThirdService Description</label>
+                            <input 
+                            type="text" 
+                            class="form-control admin-input" 
+                            
+                            value={serviceDescription3} onChange={(e) => setServiceDescription3(e.target.value)}            />
+                        </div>
+                        <div class="form-group">
+                        <label className='admin-label mr-4' for="desc">Third Service Image:</label>
+                        <input onChange={e => setSelectedService3Icon(e.target.files[0])} accept="image/*" style={{display:"none"}} id="icon-button-file" type="file" />
+                         <label htmlFor="icon-button-file">
+                               <IconButton className='btn-block' style={{color:"darkRed" , border:"1px solid darkRed"}} aria-label="upload picture" component="div">
+                                 <i class="fas fa-camera"></i>
+                                </IconButton>
+                         </label>
+                         <small className='ml-3 font-weight-bold' >{selectedService3Icon ? selectedService3Icon.name :""}</small>
+                        </div>
+                        <Button  onClick={()=>updateQuality()}  size="large"  variant="contained" className='btn-block admin-block-btn' >Update</Button>
+                    </div>)
+}
+                    </div>
                 </div>
         </div>
     )

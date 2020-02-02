@@ -17,45 +17,57 @@ export default function AdminAddTeamPage() {
     const [designation , setDesignation] = useState("");
     const [description , setDescription] = useState("");
     const [teamImage , setImage] = useState("");
-    const [teamImageLink , setImageLink] = useState("");
-
+    const [teamImageLink , setteamImageLink] = useState("");
+    
     useEffect(()=>{
+       
+
         if(!localStorage.getItem("jwtToken")){
             history.push("/admin")
         }
 
     })
+console.log(`yelo`,teamImageLink);
     const createTeam =() =>{
+
+      
         if(!teamImage){
             alert("please select team image")
         }
         setLoading(true)
-        let data2 = new FormData();
-        data2.append('image',teamImage);
-
-        let data = new FormData();
-        data.append('image', teamImageLink);
-        data.append('name', name);
-        data.append('designation', designation);
-        data.append('description', description);
-
+        let dataImage = new FormData();
+        dataImage.append('image',teamImage);
+      
+        let data={
+        image: teamImageLink,
+        name: name,
+        designation: designation,
+        description :description
+        }
         const config = {
             headers: {
                 'content-type': 'application/x-www-form-urlencoded',
             }
         };
 
-        const config2 = {
+        const configImage = {
             headers: {
                 'content-type': 'application/x-www-form-urlencoded',
             }
         };
-        const teamService = new TeamService();
-        teamService.uploadImage(data2,config2).then(res=>{
-            setImageLink(res);
+        const teamService = new TeamService(); 
+        
+      
+            
+        teamService.uploadImage(dataImage,configImage).then(res=>{
+           setteamImageLink(res.data);
+        }).catch(e=>{
+            alert(e);
         })
+        
 
         teamService.create(data, config).then(res => {
+            
             if (res.status === 200) {
 
                 setLoading(false)

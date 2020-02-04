@@ -20,7 +20,7 @@ function WhoWeArePage() {
 					<div className="container">
 						<div className="row contactUs-text-container">
 							<div className="col-sm-12 ">
-								<div >
+								<div className='p-0'>
 									<img src={whoWeAre.banner_image} className="who-we-are-img-1 img-fluid" />
 								</div>
 								<br />

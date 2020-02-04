@@ -32,7 +32,9 @@ class TeamService {
   }
 
   uploadImage(data, config) {
-    return axios.post(`${baseUrl}upload`,data, config);
+    return axios.post(`${baseUrl}upload`,data, config).then(res=>{
+      return res.data;
+    })
   }
 }
 

@@ -6,6 +6,8 @@ import HeaderComponent from '../components/header';
 import FooterComponent from '../components/footer';
 import JobsService from '../services/jobs.service';
 
+
+
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import "react-tabs/style/react-tabs.css";
 
@@ -17,8 +19,15 @@ function WorkAtAccPage(props) {
   const [name , setName] = useState("");
   const [email , setEmail] = useState("");
   const [cv , setCv] = useState("");
+  const [otherData, setOtherData] = useState();
+
   
   useEffect(() => {
+    axios.get("https://adv-construction.herokuapp.com/front/workWithUsPage").then(res => { 
+      console.log(`apna hai`,res.data[0]);
+      setOtherData(res.data[0])
+
+    });
     jobsService.getAll().then(res => {
       setJobs(res);
       setSelectedJob(res[0]);
@@ -110,20 +119,20 @@ function WorkAtAccPage(props) {
               </div>
               <hr className="Mobile-view"/>
             </div>
+            {otherData ?
 
             <div className="col-md-6 col-sm-12 p-0 work-at-acc-image">
-              <img src="/contact-us-banner.png" className="img-fluid" />
-            </div>
+              <img src={otherData.image} className="img-fluid" />
+            </div>:null}
           </div>
+          {otherData ?
           <div className="row">
             <div className="col-md-6 col-sm-12 box works" style={{ marginTop: '100px' }}>
               <div className="inner inner2 worked" style={{ height: '100%', background: '#FFFDFD' }}>
                 <h6 style={{fontSize:"18px"}}>Team</h6>
-                <h3 style={{fontSize:"30px"}} className="h3-responsive who-we-are-heading font-weight-bold">Get to know us a little</h3>
+          <h3 style={{fontSize:"30px"}} className="h3-responsive who-we-are-heading font-weight-bold">{otherData.team_title}</h3>
                 <p>
-                  Get the know the team of professionals behind
-                  <br />
-                  those great works
+                {otherData.team_message}
                 </p>
                 <Link className="desktop-view sidenavFont" to="/team">Meet our team</Link>
                 <Link className="Mobile-view sidenavFont" to="/work-at-acc/" >Apply now</Link>
@@ -131,9 +140,9 @@ function WorkAtAccPage(props) {
               </div>
             </div>
             <div className="col-md-6 col-sm-12 p-0 " style={{ marginTop: '100px' }}>
-              <img src="/banner3.jpg" className="img-fluid work-at-acc-mob-img" />
+              <img src={otherData.team_image} className="img-fluid work-at-acc-mob-img" />
             </div>
-          </div>
+          </div>:null }
 
           <div id="myModal" class="modal fade">
           <div class="modal-dialog modal-dialog-centered modal-lg">

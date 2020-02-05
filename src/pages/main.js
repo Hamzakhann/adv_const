@@ -106,19 +106,20 @@ console.log("others check" , others)
   return (
       <div >
       <HeaderComponent topclassName={"fixed-top-header"}>
-        <div className="view " style={{ backgroundImage :"url('/bannerr.jpg')", backgroundPosition:"center", backgroundRepeat: 'no-repeat' ,backgroundSize:"cover" }}>
+       {otherData ?
+        <div className="view " style={{ backgroundImage :`url(${otherData.banner_image})`, backgroundPosition:"center", backgroundRepeat: 'no-repeat' ,backgroundSize:"cover" }}>
         <div className="mask rgba-gradient align-items-center" >
             <div className="container">
-              {otherData ?
+              
             <div className="row header-text">
                 <div className="col-md-12 white-text text-left text-md-left mt-xl-5 mb-5  wow">
                 <h6 className='what-we' >What we do</h6>
               <p className="main-page-h1">{otherData.banner_text}</p>
                 </div>
-            </div>:null}
+            </div>
             </div>
         </div>
-        </div>
+        </div>:null}
       </HeaderComponent>
 
       <main >
@@ -246,7 +247,7 @@ console.log("others check" , others)
           {/* Collapse ends here */}
 
           <div className="col-md-6 col-sm-12 box desktop-work-img" style={{marginTop: "100px"}}>
-            <img src="/banner2.jpg" className="img-fluid" />    
+            <img src={otherData.work_with_us_image} className="img-fluid" />    
           </div>
           <div className="col-md-6 col-sm-12 col-12 mob-view-margin work" style={{marginTop: "100px"}}>
             <div className="inner2 inner inner4" style={{height:"100%"}}>
@@ -256,12 +257,12 @@ console.log("others check" , others)
             </div> 
           </div>
           <div className="col-md-6 col-sm-12 box mobile-work-img" >
-            <img src="/banner2.jpg" className="img-fluid" />    
+            <img src={otherData.work_with_us_image} className="img-fluid" />    
           </div>
           <div className="col-md-4 col-sm-12 box mob-margin" style={{marginTop: "100px"}}>
             <div className="inner" style={{height:"260px"}} >
               <div className="icon">
-              <img src="/bridge-home.svg" className="main-page-icon icon-margin" />
+              <img src={otherData.service_1_icon} className="main-page-icon icon-margin" />
               </div> 
               <h3 className="h3-responsive who-we-are-content-edit font-weight-bold" style={{fontSize:"30px" , color:"black" , fontWeight:"bold"}}>{otherData.service_1_title}</h3>
               <p className='font-weight-bold who-we-are-content-edit' style={{color:'black' , fontWeight:"bold"}} >{otherData.service_1_desc}</p>
@@ -270,7 +271,7 @@ console.log("others check" , others)
           <div className="col-md-4 col-sm-12 mob-margin box" style={{marginTop: "100px"}}>
             <div className="inner"style={{height:"260px"}}>
               <div className="icon">
-                <img src="/electro-home.svg" className="main-page-icon icon-margin" />
+                <img src={otherData.service_2_icon} className="main-page-icon icon-margin" />
               </div>
               <h3 className="h3-responsive who-we-are-content-edit font-weight-bold" style={{fontSize:"30px"}}>{otherData.service_2_title}</h3>
               <p className='font-weight-bold who-we-are-content-edit' style={{color:'black' , fontWeight:"bold"}} >{otherData.service_2_desc}</p>
@@ -279,7 +280,7 @@ console.log("others check" , others)
           <div className="col-md-4 col-sm-12 mob-margin" style={{marginTop: "100px"}}>
             <div className="inner" style={{height:"260px"}}>
               <div className="icon">
-                <img src="/cruise-home.svg" className="main-page-icon icon-margin" />
+                <img src={otherData.service_3_icon} className="main-page-icon icon-margin" />
               </div>
               <h3 className="h3-responsive who-we-are-content-edit font-weight-bold" style={{fontSize:"30px"}}>{otherData.service_3_title}</h3>
               <p className=' who-we-are-content-edit' style={{color:'black' , fontWeight:"bold"}} >{otherData.service_3_desc}</p>

@@ -11,19 +11,16 @@ import AdminHeaderComponent from "../components/admin-header.component";
 import "./dashboard.css";
 export default function AdminAddTeamPage() {
   const history = useHistory();
-  const [flag, setFlag] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [designation, setDesignation] = useState("");
   const [description, setDescription] = useState("");
   const [teamImage, setImage] = useState("");
-  const [teamImageLink, setTeamImageLink] = useState("");
 
   useEffect(() => {
     if (!localStorage.getItem("jwtToken")) {
       history.push("/admin");
     }
-    console.log(`yelo`, teamImageLink); 
   });
   
   const createTeam = () => {
@@ -34,12 +31,7 @@ export default function AdminAddTeamPage() {
     let dataImage = new FormData();
     dataImage.append("image", teamImage);
 
-    let data = {
-      image: teamImageLink,
-      name: name,
-      designation: designation,
-      description: description
-    };
+  
     const config = {
       headers: {
         "content-type": "application/x-www-form-urlencoded"
@@ -53,20 +45,33 @@ export default function AdminAddTeamPage() {
     };
     const teamService = new TeamService();
 
-    teamService
+    let p= new Promise((resolve,reject)=>{
+      if(dataImage){
+      teamService
       .uploadImage(dataImage, configImage)
       .then(res => {
-        setTeamImageLink("Afzal")
-        debugger;
-        console.log(teamImageLink)
-        debugger;
+       resolve(res);
       });
-     
+    }
+    else{
+      reject(`something went wrong!`)
+    }
 
-    teamService
+    })
+    
+     p.then((promise)=>{
+       let imgLink=promise;
+      let data = {
+        image:imgLink ,
+        name: name,
+        designation: designation,
+        description: description
+      };
+
+      teamService
       .create(data, config)
       .then(res => {
-        setTeamImageLink("=====>>>>",res.status)
+        
         if (res.status === 200) {
           setLoading(false);
           history.push("/admin/teams");
@@ -76,6 +81,10 @@ export default function AdminAddTeamPage() {
         setLoading(false);
         alert(e);
       });
+
+     })
+
+   
   };
   return (
     <div className="container-fluid p-0">

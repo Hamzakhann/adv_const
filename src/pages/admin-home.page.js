@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Form, Row, Col } from 'react-bootstrap';
 import {Button , IconButton} from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
-import ReactQuill from 'react-quill';
 import axios from 'axios';
 import { url } from '../services/url';
 import querystring from 'querystring';
 import {useHistory} from 'react-router-dom'
 import AdminHeaderComponent from '../components/admin-header.component';
+import IndexpageService from '../services/IndexPage.service';
 
 
 
@@ -29,10 +28,8 @@ function AdminHomePage() {
     const [serviceIcon3, setServiceIcon3] = useState();
     const [bannerImage, setBannerImage] = useState();
     const [bannerText, setBannerText] = useState();
-
     const [selectedBannerImage, setSelectedBannerImage] = useState();
     const [selectedWorkWithUsImage, setSelectedWorkWithUsImage] = useState();
-    // const [selectedBannerImage, setSelectedBannerImage] = useState();
     const [selectedService1Icon, setSelectedService1Icon] = useState();
     const [selectedService2Icon, setSelectedService2Icon] = useState();
     const [selectedService3Icon, setSelectedService3Icon] = useState();
@@ -60,32 +57,29 @@ function AdminHomePage() {
             setBannerText(res.data.index_page_data[0].banner_text);
             setLoading(false);
         })
+        console.log(`haha`,bannerImage)
     } ,[])
 
     const updateQuality = async () => {
+
+      let indexService= new  IndexpageService();
         if (selectedBannerImage) {
             let data = new FormData();
             data.append('image', selectedBannerImage);
     
-            const response = await axios.post(`${url}admin/upload`, data, {
-                headers: {
-                    'content-type': 'application/x-www-form-urlencode'
-                }
-            });
+            const response = await indexService.uploadImage(data);
+            console.log(`ye mera bhai`,response.data)
     
             setBannerImage(response.data);
+
     
            }
            if (selectedWorkWithUsImage) {
             let data = new FormData();
             data.append('image', selectedWorkWithUsImage);
     
-            const response = await axios.post(`${url}admin/upload`, data, {
-                headers: {
-                    'content-type': 'application/x-www-form-urlencoded'
-                }
-            });
-    
+            const response = await indexService.uploadImage(data);
+           
             setWorkWithUsImage(response.data);
            }
 
@@ -93,11 +87,8 @@ function AdminHomePage() {
             let data = new FormData();
             data.append('image', selectedTeamImage);
     
-            const response = await axios.post(`${url}admin/upload`, data, {
-                headers: {
-                    'content-type': 'application/x-www-form-urlencoded'
-                }
-            });
+            const response = await indexService.uploadImage(data);
+          
     
             setTeamImage(response.data);
            }
@@ -106,11 +97,8 @@ function AdminHomePage() {
             let data = new FormData();
             data.append('image', selectedTeamImage);
     
-            const response = await axios.post(`${url}admin/upload`, data, {
-                headers: {
-                    'content-type':  'application/x-www-form-urlencoded'
-                }
-            });
+            const response = await indexService.uploadImage(data);
+           
     
             setTeamImage(response.data);
            }
@@ -129,6 +117,7 @@ function AdminHomePage() {
             service_3_icon:  serviceIcon3,
             banner_image:    bannerImage,
             banner_text:     bannerText });
+
            axios.post(`${url}admin/update_index_page`, querystring.stringify({
             work_with_us_title: workWithUsTitle,
             work_with_us_image: workWithUsImage,

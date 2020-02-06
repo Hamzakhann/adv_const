@@ -20,7 +20,12 @@ export default function ProjectsPage() {
   const [show, setShow] = useState(false);
   const [isLoading , setIsLoading] = useState(true)
   const [visible  , setVisible] = useState(8)
+  const [safari , setSafari] = useState(false)
   useEffect(() => {
+    if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) 
+      { 
+        setSafari(true);          
+        }
     Promise.all([projectService.getAll(), ciitesService.getAll()]).then(res => {
       console.log("res check", res);
       setProjectList(res[0].sort((a,b) => parseFloat(a.id) - parseFloat(b.id)));
@@ -102,7 +107,9 @@ export default function ProjectsPage() {
     <div style={{ background: '#fff' }}>
       <HeaderComponent topclassName={"fixed-top-header-top mob-header"}></HeaderComponent>
       <main style={{ background: "#fff" }}>
-        <div className="container">
+        <div className='' style={{maxWidth:safari && safari ? "1131px":"1080px",paddingRight:"15px", paddingLeft:"15px" , marginLeft:"auto" , marginRight:"auto"}}  >
+      {/* <div style={{maxWidth:safari && safari ? "1131px":"1080px"}}> */}
+        {/* {safari && safari ? <div style={{maxWidth:"1131px"}}> : <div className="container">} */}
           <div className="row">
             <div className="col-md-12 col-sm-12">
               <div className="two-heding">

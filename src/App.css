@@ -1290,6 +1290,7 @@ nav{
 }
 
 
+
 @media screen and (min-width: 1000px) and (max-width: 1199px) {
     .name-mac{
         font-size: 14px;
@@ -1333,3 +1334,46 @@ nav{
     }
     
   }
+
+  @media screen and (-webkit-min-device-pixel-ratio: 1) and (min-width: 1200px) and (max-width: 1362px) {
+    ::i-block-chrome, .name-mac{
+        font-size: 16px;
+    }
+    ::i-block-chrome, .all-img{
+        width: 31px !important;
+        height: 27px !important;
+        margin-top: 7px !important;
+        margin-left: 4px !important;
+        margin-right: 11px !important;
+    
+    }
+    
+    ::i-block-chrome, .road-img{
+        width: 33px!important;
+        height: 29px !important;
+        margin-top: 2px !important;
+        margin-left: 4px !important;
+        margin-right: 11px !important;
+    }
+    ::i-block-chrome, .building-img{
+        width: 31px!important;
+        height: 32px!important;
+        margin-top: 0px!important;
+        margin-left: 4px !important;
+        margin-right: 11px !important;
+    }
+    ::i-block-chrome, .marine-img{
+        width: 51px!important;
+        height: 25px!important;
+        margin-top: 6px!important;
+        margin-left: 4px !important;
+        margin-right: 11px !important;
+    }
+    ::i-block-chrome, .bridge-img{
+        width: 51px !important;
+        /* height: 28px !important; */
+        margin-top: 9px !important;
+        margin-left: 5px !important;
+        margin-right: 11px !important;
+    }
+ }

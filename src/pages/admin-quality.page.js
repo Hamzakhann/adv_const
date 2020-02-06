@@ -184,7 +184,7 @@ export default function AdminQualityPage() {
                         </div>
                         {/* FIFTH INPUT */}
                         <div class="form-group">
-                        <label className='admin-label mr-4' for="desc">Choose Profile Picture\</label>
+                        <label className='admin-label mr-4' for="desc">Choose banner image:</label>
                         <input onChange={(e) => setSelectedImage(e.target.files[0])} accept="image/*" style={{display:"none"}} id="icon-button-file" type="file" />
                          <label htmlFor="icon-button-file">
                                <IconButton className='btn-block' style={{color:"darkRed" , border:"1px solid darkRed"}} aria-label="upload picture" component="div">

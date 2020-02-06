@@ -8,7 +8,8 @@ function WhoWeArePage() {
 	const [whoWeAre, setWhoWeAre] = useState();
 	useEffect(() => {
 		whoWeAreService.getAll().then(res => {
-			console.log(res[0])
+
+			console.log(`apna hai`,res[0])
 			setWhoWeAre(res[0])
 		});
 	}, [])
@@ -70,7 +71,7 @@ function WhoWeArePage() {
 									<Link to="/work-at-acc" className='sidenavFont' >Apply now</Link>
 								</div>
 								<div className="col-md-6 col-sm-12 box mobile-work-img" >
-            <img src="/banner2.jpg" className="img-fluid" />    
+            <img src={whoWeAre.work_with_us_image} className="img-fluid" />    
           </div>
 							</div>
 						</div>

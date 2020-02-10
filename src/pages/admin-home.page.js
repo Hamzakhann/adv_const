@@ -63,84 +63,153 @@ function AdminHomePage() {
     const updateQuality = async () => {
 
       let indexService= new  IndexpageService();
-        if (selectedBannerImage) {
-            let data = new FormData();
-            data.append('image', selectedBannerImage);
+        
+     
     
-            const response = await indexService.uploadImage(data);
-            console.log(`ye mera bhai`,response.data)
-    
-            setBannerImage(response.data);
-
-    
-           }
-           if (selectedWorkWithUsImage) {
-            let data = new FormData();
-            data.append('image', selectedWorkWithUsImage);
-    
-            const response = await indexService.uploadImage(data);
-           
-            setWorkWithUsImage(response.data);
-           }
-
-           if (selectedTeamImage) {
-            let data = new FormData();
-            data.append('image', selectedTeamImage);
-    
-            const response = await indexService.uploadImage(data);
+            let bannerImg= new Promise((resolve,reject)=>{
+                let data = new FormData();
+                data.append('image', selectedBannerImage);
+                if(selectedBannerImage){
+                indexService
+                .uploadImage(data)
+                .then(res => {
+                 resolve(res);
+                 setBannerImage(res);
+                });
+              }
+              else{
+                reject(`something went wrong!`)
+              }
           
+              })
+            
     
-            setTeamImage(response.data);
-           }
+            
 
-           if (selectedTeamImage) {
-            let data = new FormData();
-            data.append('image', selectedTeamImage);
-    
-            const response = await indexService.uploadImage(data);
+              let workWithUsImg= new Promise((resolve,reject)=>{
+                let data = new FormData();
+                data.append('image', selectedWorkWithUsImage);
+                if(selectedWorkWithUsImage){
+                indexService
+                .uploadImage(data)
+                .then(res => {
+                 resolve(res);
+                 setWorkWithUsImage(res);
+                });
+              }
+              else{
+                reject(`something went wrong!`)
+              }
+          
+              })
            
-    
-            setTeamImage(response.data);
-           }
-           console.log('data ', { work_with_us_title: workWithUsTitle,
-            work_with_us_image: workWithUsImage,
-            team_title: teamTitle,
-            team_image: teamImage,
-            service_1_title: serviceTitle1,
-            service_2_title: serviceTitle2,
-            service_3_title: serviceTitle3,
-            service_1_desc:  serviceDescription1,
-            service_2_desc:  serviceDescription2,
-            service_3_desc:  serviceDescription3,
-            service_1_icon:  serviceIcon1,
-            service_2_icon:  serviceIcon2,
-            service_3_icon:  serviceIcon3,
-            banner_image:    bannerImage,
-            banner_text:     bannerText });
+              let teamImg= new Promise((resolve,reject)=>{
+                let data = new FormData();
+                data.append('image', selectedTeamImage);
+                if(selectedTeamImage){
+                indexService
+                .uploadImage(data)
+                .then(res => {
+                 resolve(res);
+                 setTeamImage(res);
+                });
+              }
+              else{
+                reject(`something went wrong!`)
+              }
+          
+              })
+              let serviceIcon1Img= new Promise((resolve,reject)=>{
+                let data = new FormData();
+                data.append('image', selectedService1Icon);
+                if(selectedService1Icon){
+                indexService
+                .uploadImage(data)
+                .then(res => {
+                 resolve(res);
+                 setServiceIcon1(res);
+                });
+              }
+              else{
+                reject(`something went wrong!`)
+              }
+          
+              })
+              let serviceIcon2Img= new Promise((resolve,reject)=>{
+                let data = new FormData();
+                data.append('image', selectedService2Icon);
+                if(selectedService2Icon){
+                indexService
+                .uploadImage(data)
+                .then(res => {
+                 resolve(res);
+                 setServiceIcon2(res);
+                });
+              }
+              else{
+                reject(`something went wrong!`)
+              }
+          
+              })
 
-           axios.post(`${url}admin/update_index_page`, querystring.stringify({
-            work_with_us_title: workWithUsTitle,
-            work_with_us_image: workWithUsImage,
-            team_title: teamTitle,
-            team_image: teamImage,
-            service_1_title: serviceTitle1,
-            service_2_title: serviceTitle2,
-            service_3_title: serviceTitle3,
-            service_1_desc:  serviceDescription1,
-            service_2_desc:  serviceDescription2,
-            service_3_desc:  serviceDescription3,
-            service_1_icon:  serviceIcon1,
-            service_2_icon:  serviceIcon2,
-            service_3_icon:  serviceIcon3,
-            banner_image:    bannerImage,
-            banner_text:     bannerText
-    
-        }), {
-            headers: { 
-              "Content-Type": "application/x-www-form-urlencoded"
-            }
-          }).then(res => console.log('res ', res))
-          setLoading(false);
+              let serviceIcon3Img= new Promise((resolve,reject)=>{
+                let data = new FormData();
+                data.append('image', selectedService3Icon);
+                if(selectedService3Icon){
+                indexService
+                .uploadImage(data)
+                .then(res => {
+                 resolve(res);
+                 setServiceIcon3(res);
+                });
+              }
+              else{
+                reject(`something went wrong!`)
+              }
+          
+              })
+
+              Promise.all([
+
+                bannerImg,
+                teamImg,
+                workWithUsImg,
+                serviceIcon1Img,
+                serviceIcon3Img,
+                serviceIcon2Img
+              ]).then(message=>{
+console.log(message)
+                // setBannerImage();
+                // setWorkWithUsImage();
+                // setTeamImage();
+                // setServiceIcon1();
+                // setServiceIcon2();
+                // setServiceIcon3();
+              })
+              axios.post(`${url}admin/update_index_page`, querystring.stringify({
+                work_with_us_title: workWithUsTitle,
+                work_with_us_image: workWithUsImage,
+                team_title: teamTitle,
+                team_image: teamImage,
+                service_1_title: serviceTitle1,
+                service_2_title: serviceTitle2,
+                service_3_title: serviceTitle3,
+                service_1_desc:  serviceDescription1,
+                service_2_desc:  serviceDescription2,
+                service_3_desc:  serviceDescription3,
+                service_1_icon:  serviceIcon1,
+                service_2_icon:  serviceIcon2,
+                service_3_icon:  serviceIcon3,
+                banner_image:    bannerImage,
+                banner_text:     bannerText
+        
+            }), {
+                headers: { 
+                  "Content-Type": "application/x-www-form-urlencoded"
+                }
+              })
+
+         
 
     }
     return (

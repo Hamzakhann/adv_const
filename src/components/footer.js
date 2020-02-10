@@ -12,31 +12,31 @@ function FooterComponent(props) {
           <div className="col-md-8 p-3 row col-12 col-sm-12 row ">
           <ul className="nav pt-3 col-4 col-sm-4">
               <li className="nav-item">
-               <Link style={{color:'black'}}  className="nav-link p-0 pb-2" to="/">Home</Link></li>
+               <Link style={{color:'black'}}  className="nav-link p-0 pb-2 founder-font" to="/">Home</Link></li>
               <li className="nav-item">
-                <Link style={{color:'black'}} className="nav-link p-0 pb-2" to="/who-we-are">Who We Are</Link>
+                <Link style={{color:'black'}} className="nav-link p-0 pb-2 founder-font" to="/who-we-are">Who We Are</Link>
               </li>
               <li className="nav-item">
-                 <Link style={{color:'black'}} className="nav-link p-0 pb-2" to="/quality">Quality</Link>
+                 <Link style={{color:'black'}} className="nav-link p-0 pb-2 founder-font" to="/quality">Quality</Link>
               </li>
               </ul>
               <ul className="nav pt-3 col-4 col-sm-4">
 
               <li className="nav-item">
-                <Link style={{color:'black'}} className="nav-link p-0 pb-2" to="/team">Team</Link>
+                <Link style={{color:'black'}} className="nav-link p-0 pb-2 founder-font" to="/team">Team</Link>
               </li>
               <li className="nav-item">
-                <Link style={{color:'black'}} className="nav-link p-0 pb-2" to="/projects">Projects</Link>
+                <Link style={{color:'black'}} className="nav-link p-0 pb-2 founder-font" to="/projects">Projects</Link>
               </li>
               <li className="nav-item">
-                <Link style={{color:'black'}} className="nav-link p-0 pb-2" to="/work-at-acc">Work At Acc</Link>
+                <Link style={{color:'black'}} className="nav-link p-0 pb-2 founder-font" to="/work-at-acc">Work At Acc</Link>
               </li>
             
               </ul>
           <ul className="nav pt-3 col-4 col-sm-4">
               
               <li className="nav-item">
-                <Link style={{color:'black'}} className="nav-link p-0 pb-2" to="/contact-us">Contact Us</Link>
+                <Link style={{color:'black'}} className="nav-link p-0 pb-2 founder-font" to="/contact-us">Contact Us</Link>
               </li>
               </ul>
 
@@ -76,26 +76,26 @@ function FooterComponent(props) {
                 <li className="nav-item"><a target="_blank" href="https://www.linkedin.com/mwlite/company/advanced-construction-company-for-contracting-maintenance" className="nav-link icoLinkedin social-icon" title="Linkedin"><img src="/linked.png" /></a></li>
                 <li className="nav-item"><a target="_blank"  href="https://www.google.com/url?sa=t&source=web&rct=j&url=https://www.instagram.com/advancedconstruction_co/%3Figshid%3D8pkwlxt6am2h&ved=2ahUKEwjHmu_8zaXmAhWLmBQKHa6eB18QFjAAegQIAxAB&usg=AOvVaw3N4xeaT-JBfOTZnoSYy4hL" className="nav-link icoLinkedin social-icon" title="Instagram"><img src="/instagram.png" /></a></li>
               </ul>
-              <ul className="nav pt-3 ">
+              <ul className="nav pt-3  ">
               <li className="nav-item">
-               <Link style={{color:'black'}}  className="nav-link" to="/">Home</Link></li>
+               <Link style={{color:'black'}}  className="nav-link founder-font" to="/">Home</Link></li>
               <li className="nav-item">
-                <Link style={{color:'black'}} className="nav-link" to="/who-we-are">Who We Are</Link>
+                <Link style={{color:'black'}} className="nav-link founder-font" to="/who-we-are">Who We Are</Link>
               </li>
               <li className="nav-item">
-                 <Link style={{color:'black'}} className="nav-link" to="/quality">Quality</Link>
+                 <Link style={{color:'black'}} className="nav-link founder-font" to="/quality">Quality</Link>
               </li>
               <li className="nav-item">
-                <Link style={{color:'black'}} className="nav-link" to="/team">Team</Link>
+                <Link style={{color:'black'}} className="nav-link founder-font" to="/team">Team</Link>
               </li>
               <li className="nav-item">
-                <Link style={{color:'black'}} className="nav-link" to="/work-at-acc">Work At Acc</Link>
+                <Link style={{color:'black'}} className="nav-link founder-font" to="/work-at-acc">Work At Acc</Link>
               </li>
               <li className="nav-item">
-                <Link style={{color:'black'}} className="nav-link" to="/projects">Projects</Link>
+                <Link style={{color:'black'}} className="nav-link founder-font" to="/projects">Projects</Link>
               </li>
               <li className="nav-item">
-                <Link style={{color:'black'}} className="nav-link" to="/contact-us">Contact Us</Link>
+                <Link style={{color:'black'}} className="nav-link founder-font" to="/contact-us">Contact Us</Link>
               </li>
             </ul>
 
@@ -109,10 +109,10 @@ function FooterComponent(props) {
         </div>
         </div>
         <hr />
-        <div className='container ' >
-        <div className="row ">
-          <div className="col-md-5 ml-auto ">
-            <p  className="copyRight">&copy; 1996-2020 Advance Construction Co. <span>All right Reserved</span></p>
+        <div className='container' >
+        <div className="row  ">
+          <div className="col-md-12 ">
+            <p  className="copyRight float founder-font">&copy; 1996-2020 Advance Construction Co. <span>All right Reserved</span></p>
           </div>
         </div>
         </div>

@@ -63,9 +63,7 @@ function AdminLoginPage() {
         <button size="large" onClick={() =>onLogin()}  variant="contained" className='btn btn-lg btn-block admin-block-btn' >{loading ? "Loading...":"Login"}</button>  
         </div>
       </div>
-        <div id="formFooter">
-        <a className="underlineHover" href="#">Forgot Password?</a>
-        </div>
+        
 
         </div>
     </div>

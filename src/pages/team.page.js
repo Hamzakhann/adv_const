@@ -24,7 +24,7 @@ function TeamPage() {
 
     return (
         <div style={{ background: "#F7F7F7" }}>
-            <HeaderComponent topclassName={" mob-header"}/>
+            <HeaderComponent topclassName={" mob-header"} />
 
 
             <main className="mt-5" style={{ background: "#F7F7F7" }}>
@@ -40,7 +40,7 @@ function TeamPage() {
                                 <p>{team.description}</p>
                             </div>
                         </div>
-                        <div className='col-sm-12 col-12 col-md-6 margin ' >
+                        <div className='col-sm-12 col-12 col-md-6 margin  ' >
                             <div className='team-member-image' >
                                 <img className='img img-fluid' src={team.image} />
                             </div>
@@ -62,7 +62,7 @@ function TeamPage() {
                             </div>
                         </div>
                         <div className="col-md-6 col-sm-12 " style={{ marginTop: "20px"}}>
-                        <img src={quality.banner_image} className="img-fluid" />
+                        <img src={quality.banner_image} className="img-fluid" style={{paddingRight:"15px"}} />
                         </div>
                     </div>:null}
                 </div>

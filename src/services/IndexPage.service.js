@@ -24,7 +24,7 @@ class IndexpageService {
           "Content-Type": "application/x-www-form-urlencoded"
         }
       }).then(res=>{
-        return res;
+        return res.data;
       })
     }
   }

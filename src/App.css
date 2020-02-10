@@ -227,6 +227,9 @@ h6{
 /* .box{
     padding: 0 10px 0 0;
 } */
+.float{
+    float: right;
+}
 
 .inner{
     background-color: #fff;

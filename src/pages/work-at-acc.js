@@ -29,6 +29,7 @@ function WorkAtAccPage(props) {
 
     });
     jobsService.getAll().then(res => {
+      console.log(`jobssss`,res);
       setJobs(res);
       setSelectedJob(res[0]);
       setScroll(true)
@@ -52,6 +53,8 @@ function WorkAtAccPage(props) {
           }
         }).catch(e=>alert(e))
       }
+    console.log(`statess`,jobs)
+
   return (
     <div id='top' style={{ background: '#fff' }}>
       <HeaderComponent  topclassName={" mob-header"}/>
@@ -121,8 +124,12 @@ function WorkAtAccPage(props) {
             </div>
             {otherData ?
 
-            <div className="col-md-6 col-sm-12 p-0 work-at-acc-image">
+            <div className=" p-0 work-at-acc-image ">
+              
+                
               <img src={otherData.image} className="img-fluid" />
+              
+              
             </div>:null}
           </div>
           {otherData ?
@@ -158,8 +165,11 @@ function WorkAtAccPage(props) {
                 <p className="who-we-are-heading" style={{ fontSize: '32px' , fontWeight:'700' , lineHeight:'1.2em' }}><span class="TextColor">We would love to have you on board,</span> We just need
                           to make sure that you have...</p> 
                 </div>
+              
                 <div className='container' >
+                
                 <Tabs>
+
 
     <TabList>
       <Tab > ANALYST</Tab>
@@ -197,8 +207,10 @@ function WorkAtAccPage(props) {
         <li>The soul third </li>
       </ol>
     </TabPanel>
+
   </Tabs>
-                </div>
+                </div> 
+
                 </div>       
               </div>
             </div>

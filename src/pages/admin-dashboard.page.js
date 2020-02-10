@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import {Link} from 'react-router-dom';
+
 import { useHistory } from 'react-router-dom';
 import AdminHeaderComponent from '../components/admin-header.component';
 import AdminFooter from '../components/admin-footer';
@@ -18,12 +20,14 @@ function AdminDashboardPage() {
             history.push("/admin")
         }
         axios.get("https://adv-construction.herokuapp.com/admin/dashboard").then((res)=>{
+            
             setTeam(res.data[0].total_team)
             setProjects(res.data[0].total_projects)
             setOngoing(res.data[0].total_ongoing_projects)
             setCompleted(res.data[0].total_completed_projects)
-            setCvs(res.data[0].total_completed_projects)
+            setCvs(res.data[0].total_cvs)
             setJobs(res.data[0].total_jobs)
+            console.log(`respobse`,res.data[0])
         }).catch(e=>alert(e))
     })
     return (
@@ -34,17 +38,23 @@ function AdminDashboardPage() {
                 <div className='stats-container' >
                 <div className='row' >
                      <div className='col-sm col-md-4' >
+
                               <div class="card mb-3 stats-card" >
                         
                         <div class="card-body ">
                             <h1 class="card-title text-center"><i class="fas fa-city"></i></h1>
                              <div className='stats-content' >
+                    
+
                             <h3 class="card-text">TEAM</h3>
+                            
                                 <h3 class="card-text">{team ? team : "NA"}</h3>
                             </div>
                         </div>
                         </div>
+                        
                  </div>
+                
                      <div className='col-sm col-md-4' >
                      <div class="card  mb-3 stats-card" >
                         

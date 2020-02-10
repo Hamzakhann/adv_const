@@ -32,7 +32,7 @@ function AdminDashboardPage() {
     })
     return (
         <div className='contaiiner' >
-             <AdminHeaderComponent pageName = "Home" />
+             <AdminHeaderComponent  />
              
              <div className='container' >
                 <div className='stats-container' >

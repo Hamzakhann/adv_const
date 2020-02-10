@@ -60,158 +60,43 @@ function AdminHomePage() {
         console.log(`haha`,bannerImage)
     } ,[])
 
-    const updateQuality = async () => {
-
+    const updateQuality = () => {
+      console.log(selectedBannerImage )
       let indexService= new  IndexpageService();
-        
-     
-    
-            let bannerImg= new Promise((resolve,reject)=>{
-                let data = new FormData();
-                data.append('image', selectedBannerImage);
-                if(selectedBannerImage){
-                indexService
-                .uploadImage(data)
-                .then(res => {
-                 resolve(res);
-                 setBannerImage(res);
-                });
-              }
-              else{
-                reject(`something went wrong!`)
-              }
-          
-              })
-            
+       let data = new FormData();
+        data.append('image', selectedBannerImage);
+        indexService
+        .uploadImage(data)
+        .then(res => {
+          console.log(res)
+        }).catch(e=>console.log(e))
     
             
-
-              let workWithUsImg= new Promise((resolve,reject)=>{
-                let data = new FormData();
-                data.append('image', selectedWorkWithUsImage);
-                if(selectedWorkWithUsImage){
-                indexService
-                .uploadImage(data)
-                .then(res => {
-                 resolve(res);
-                 setWorkWithUsImage(res);
-                });
-              }
-              else{
-                reject(`something went wrong!`)
-              }
-          
-              })
-           
-              let teamImg= new Promise((resolve,reject)=>{
-                let data = new FormData();
-                data.append('image', selectedTeamImage);
-                if(selectedTeamImage){
-                indexService
-                .uploadImage(data)
-                .then(res => {
-                 resolve(res);
-                 setTeamImage(res);
-                });
-              }
-              else{
-                reject(`something went wrong!`)
-              }
-          
-              })
-              let serviceIcon1Img= new Promise((resolve,reject)=>{
-                let data = new FormData();
-                data.append('image', selectedService1Icon);
-                if(selectedService1Icon){
-                indexService
-                .uploadImage(data)
-                .then(res => {
-                 resolve(res);
-                 setServiceIcon1(res);
-                });
-              }
-              else{
-                reject(`something went wrong!`)
-              }
-          
-              })
-              let serviceIcon2Img= new Promise((resolve,reject)=>{
-                let data = new FormData();
-                data.append('image', selectedService2Icon);
-                if(selectedService2Icon){
-                indexService
-                .uploadImage(data)
-                .then(res => {
-                 resolve(res);
-                 setServiceIcon2(res);
-                });
-              }
-              else{
-                reject(`something went wrong!`)
-              }
-          
-              })
-
-              let serviceIcon3Img= new Promise((resolve,reject)=>{
-                let data = new FormData();
-                data.append('image', selectedService3Icon);
-                if(selectedService3Icon){
-                indexService
-                .uploadImage(data)
-                .then(res => {
-                 resolve(res);
-                 setServiceIcon3(res);
-                });
-              }
-              else{
-                reject(`something went wrong!`)
-              }
-          
-              })
-
-              Promise.all([
-
-                bannerImg,
-                teamImg,
-                workWithUsImg,
-                serviceIcon1Img,
-                serviceIcon3Img,
-                serviceIcon2Img
-              ]).then(message=>{
-console.log(message)
-                // setBannerImage();
-                // setWorkWithUsImage();
-                // setTeamImage();
-                // setServiceIcon1();
-                // setServiceIcon2();
-                // setServiceIcon3();
-              })
-              axios.post(`${url}admin/update_index_page`, querystring.stringify({
-                work_with_us_title: workWithUsTitle,
-                work_with_us_image: workWithUsImage,
-                team_title: teamTitle,
-                team_image: teamImage,
-                service_1_title: serviceTitle1,
-                service_2_title: serviceTitle2,
-                service_3_title: serviceTitle3,
-                service_1_desc:  serviceDescription1,
-                service_2_desc:  serviceDescription2,
-                service_3_desc:  serviceDescription3,
-                service_1_icon:  serviceIcon1,
-                service_2_icon:  serviceIcon2,
-                service_3_icon:  serviceIcon3,
-                banner_image:    bannerImage,
-                banner_text:     bannerText
+            //   axios.post(`${url}admin/update_index_page`, querystring.stringify({
+            //     work_with_us_title: workWithUsTitle,
+            //     work_with_us_image: workWithUsImage,
+            //     team_title: teamTitle,
+            //     team_image: teamImage,
+            //     service_1_title: serviceTitle1,
+            //     service_2_title: serviceTitle2,
+            //     service_3_title: serviceTitle3,
+            //     service_1_desc:  serviceDescription1,
+            //     service_2_desc:  serviceDescription2,
+            //     service_3_desc:  serviceDescription3,
+            //     service_1_icon:  serviceIcon1,
+            //     service_2_icon:  serviceIcon2,
+            //     service_3_icon:  serviceIcon3,
+            //     banner_image:    bannerImage,
+            //     banner_text:     bannerText
         
-            }), {
-                headers: { 
-                  "Content-Type": "application/x-www-form-urlencoded"
-                }
-              })
-
-         
+            // }), {
+            //     headers: { 
+            //       "Content-Type": "application/x-www-form-urlencoded"
+            //     }
+            //   })
 
     }
+
     return (
         <div>
             <AdminHeaderComponent  pageName="Home"/>
@@ -237,13 +122,22 @@ console.log(message)
                         </div>
                         <div class="form-group">
                         <label className='admin-label mr-4' for="desc">Work With Us Image:</label>
-                        <input onChange={e => setSelectedWorkWithUsImage(e.target.files[0])} accept="image/*" style={{display:"none"}} id="icon-button-file" type="file" />
-                         <label htmlFor="icon-button-file">
+                        <input onChange={e => setSelectedWorkWithUsImage(e.target.files[0])} accept="image/*" style={{display:"none"}} id="icon-button-file-wwu" type="file" />
+                         <label htmlFor="icon-button-file-wwu">
                                <IconButton className='btn-block' style={{color:"darkRed" , border:"1px solid darkRed"}} aria-label="upload picture" component="div">
                                  <i class="fas fa-camera"></i>
                                 </IconButton>
                          </label>
                          <small className='ml-3 font-weight-bold' >{selectedWorkWithUsImage ? selectedWorkWithUsImage.name :""}</small>
+                         <Button
+                            variant="contained"
+                            style={{background:"darkred",color:"white"}}
+                            size="small"
+                            // className={classes.button}
+                            startIcon={<i class="fas fa-save"></i>}
+                          >
+                                Save
+                          </Button>
                         </div>
                         <div class="form-group">
                             <label className='admin-label' for="title">Team Title</label>
@@ -256,13 +150,23 @@ console.log(message)
 
                         <div class="form-group">
                         <label className='admin-label mr-4' for="desc">Team Image:</label>
-                        <input onChange={e => setSelectedTeamImage(e.target.files[0])} accept="image/*" style={{display:"none"}} id="icon-button-file" type="file" />
-                         <label htmlFor="icon-button-file">
+                        <input onChange={e => setSelectedTeamImage(e.target.files[0])} accept="image/*" style={{display:"none"}} id="icon-button-file-ti" type="file" />
+                         <label htmlFor="icon-button-file-ti">
                                <IconButton className='btn-block' style={{color:"darkRed" , border:"1px solid darkRed"}} aria-label="upload picture" component="div">
                                  <i class="fas fa-camera"></i>
                                 </IconButton>
                          </label>
                          <small className='ml-3 font-weight-bold' >{selectedTeamImage ? selectedTeamImage.name :""}</small>
+                         <Button
+                            variant="contained"
+                            style={{background:"darkred",color:"white"}}
+                            size="small"
+                            // className={classes.button}
+                            startIcon={<i class="fas fa-save"></i>}
+                          >
+                                Save
+                          </Button>
+
                         </div>
              
                     {/* ======================= */}
@@ -277,13 +181,23 @@ console.log(message)
 
                         <div class="form-group">
                         <label className='admin-label mr-4' for="desc">Banner Image:</label>
-                        <input onChange={e => setSelectedBannerImage(e.target.files[0])} accept="image/*" style={{display:"none"}} id="icon-button-file" type="file" />
-                         <label htmlFor="icon-button-file">
+                        <input onChange={e => setSelectedBannerImage(e.target.files[0])} accept="image/*" style={{display:"none"}} id="banner-icon-button-file" type="file" />
+                         <label htmlFor="banner-icon-button-file">
                                <IconButton className='btn-block' style={{color:"darkRed" , border:"1px solid darkRed"}} aria-label="upload picture" component="div">
                                  <i class="fas fa-camera"></i>
                                 </IconButton>
                          </label>
                          <small className='ml-3 font-weight-bold' >{selectedBannerImage ? selectedBannerImage.name :""}</small>
+                         <Button
+                            variant="contained"
+                            style={{background:"darkred",color:"white"}}
+                            size="small"
+                            // className={classes.button}
+                            startIcon={<i class="fas fa-save"></i>}
+                          >
+                                Save
+                          </Button>
+
                         </div>
 
                   
@@ -305,15 +219,23 @@ console.log(message)
                         </div>
                         <div class="form-group">
                         <label className='admin-label mr-4' for="desc">First Service Image:</label>
-                        <input onChange={e => setSelectedService1Icon(e.target.files[0])} accept="image/*" style={{display:"none"}} id="icon-button-file" type="file" />
-                         <label htmlFor="icon-button-file">
+                        <input onChange={e => setSelectedService1Icon(e.target.files[0])} accept="image/*" style={{display:"none"}} id="icon-button-file-service-1" type="file" />
+                         <label htmlFor="icon-button-file-service-1">
                                <IconButton className='btn-block' style={{color:"darkRed" , border:"1px solid darkRed"}} aria-label="upload picture" component="div">
                                  <i class="fas fa-camera"></i>
                                 </IconButton>
                          </label>
                          <small className='ml-3 font-weight-bold' >{selectedService1Icon ? selectedService1Icon.name :""}</small>
+                         <Button
+                            variant="contained"
+                            style={{background:"darkred",color:"white"}}
+                            size="small"
+                            // className={classes.button}
+                            startIcon={<i class="fas fa-save"></i>}
+                          >
+                                Save
+                          </Button>
                         </div>
-                  
                         <div class="form-group">
                             <label className='admin-label' for="title">Second Service Title</label>
                             <input 
@@ -332,13 +254,22 @@ console.log(message)
                         </div>
                         <div class="form-group">
                         <label className='admin-label mr-4' for="desc">Second Service Image:</label>
-                        <input onChange={e => setSelectedService2Icon(e.target.files[0])} accept="image/*" style={{display:"none"}} id="icon-button-file" type="file" />
-                         <label htmlFor="icon-button-file">
+                        <input onChange={e => setSelectedService2Icon(e.target.files[0])} accept="image/*" style={{display:"none"}} id="icon-button-file-service-2" type="file" />
+                         <label htmlFor="icon-button-file-service-2">
                                <IconButton className='btn-block' style={{color:"darkRed" , border:"1px solid darkRed"}} aria-label="upload picture" component="div">
                                  <i class="fas fa-camera"></i>
                                 </IconButton>
                          </label>
                          <small className='ml-3 font-weight-bold' >{selectedService2Icon ? selectedService2Icon.name :""}</small>
+                         <Button
+                            variant="contained"
+                            style={{background:"darkred",color:"white"}}
+                            size="small"
+                            // className={classes.button}
+                            startIcon={<i class="fas fa-save"></i>}
+                          >
+                                Save
+                          </Button>
                         </div>
                   
                         <div class="form-group">
@@ -359,13 +290,22 @@ console.log(message)
                         </div>
                         <div class="form-group">
                         <label className='admin-label mr-4' for="desc">Third Service Image:</label>
-                        <input onChange={e => setSelectedService3Icon(e.target.files[0])} accept="image/*" style={{display:"none"}} id="icon-button-file" type="file" />
-                         <label htmlFor="icon-button-file">
+                        <input onChange={e => setSelectedService3Icon(e.target.files[0])} accept="image/*" style={{display:"none"}} id="icon-button-file-service-3" type="file" />
+                         <label htmlFor="icon-button-file-service-3">
                                <IconButton className='btn-block' style={{color:"darkRed" , border:"1px solid darkRed"}} aria-label="upload picture" component="div">
                                  <i class="fas fa-camera"></i>
                                 </IconButton>
                          </label>
                          <small className='ml-3 font-weight-bold' >{selectedService3Icon ? selectedService3Icon.name :""}</small>
+                         <Button
+                            variant="contained"
+                            style={{background:"darkred",color:"white"}}
+                            size="small"
+                            // className={classes.button}
+                            startIcon={<i class="fas fa-save"></i>}
+                          >
+                                Save
+                          </Button>
                         </div>
                         <Button  onClick={()=>updateQuality()}  size="large"  variant="contained" className='btn-block admin-block-btn' >Update</Button>
                     </div>)

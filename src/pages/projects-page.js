@@ -20,7 +20,12 @@ export default function ProjectsPage() {
   const [show, setShow] = useState(false);
   const [isLoading , setIsLoading] = useState(true)
   const [visible  , setVisible] = useState(8)
+  const [safari , setSafari] = useState(false)
   useEffect(() => {
+    if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0) 
+      { 
+        setSafari(true);          
+        }
     Promise.all([projectService.getAll(), ciitesService.getAll()]).then(res => {
       console.log("res check", res);
       setProjectList(res[0].sort((a,b) => parseFloat(a.id) - parseFloat(b.id)));
@@ -102,7 +107,9 @@ export default function ProjectsPage() {
     <div style={{ background: '#fff' }}>
       <HeaderComponent topclassName={"fixed-top-header-top mob-header"}></HeaderComponent>
       <main style={{ background: "#fff" }}>
-        <div className="container">
+        <div className='' style={{maxWidth:safari && safari ? "1131px":"1080px",paddingRight:"15px", paddingLeft:"15px" , marginLeft:"auto" , marginRight:"auto"}}  >
+      {/* <div style={{maxWidth:safari && safari ? "1131px":"1080px"}}> */}
+        {/* {safari && safari ? <div style={{maxWidth:"1131px"}}> : <div className="container">} */}
           <div className="row">
             <div className="col-md-12 col-sm-12">
               <div className="two-heding">
@@ -148,7 +155,7 @@ export default function ProjectsPage() {
                   <div className= ' project-page-tab ' style={{paddingLeft:"15px"}}>
                     <ul className="nav nav-pills mob-tab nav-justified mb-3 project-page-border " role="tablist">
 
-                    <li className="nav-item" >
+                    <li className="nav-item name-mac" >
                               <a className={ selectedCity === 'all' ? "nav-link p-2 active"
                                   : "nav-link p-2" } id="one-tab" data-toggle="tab" href="#one" 
                                   role="tab" aria-controls='ALL' aria-selected="true"
@@ -158,7 +165,7 @@ export default function ProjectsPage() {
                               </a>
                             </li>
                       {cities ? cities.map(city => (
-                            <li className="nav-item" key={city.id}>
+                            <li className="nav-item name-mac" key={city.id}>
                               <a className={ selectedCity === city.name ? "nav-link p-2 active"
                                   : "nav-link p-2" } id="one-tab" data-toggle="tab" href="#one" 
                                   role="tab" aria-controls={city.id} aria-selected="true" 
@@ -173,27 +180,27 @@ export default function ProjectsPage() {
 
                   <div  className='icons desktop-view2  ' >
                     <ul  className="nav nav-pills " id="myTab2" role="tablist">
-                      <li  className="nav-item  ml-4  icon-li" 
+                      <li  className="nav-item    icon-li" 
                                   style={{borderBottom:projectType === 'bridge'?'4px solid #C92027':'none'}}
                                    onClick={() => onChangeProjectType("bridge")}>
                       {projectType === 'bridge' ?<img  src="/red-bridge.svg" className='bridge-img'  /> :<img  src="/black-bridge.svg" className='bridge-img'  />}
                       </li>
-                      <li className="nav-item  ml-4  icon-li"
+                      <li className="nav-item    icon-li"
                               style={{borderBottom:projectType === 'marine'?'4px solid #C92027':'none'}}
                                   onClick={() => onChangeProjectType("marine")}>
                        {projectType === 'marine' ?<img src="/red-cruise.svg" className='marine-img' /> :<img src="/black-cruise.svg" className='marine-img' />}
                         </li>
-                      <li className="nav-item  ml-4  icon-li" 
+                      <li className="nav-item    icon-li" 
                       style={{borderBottom:projectType === 'building'?'4px solid #C92027':'none'}}
                       onClick={() => onChangeProjectType("building")}>
                         {projectType === 'building' ?<img  src="/red-building.svg" className='building-img' />: <img  src="/black-building.svg" className='building-img' />}
                       </li>
-                      <li className="nav-item  ml-4  icon-li"
+                      <li className="nav-item    icon-li"
                       style={{borderBottom:projectType === 'road'?'4px solid #C92027':'none'}}
                       onClick={() => onChangeProjectType("road")}>
                       {projectType === 'road' ? <img src="/red-road.svg" className='road-img' />:<img src="/black-road.svg" className='road-img' />}
                       </li>
-                      <li className="nav-item  ml-4  icon-li" 
+                      <li className="nav-item    icon-li" 
                       style={{borderBottom:projectType === 'all'?'4px solid #C92027':'none'}}
                       onClick={() => onChangeResetProjectType(selectedCity)}>
                        {projectType === 'all' ?<img  src="/red-reset.svg" className='all-img' />: <img  src="/black-reset.svg" className='all-img' />}

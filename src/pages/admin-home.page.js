@@ -57,43 +57,125 @@ function AdminHomePage() {
             setBannerText(res.data.index_page_data[0].banner_text);
             setLoading(false);
         })
-        console.log(`haha`,bannerImage)
+        
     } ,[])
 
-    const updateQuality = () => {
-      console.log(selectedBannerImage )
+    const uploadWorkImage=(item)=>{
+
       let indexService= new  IndexpageService();
-       let data = new FormData();
-        data.append('image', selectedBannerImage);
-        indexService
-        .uploadImage(data)
-        .then(res => {
-          console.log(res)
-        }).catch(e=>console.log(e))
+      let data = new FormData();
+       data.append('image', item);
+       indexService
+       .uploadImage(data)
+       .then(res => {
+         setWorkWithUsImage(res);
+        
+       }).catch(e=>console.log(e))
+       
+       console.log(`agaya work`,workWithUsImage);
+    }
+    const uploadTeamImage=(item)=>{
+
+      let indexService= new  IndexpageService();
+      let data = new FormData();
+       data.append('image', item);
+       indexService
+       .uploadImage(data)
+       .then(res => {
+         setTeamImage(res);
+        
+       }).catch(e=>console.log(e))
+      
+       console.log(`agaya team`,teamImage);
+    }
+    const uploadBannerImage=(item)=>{
+
+      let indexService= new  IndexpageService();
+      let data = new FormData();
+       data.append('image', item);
+       indexService
+       .uploadImage(data)
+       .then(res => {
+         setBannerImage(res);
+        
+       }).catch(e=>console.log(e))
+       
+       console.log(`agaya banner`,bannerImage);
+    }
+    const uploadService1Image=(item)=>{
+
+      let indexService= new  IndexpageService();
+      let data = new FormData();
+       data.append('image', item);
+       indexService
+       .uploadImage(data)
+       .then(res => {
+         setServiceIcon1(res);
+        
+       }).catch(e=>console.log(e))
+       
+       console.log(`service 1`,serviceIcon1);
+    }
+    const uploadService2Image=(item)=>{
+
+      let indexService= new  IndexpageService();
+      let data = new FormData();
+       data.append('image', item);
+       indexService
+       .uploadImage(data)
+       .then(res => {
+         setServiceIcon2(res);
+        
+       }).catch(e=>console.log(e))
+       
+       console.log(`service 2`,serviceIcon2);
+      }
+      const uploadService3Image=(item)=>{
+
+        let indexService= new  IndexpageService();
+        let data = new FormData();
+         data.append('image', item);
+         indexService
+         .uploadImage(data)
+         .then(res => {
+           setServiceIcon3(res);
+          
+         }).catch(e=>console.log(e))
+         
+         console.log(`service 3`,serviceIcon3);
+        }
+    const updateQuality = () => {
+
     
             
-            //   axios.post(`${url}admin/update_index_page`, querystring.stringify({
-            //     work_with_us_title: workWithUsTitle,
-            //     work_with_us_image: workWithUsImage,
-            //     team_title: teamTitle,
-            //     team_image: teamImage,
-            //     service_1_title: serviceTitle1,
-            //     service_2_title: serviceTitle2,
-            //     service_3_title: serviceTitle3,
-            //     service_1_desc:  serviceDescription1,
-            //     service_2_desc:  serviceDescription2,
-            //     service_3_desc:  serviceDescription3,
-            //     service_1_icon:  serviceIcon1,
-            //     service_2_icon:  serviceIcon2,
-            //     service_3_icon:  serviceIcon3,
-            //     banner_image:    bannerImage,
-            //     banner_text:     bannerText
+              axios.post(`${url}admin/update_index_page`, querystring.stringify({
+                work_with_us_title: workWithUsTitle,
+                work_with_us_image: workWithUsImage,
+                team_title: teamTitle,
+                team_image: teamImage,
+                service_1_title: serviceTitle1,
+                service_2_title: serviceTitle2,
+                service_3_title: serviceTitle3,
+                service_1_desc:  serviceDescription1,
+                service_2_desc:  serviceDescription2,
+                service_3_desc:  serviceDescription3,
+                service_1_icon:  serviceIcon1,
+                service_2_icon:  serviceIcon2,
+                service_3_icon:  serviceIcon3,
+                banner_image:    bannerImage,
+                banner_text:     bannerText
         
-            // }), {
-            //     headers: { 
-            //       "Content-Type": "application/x-www-form-urlencoded"
-            //     }
-            //   })
+            }), {
+                headers: { 
+                  "Content-Type": "application/x-www-form-urlencoded"
+                }
+              }).then(res=>{
+                alert(`Updated!`)
+                if (res.status === 200) {
+                  setLoading(false);
+                  history.go(0);
+                }
+              })
 
     }
 
@@ -129,9 +211,10 @@ function AdminHomePage() {
                                 </IconButton>
                          </label>
                          <small className='ml-3 font-weight-bold' >{selectedWorkWithUsImage ? selectedWorkWithUsImage.name :""}</small>
-                         <Button
+                       <Button
+                         onclick={uploadWorkImage(selectedWorkWithUsImage)}
                             variant="contained"
-                            style={{background:"darkred",color:"white"}}
+                            style={{background:"darkred",color:"white", display:"inline"}}
                             size="small"
                             // className={classes.button}
                             startIcon={<i class="fas fa-save"></i>}
@@ -139,6 +222,7 @@ function AdminHomePage() {
                                 Save
                           </Button>
                         </div>
+                        
                         <div class="form-group">
                             <label className='admin-label' for="title">Team Title</label>
                             <input 
@@ -158,6 +242,7 @@ function AdminHomePage() {
                          </label>
                          <small className='ml-3 font-weight-bold' >{selectedTeamImage ? selectedTeamImage.name :""}</small>
                          <Button
+                         onclick={uploadTeamImage(selectedTeamImage)}
                             variant="contained"
                             style={{background:"darkred",color:"white"}}
                             size="small"
@@ -189,6 +274,7 @@ function AdminHomePage() {
                          </label>
                          <small className='ml-3 font-weight-bold' >{selectedBannerImage ? selectedBannerImage.name :""}</small>
                          <Button
+                         onclick={uploadBannerImage(selectedBannerImage)}
                             variant="contained"
                             style={{background:"darkred",color:"white"}}
                             size="small"
@@ -227,6 +313,7 @@ function AdminHomePage() {
                          </label>
                          <small className='ml-3 font-weight-bold' >{selectedService1Icon ? selectedService1Icon.name :""}</small>
                          <Button
+                         onclick={ uploadService1Image(selectedService1Icon)}
                             variant="contained"
                             style={{background:"darkred",color:"white"}}
                             size="small"
@@ -262,6 +349,8 @@ function AdminHomePage() {
                          </label>
                          <small className='ml-3 font-weight-bold' >{selectedService2Icon ? selectedService2Icon.name :""}</small>
                          <Button
+                         onclick={ uploadService2Image(selectedService2Icon)}
+
                             variant="contained"
                             style={{background:"darkred",color:"white"}}
                             size="small"
@@ -298,6 +387,8 @@ function AdminHomePage() {
                          </label>
                          <small className='ml-3 font-weight-bold' >{selectedService3Icon ? selectedService3Icon.name :""}</small>
                          <Button
+                         onclick={ uploadService3Image(selectedService3Icon)}
+
                             variant="contained"
                             style={{background:"darkred",color:"white"}}
                             size="small"
